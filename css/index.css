@@ -137,7 +137,7 @@ nav > component > span.closebtn {
 }
 
 nav > component > span.closebtn:after{content: "\00d7";}
-nav > span.topbar {
+nav > span.topnav {
   width:100%;
   top:0;
   left:0;
