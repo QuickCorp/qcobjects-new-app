@@ -8,17 +8,17 @@ CONFIG.set('routingWay','hash');
 CONFIG.set('useSDK',true);
 CONFIG.set('useLocalSDK',false);
 CONFIG.set('tplextension','tpl.html');
+CONFIG.set('asynchronousImportsLoad',true);
+
 
 /**
  * Main import sentence.
  */
-Import('org.quickcorp.custom', function() {
-  //TODO: Implement your code here
 
-});
+
+Import('org.quickcorp.custom');
 
 Ready(function() {
-
   
 
 });
