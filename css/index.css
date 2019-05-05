@@ -43,6 +43,7 @@ nav > component {
 	z-index: 1;
 	top: 0;
   left: 0;
+  right: 0;
   bottom:80px;
 	background-color: #111;
 	transition: 0.5s;
@@ -53,7 +54,7 @@ nav > component {
 	padding: 8px 8px 8px 32px;
 	text-decoration: none;
 	font-size: 15px;
-	color: #818181;
+	color: #ecffc7;
 	display: block;
 	transition: 0.3s;
   }
@@ -72,7 +73,7 @@ nav {
 	z-index: 9;
 }
 
-nav > component > button.navbtn{
+nav > button.navbtn{
   font-size: 20px;
   cursor: pointer;
   background-color: #111;
@@ -83,7 +84,7 @@ nav > component > button.navbtn{
   left:0; 
   position:fixed;
 }
-nav > component > button.navbtn:after { content:'\2630'; }
+nav > button.navbtn:after { content:'\2630'; }
 
 nav > component > span.closebtn {
   position: absolute;
@@ -94,7 +95,7 @@ nav > component > span.closebtn {
 }
 
 nav > component > span.closebtn:after{content: "\00d7";}
-nav > component > span.topbar {
+nav > span.topbar {
   width:100%;
   top:0;
   left:0;
@@ -107,6 +108,20 @@ nav, article {
   width: 100%;
   height: auto;
   position: relative;
+}
+
+/* HEADER */
+header{
+  padding-top: 80px;
+}
+header div {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    padding: 0;
+    margin: 0;
+    border-radius: 7px;
+}
+header div img {
+  padding: 5%;
 }
 
 /* FOOTER */

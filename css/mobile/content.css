@@ -2,7 +2,7 @@
 /* GRID */
 component[name=grid]{
     display: grid;
-    grid-template-rows: 50% 50% 50% 50% 50%;
+    grid-template-rows: 50%;
     grid-template-columns: 100%;
     padding: 5%;
     grid-row-gap: 20px;

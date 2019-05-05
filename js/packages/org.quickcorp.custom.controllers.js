@@ -7,14 +7,14 @@ Package('org.quickcorp.custom.controllers',[
   open:function (){
     this.component.body.style.width="30%";
     this.component.body.style.overflowX="visible";
-    this.component.body.subelements('.navbtn')[0].style.display='none';
+    this.component.body.parentElement.subelements('.navbtn')[0].style.display='none';
     this.visibility = true;
     return this.visibility;
   },
   close:function (){
     this.component.body.style.width="0px";
     this.component.body.style.overflowX="hidden";
-    this.component.body.subelements('.navbtn')[0].style.display='block';
+    this.component.body.parentElement.subelements('.navbtn')[0].style.display='block';
     this.visibility = false;
     return this.visibility;
   },
