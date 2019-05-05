@@ -146,11 +146,16 @@ nav > span.topbar {
   background-color: #111;
 }
 
+nav .navcontent{
+  padding-top: 20px;
+}
+
 nav, article {
   width: 100%;
   height: auto;
   position: relative;
 }
+
 
 /* HEADER */
 header{
