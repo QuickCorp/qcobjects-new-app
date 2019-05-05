@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* CSS Document for Desktop Imports */
+@import url("./desktop/index.css") ( orientation:landscape) and (min-width:460px);
+@import url("./desktop/index.css") (aspect-ratio: 16/9) and (min-width:460px);
+@import url("./desktop/index.css") (aspect-ratio: 16/10) and (min-width:460px);
+@import url("./desktop/index.css") (aspect-ratio: 8/5) and (min-width:460px);
+@import url("./desktop/index.css") (aspect-ratio: 4/3) and (min-width:460px);
+@import url("./desktop/index.css") (aspect-ratio: 3/2) and (min-width:460px);
+
+/* CSS Document for Mobile Imports */
+@import url("./mobile/index.css") (orientation:portrait);
+@import url("./mobile/index.css") (max-width:460px);
+@import url("./mobile/index.css") (aspect-ratio: 9/16);
+@import url("./mobile/index.css") (aspect-ratio: 10/16);
+@import url("./mobile/index.css") (aspect-ratio: 5/8);
+@import url("./mobile/index.css") (aspect-ratio: 3/4);
+@import url("./mobile/index.css") (aspect-ratio: 2/3);
+
+
+@viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+
+
+.gridlines * {
+  border: 1px green dotted;
+}
+
+/* NAV */
+nav {
+  float: left;
+  width: 50%;
+  height: auto;
+  padding: 20px;
+}
+
+nav > component {
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+  left: 0;
+  bottom:80px;
+	background-color: #111;
+	transition: 0.5s;
+	padding-top: 60px;
+  }
+
+  nav > component a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 15px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+  }
+  
+  nav > component a:hover {
+	color: #f1f1f1;
+  }
+
+ 
+	nav {color: white;}
+
+
+
+nav {
+	text-align: justify;
+	z-index: 9;
+}
+
+nav > component > button.navbtn{
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  top:0;
+  left:0; 
+  position:fixed;
+}
+nav > component > button.navbtn:after { content:'\2630'; }
+
+nav > component > span.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+nav > component > span.closebtn:after{content: "\00d7";}
+nav > component > span.topbar {
+  width:100%;
+  top:0;
+  left:0;
+  position: fixed;
+  height:70px;
+  background-color: #111;
+}
+
+nav, article {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+/* FOOTER */
+footer{  
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background: #fff7f7;
+}
+

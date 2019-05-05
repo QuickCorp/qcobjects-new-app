@@ -18,5 +18,7 @@ Import('org.quickcorp.custom', function() {
 });
 
 Ready(function() {
-//TODO: Implement your code here
+
+  
+
 });
