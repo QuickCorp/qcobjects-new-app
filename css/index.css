@@ -287,3 +287,79 @@ button:not(.navbtn):hover{
 }
 
 /* END BUTTONS */
+
+/* FORM ELEMENTS FOR SIGNUP*/
+
+/* Full-width input fields */
+component[name=signup] input[type=text],
+component[name=signup] input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+component[name=signup] input[type=text]:focus,
+component[name=signup] input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+component[name=signup] hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+component[name=signup] button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+component[name=signup] button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+component[name=signup] .cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+component[name=footer] .cancelbtn,
+component[name=footer] .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+component[name=signup] .container {
+  padding: 20px;
+  width: 100%;
+  height:800px;
+}
+
+/* Clear floats */
+component[name=signup] .clearfix::after,
+component[name=footer] .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  component[name=signup] .cancelbtn,component[name=signup] .signupbtn {
+     width: 100%;
+  }
+}
+/* END FORM ELEMENTS */

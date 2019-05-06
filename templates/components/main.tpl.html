@@ -1,10 +1,14 @@
 <header>
-  <component name="header"></component>
+  <component name="header">
+    <routing path="#signup" name="blank"></routing>
+  </component>
 </header>
 <aside>
   <nav>
     <span class="topnav">
-      <component name="login"></component>
+      <component name="login">
+          <routing path="#signup" name="blank"></routing>
+      </component>
     </span>
     <button class="navbtn" onclick="GLOBAL.sideNavController.toggle()"></button>
     <component name="nav" controllerClass="SideNavController"></component>
@@ -12,9 +16,13 @@
 </aside>
 <main role= “main”>
   <section>
-    <component name="contentblock"></component>
+    <component name="contentblock">
+        <routing path="#signup" name="signup"></routing>
+      </component>
   </section>
 </main>
 <footer>
-  <component name="footer"></component>
+  <component name="footer">
+    <routing path="#signup" name="signupbuttons"></routing>
+  </component>
 </footer>
