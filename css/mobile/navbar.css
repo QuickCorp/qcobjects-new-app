@@ -1,1 +1,34 @@
 /* Insert here your custom CSS */
+nav {
+    background-color:rgba(0, 0, 0, 0.3) !important;
+}
+nav > button.navbtn{
+    top:-3px !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+nav > span.topnav{
+    height: auto !important;
+    background: none !important;
+    position: relative !important;
+}
+nav .topnav .login-container {
+    float: none !important;
+}
+nav > span.topnav a, 
+nav > span.topnav input[type=text], 
+nav > span.topnav .login-container button {
+    float: none !important;
+    display: block !important;
+    text-align: left !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 14px !important;
+}
+nav > span.topnav input[type=text] {
+    border: 1px solid #ccc !important;  
+}
+nav form {
+    display:grid;
+    grid-gap: 20px;
+}

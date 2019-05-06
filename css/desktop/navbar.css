@@ -1,1 +1,4 @@
 /* Insert here your custom CSS */
+nav > span.topnav{
+    padding-left: 10% !important;
+}

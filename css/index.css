@@ -137,14 +137,7 @@ nav > component > span.closebtn {
 }
 
 nav > component > span.closebtn:after{content: "\00d7";}
-nav > span.topnav {
-  width:100%;
-  top:0;
-  left:0;
-  position: fixed;
-  height:70px;
-  background-color: #111;
-}
+
 
 nav .navcontent{
   padding-top: 20px;
@@ -155,6 +148,65 @@ nav, article {
   height: auto;
   position: relative;
 }
+
+/* END NAV */
+
+/* TOPNAV */
+nav > span.topnav {
+  width:100%;
+  top:0;
+  left:0;
+  position: fixed;
+  height:70px;
+  background-color: #111;
+  overflow: hidden;
+}
+
+nav .topnav a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color:white;
+}
+
+nav .topnav a:hover {
+  background-color: rgb(49, 45, 45);
+}
+
+nav .topnav a.active {
+  background-color: rgb(134, 134, 134);
+}
+
+nav .topnav .login-container {
+  float: right;
+}
+
+nav .topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  width:120px;
+}
+
+nav .topnav .login-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color: #555;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+nav .topnav .login-container button:hover {
+  background-color: rgb(230, 255, 230);
+}
+/* END TOPNAV */
 
 
 /* HEADER */
@@ -179,5 +231,15 @@ footer{
   left: 0;
   padding: 1rem;
   background: #fff7f7;
+  z-index: 10;
 }
 
+/* END FOOTER */
+
+/* BUTTONS */
+button:not(.navbtn), input {
+  border-radius: 27px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+  outline: none;
+}
+/* END BUTTONS */
