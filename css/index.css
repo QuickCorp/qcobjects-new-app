@@ -208,7 +208,7 @@ nav .topnav .login-container button:hover {
 }
 nav form {
   display:grid;
-  grid-gap: 20px;
+  grid-gap: 15px;
   grid-auto-flow: column;
 }
 /* END TOPNAV */
@@ -338,7 +338,8 @@ component[name=signup] .cancelbtn {
 component[name=footer] .cancelbtn,
 component[name=footer] .signupbtn {
   float: left;
-  width: 50%;
+  width: 45%;
+  margin: .5%;
 }
 
 /* Add padding to container elements */

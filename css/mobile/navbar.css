@@ -30,6 +30,9 @@ nav > span.topnav input[type=text] {
 }
 nav form {
     display:grid;
-    grid-gap: 20px;
+    grid-gap: 20px !important;
     grid-auto-flow: row !important;
+}
+nav > span.topnav a.topmenu{
+    display: none !important;
 }

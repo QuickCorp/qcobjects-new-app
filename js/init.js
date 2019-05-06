@@ -9,8 +9,7 @@ CONFIG.set('useSDK',true);
 CONFIG.set('useLocalSDK',false);
 CONFIG.set('tplextension','tpl.html');
 CONFIG.set('asynchronousImportsLoad',true);
-
-
+Component.cached=true;
 /**
  * Main import sentence.
  */
@@ -19,6 +18,8 @@ CONFIG.set('asynchronousImportsLoad',true);
 Import('org.quickcorp.custom');
 
 Ready(function() {
-  
+    window.onpopstate = function (event) {
+        Component.route();
+    }
 
 });
