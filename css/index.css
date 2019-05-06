@@ -206,6 +206,11 @@ nav .topnav .login-container button {
 nav .topnav .login-container button:hover {
   background-color: rgb(230, 255, 230);
 }
+nav form {
+  display:grid;
+  grid-gap: 20px;
+  grid-auto-flow: column;
+}
 /* END TOPNAV */
 
 
@@ -241,5 +246,44 @@ button:not(.navbtn), input {
   border-radius: 27px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
   outline: none;
+ 
 }
+
+button:not(.navbtn){
+  border: solid #FFFFFF !important;
+  border-left: 3px !important;
+  border-right: 3px !important;
+  border-radius: 7px !important;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  font-size:12px;
+  font-family:arial, helvetica, sans-serif; 
+  padding: 18px 18px 18px 18px; 
+  text-decoration:none; 
+  display:inline-block;
+  font-weight:bold; 
+  color: #FFFFFF;
+  background-color: #A5B8DA; 
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#A5B8DA), to(#7089B3));
+  background-image: -webkit-linear-gradient(top, #A5B8DA, #7089B3);
+  background-image: -moz-linear-gradient(top, #A5B8DA, #7089B3);
+  background-image: -ms-linear-gradient(top, #A5B8DA, #7089B3);
+  background-image: -o-linear-gradient(top, #A5B8DA, #7089B3);
+  background-image: linear-gradient(to bottom, #A5B8DA, #7089B3);
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#A5B8DA, endColorstr=#7089B3);
+}
+
+button:not(.navbtn):hover{
+  background-color: #819bcb; 
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#819bcb), to(#536f9d));
+  background-image: -webkit-linear-gradient(top, #819bcb, #536f9d);
+  background-image: -moz-linear-gradient(top, #819bcb, #536f9d);
+  background-image: -ms-linear-gradient(top, #819bcb, #536f9d);
+  background-image: -o-linear-gradient(top, #819bcb, #536f9d);
+  background-image: linear-gradient(to bottom, #819bcb, #536f9d);
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#819bcb, endColorstr=#536f9d);
+ 
+}
+
 /* END BUTTONS */

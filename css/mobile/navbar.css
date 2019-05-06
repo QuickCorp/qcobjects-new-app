@@ -31,4 +31,5 @@ nav > span.topnav input[type=text] {
 nav form {
     display:grid;
     grid-gap: 20px;
+    grid-auto-flow: row !important;
 }
