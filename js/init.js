@@ -9,6 +9,7 @@ CONFIG.set('useSDK',true);
 CONFIG.set('useLocalSDK',false);
 CONFIG.set('tplextension','tpl.html');
 CONFIG.set('asynchronousImportsLoad',true);
+CONFIG.set('serviceWorkerURI','/sw.js'); //QCObjects will register an launch this service worker automatically to work offline
 Component.cached=true;
 /**
  * Main import sentence.
