@@ -30,7 +30,7 @@ self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
-        `/`,
+        '/',
         '/index.html',
         '/css/desktop/content.css',
         '/css/desktop/container.css',
@@ -56,12 +56,8 @@ self.addEventListener('install', e => {
         '/js/packages/org.quickcorp.custom.components.js',
         '/js/packages/org.quickcorp.custom.views.js',
         '/img/Q_web.svg',
-        '/img/favicon_infoclinic.svg',
         '/img/Q_web.png',
         '/img/logo.png',
-        '/img/isotipo_infoclinic.png',
-        '/img/logodrsimi.png',
-        '/img/logo_infoclinic.png',
         '/templates/components/main.tpl.html',
         '/templates/components/signin.tpl.html',
         '/templates/components/card.tpl.html',
