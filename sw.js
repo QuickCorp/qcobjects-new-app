@@ -24,8 +24,8 @@
 */
 "use strict";
 const version = "0.0.1";
-const appName = "InfoClinic";
-const cacheName = `qcobjects-qpp-${appName}-${version}`;
+const appName = "newapp";
+const cacheName = `qcobjects-app-${appName}-${version}`;
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => {
