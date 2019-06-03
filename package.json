@@ -2,7 +2,7 @@
   "name": "qcobjectsnewapp",
   "version": "1.0.1",
   "description": "App template for New App in QCObjects",
-  "main": "launch.js",
+  "main": "js/init.js",
   "scripts": {
     "test": "npm test"
   },
