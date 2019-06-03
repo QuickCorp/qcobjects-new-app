@@ -1,0 +1,21 @@
+{
+  "name": "qcobjectsnewapp",
+  "version": "1.0.0",
+  "description": "App template for New App in QCObjects",
+  "main": "launch.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/api/v4/projects/12159513/repository/archive?private_token=Wys-MPRmB1sSFn3eeX84"
+  },
+  "keywords": [
+    "qcobjects",
+    "newapp",
+    "js",
+    "javascript"
+  ],
+  "author": "Jean Machuca (correojean@gmail.com)",
+  "license": "LGPL-3.0-or-later"
+}
