@@ -4,7 +4,10 @@
   "description": "App template for New App in QCObjects",
   "main": "js/init.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jasmine",
+    "preversion": "npm test",
+    "version": "npm i --upgrade",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
@@ -17,5 +20,11 @@
     "javascript"
   ],
   "author": "Jean Machuca (correojean@gmail.com)",
-  "license": "LGPL-3.0-or-later"
+  "license": "LGPL-3.0-or-later",
+  "devDependencies": {
+    "jasmine": "^3.4.0"
+  },
+  "dependencies": {
+    "qcobjects-sdk": "latest"
+  }
 }
