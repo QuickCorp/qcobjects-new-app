@@ -4,7 +4,9 @@
   "theme_color": "rgb(1,1,1)",
   "background_color": "rgb(1,1,1)",
   "display": "standalone",
-  "orientation": "portrait",
+  ​​"orientation": "portrait-primary",
+  "lang": "en-US",
+  "dir": "auto",
   "scope": "/",
   "start_url": "/?homescreen=1",
   "icons": [{
@@ -46,6 +48,18 @@
       "src": "img/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "screenshots" : [
+    {
+      "src": "img/screenshots/screenshot1.webp",
+      "sizes": "1280x720",
+      "type": "image/webp"
+    },
+    {
+      "src": "img/screenshots/screenshot2.webp",
+      "sizes": "386x511",
+      "type": "image/webp"
     }
   ],
   "splash_pages": null,
