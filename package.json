@@ -1,6 +1,6 @@
 {
   "name": "qcobjectsnewapp",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "App template for New App in QCObjects",
   "main": "js/init.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "devDependencies": {
     "jasmine": "^3.5.0",
     "qcobjects": "latest",
-    "qcobjects-cli":"latest"
+    "qcobjects-cli": "latest"
   },
   "dependencies": {
     "qcobjects-sdk": "latest"
