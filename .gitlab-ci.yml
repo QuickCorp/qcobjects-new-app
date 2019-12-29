@@ -7,6 +7,6 @@ pages:
   - npm test
   artifacts:
     paths:
-    - .
+    - ./
   only:
   - master
