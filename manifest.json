@@ -8,6 +8,7 @@
   "lang": "en-US",
   "dir": "auto",
   "scope": "/",
+  "categories": ["utilities"],
   "start_url": "/?homescreen=1",
   "icons": [{
       "src": "img/icons/icon-72x72.png",
