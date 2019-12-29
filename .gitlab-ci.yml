@@ -4,7 +4,12 @@ pages:
   stage: deploy
   script:
   - mkdir public
-  - cp -Rf * public/ | grep -v [public]
+  - cp -Rf css/ public/
+  - cp -Rf img/ public/
+  - cp -Rf js/ public/
+  - cp -Rf spec/ public/
+  - cp -Rf templates/ public/
+  - cp *.* public/
   - cd public
   - npm i
   - npm test
