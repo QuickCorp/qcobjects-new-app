@@ -3,7 +3,7 @@ image: quickcorp/qcobjects:latest
 pages:
   stage: deploy
   script:
-  - npm i qcobjects-cli
+  - npm i
   - npm test
   artifacts:
     paths:
