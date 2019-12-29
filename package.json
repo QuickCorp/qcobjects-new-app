@@ -1,6 +1,6 @@
 {
   "name": "qcobjectsnewapp",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "App template for New App in QCObjects",
   "main": "js/init.js",
   "scripts": {
