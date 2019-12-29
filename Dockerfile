@@ -10,6 +10,9 @@ RUN npm install
 
 COPY . /usr/src/app
 
-ENV PORT 5000
-EXPOSE $PORT
+ENV PORT_HTTP 80
+ENV PORT_HTTPS 443
+
+EXPOSE $PORT_HTTP
+EXPOSE $PORT_HTTPS
 CMD [ "npm", "start" ]
