@@ -23,16 +23,16 @@
  * license document, but changing it is not allowed.
 */
 "use strict";
-const version = "0.0.2";
+const version = "0.0.1";
 const appName = "qcobjectsnewapp";
 const cacheName = `qcobjects-app-${appName}-${version}`;
-caches.delete(cacheName);
+const start_url = "/?homescreen=1";
+caches.delete(cacheName); // force to reload cache for the first time the sw is loaded
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheName).then(cache => {
-      return cache.addAll([
+      return cache.addAll([`${start_url}`,
 	"/",
-  "/?homescreen=1",
 	"css/components/card.css",
 	"css/components/modal.css",
 	"css/desktop/container.css",
@@ -52,7 +52,6 @@ self.addEventListener('install', e => {
 	"css/theme/redlight/style.css",
 	"css/theme/xtra/style.css",
 	"favicon.ico",
-	"humans.txt",
 	"img/Q_web copy.png",
 	"img/Q_web.png",
 	"img/Q_web.svg",
@@ -77,11 +76,6 @@ self.addEventListener('install', e => {
 	"js/packages/org.quickcorp.custom.js",
 	"js/packages/org.quickcorp.custom.models.js",
 	"js/packages/org.quickcorp.custom.views.js",
-	"manifest.json",
-	"package.json",
-	"robots.txt",
-	"spec/support/jasmine.json",
-	"spec/testsSpec.js",
 	"templates/components/article1.tpl.html",
 	"templates/components/article2.tpl.html",
 	"templates/components/article3.tpl.html",
