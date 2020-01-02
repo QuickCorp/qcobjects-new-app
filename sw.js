@@ -64,6 +64,7 @@ self.addEventListener('install', e => {
 	"img/icons/icon-72x72.png",
 	"img/icons/icon-96x96.png",
 	"img/logo.png",
+  "img/placeholder.svg",
 	"img/screenshots/screenshot1.png",
 	"img/screenshots/screenshot1.webp",
 	"img/screenshots/screenshot2.png",
