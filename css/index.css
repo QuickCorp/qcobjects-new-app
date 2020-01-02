@@ -414,3 +414,15 @@ component[name=footer] .clearfix::after {
   }
 }
 /* END FORM ELEMENTS */
+
+
+/* lazy loading images blurry */
+img[data-src] {
+  filter: blur(0.2em);
+}
+
+img:not([data-src]) {
+  filter: blur(0em);
+  transition: filter 0.5s;
+}
+/* end lazy loading images blurry */
