@@ -5,14 +5,13 @@
   "main": "js/init.js",
   "scripts": {
     "test": "jasmine",
-    "preversion": "npm test",
-    "version": "npm i --upgrade",
-    "postversion": "git push && git push --tags && npm publish",
     "sync": "git add . && git commit -am ",
+    "preversion": "npm i --upgrade && npm test",
+    "postversion": "git push && git push --tags && npm publish",
     "start": "node app.js"
   },
   "repository": {
-    "type": "git",
+    "type": "file",
     "url": "https://gitlab.com/api/v4/projects/12159513/repository/archive?private_token=Wys-MPRmB1sSFn3eeX84"
   },
   "keywords": [
