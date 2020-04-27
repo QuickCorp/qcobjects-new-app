@@ -1,11 +1,8 @@
-<style>
-        @import url("./css/components/card.css");
-</style>
+<component name="shadowed-card" shadowed="true" data-title="{{title}}"
+data-description="{{description}}" data-image="{{image}}">
 
-<div class="card">
-    <img src="img/placeholder.svg" lazy-src="img/Q_web.png" alt="Avatar" style="width:100%">
-    <div class="container">
-    <h4><b>Title</b></h4>
-    <p>description</p>
-    </div>
-</div>
+  <img slot="logo" src="img/{{image}}" alt="Avatar" style="width:100%">
+  <b slot="card_title">{{title}}</b>
+  <div slot="card_description">{{description}}</div>
+
+</component>
