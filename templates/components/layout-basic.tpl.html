@@ -10,27 +10,31 @@
 </style>
 
 <header>
-  <component name="header" controllerClass="HeaderController">
-    <routing path="#signup" name="blank"></routing>
-    <routing path="#signin" name="blank"></routing>
-    <routing path="#page1" name="blank"></routing>
-    <routing path="#page2" name="blank"></routing>
-    <routing path="#page3" name="header"></routing>
-    <routing path="#" name="header"></routing>
+  <component name="header" shadowed="true" controllerClass="HeaderController" effectClass="MainTransitionEffect">
+    <routing path="^#signup$" name="blank"></routing>
+    <routing path="^#signin$" name="blank"></routing>
+    <routing path="^#page1$" name="blank"></routing>
+    <routing path="^#page2$" name="blank"></routing>
+    <routing path="^#page3$" name="header"></routing>
+    <routing path="^#loading$" name="blank"></routing>
+    <routing path="^#signupsuccessful$" name="blank"></routing>
+    <routing path="^#overlay$" name="hero/hero-overlay"></routing>
+    <routing path="^#two-column-header$" name="hero/hero-two-column-form"></routing>
+    <routing path="^#$" name="header"></routing>
     <routing path="" name="header"></routing>
 </component>
 </header>
 <aside>
   <nav>
     <span class="topnav">
-      <component name="login">
+      <component name="topmenu">
           <routing path="#page1" name="blank"></routing>
           <routing path="#page2" name="blank"></routing>
           <routing path="#page3" name="blank"></routing>
           <routing path="#signup" name="blank"></routing>
           <routing path="#signin" name="blank"></routing>
-          <routing path="#" name="login"></routing>
-          <routing path="" name="login"></routing>
+          <routing path="#" name="topmenu"></routing>
+          <routing path="" name="topmenu"></routing>
       </component>
     </span>
     <button  aria-label="nav button" role="button" tabindex="-1" class="navbtn" onclick="global.sideNavController.toggle()"></button>
@@ -39,11 +43,14 @@
 </aside>
 <main role="main">
   <section>
-    <component name="contentblock">
+    <component name="contentblock" effectClass="MainTransitionEffect">
         <routing path="#page1" name="pages/page1"></routing>
         <routing path="#page2" name="pages/page2"></routing>
         <routing path="#page3" name="pages/page3"></routing>
-        <routing path="#signup" name="signup"></routing>
+        <routing path="^#signup$" name="signup" ></routing>
+        <routing path="^#coursedetail$" name="coursedetail"></routing>
+        <routing path="^#loading$" name="loading"></routing>
+        <routing path="^#signupsuccessful$" name="signupsuccessful"></routing>
         <routing path="#signin" name="login2"></routing>
         <routing path="#" name="contentblock"></routing>
         <routing path="" name="contentblock"></routing>
@@ -51,11 +58,13 @@
   </section>
 </main>
 <footer>
-  <component name="footer">
-      <routing path="#signup" name="signupbuttons"></routing>
-      <routing path="#page1" name="footer2"></routing>
-      <routing path="#page2" name="footer2"></routing>
-      <routing path="#page3" name="footer"></routing>
+  <component name="footer"  effectClass="MainTransitionEffect">
+      <routing path="^#signup$" name="signupbuttons"></routing>
+      <routing path="^#loading$" name="loadingfooter"></routing>
+      <routing path="^#signupsuccessful$" name="signupsuccessfulfooter"></routing>
+      <routing path="#page1" name="blank"></routing>
+      <routing path="#page2" name="blank"></routing>
+      <routing path="#page3" name="blank"></routing>
       <routing path="#" name="footer"></routing>
       <routing path="" name="footer"></routing>
   </component>

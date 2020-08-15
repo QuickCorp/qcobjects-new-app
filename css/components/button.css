@@ -1,0 +1,51 @@
+button:not(.navbtn), input {
+  border-radius: 27px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+  outline: none;
+
+}
+
+button:not(.navbtn){
+  border: solid #FFFFFF !important;
+  border-left: 3px !important;
+  border-right: 3px !important;
+  border-radius: 7px !important;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  font-size:12px;
+  font-family:arial, helvetica, sans-serif;
+  padding: 18px 18px 18px 18px;
+  text-decoration:none;
+  display:inline-block;
+  font-weight:bold;
+  color: #FFFFFF;
+  background-color: #111;
+}
+
+button:not(.navbtn):hover{
+  background-color: #333;
+}
+button:not(.navbtn),{
+	padding: 10px 20px 10px 20px;
+    border: 0px;
+    outline: 0px;
+    border-radius: 2px;
+    background: var(--primary);
+    cursor: pointer;
+    color: var(--text-inverse);
+    box-shadow: 0 10px 30px var(--primary-shadow);
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+    font-family: var(--font2);
+	position:relative;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:not(.navbtn):hover{
+	filter:brightness(0.9);
+	-webkit-transform: scale(.9);
+    transform: scale(.9);
+}

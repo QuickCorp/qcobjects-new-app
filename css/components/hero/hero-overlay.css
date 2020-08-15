@@ -1,0 +1,106 @@
+div.container {
+  display: grid;
+  grid-template-areas: "hero";
+  place-items: center;
+  height: 60vh;
+  min-height: 600px;
+  background-color: rgba(1,1,1,0.2);
+  overflow: hidden;
+  margin: -30px;
+}
+
+div.container::before {
+  content: "";
+  grid-area: hero;
+  place-self: start;
+  width: 50vmin;
+  height: 50vmin;
+  border-radius: 50%;
+  -webkit-transform: translate(-10%, -10%);
+  transform: translate(-10%, -10%);
+  background-color: rgba(255,255,255,0.6);
+}
+
+div.container::after {
+  content: "";
+  grid-area: hero;
+  place-self: end;
+  width: 30vmin;
+  height: 60vmin;
+  -webkit-transform: translate(20%, 40%) rotate(45deg);
+  transform: translate(20%, 40%) rotate(45deg);
+  background-color: rgba(255,255,255,0.6);
+}
+
+div.container>* {
+  grid-area: hero;
+}
+
+div.container img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+div.container .hero__content {
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  min-width: 30ch;
+  padding: 1rem;
+}
+
+div.container .hero__content h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+div.container .hero__content p {
+  font-size: 1.75rem;
+}
+
+.button {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  align-self: start;
+  background-color: #fff;
+  color: #2ba27c;
+  border-radius: 8px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+  text-align: center;
+  line-height: 1.1;
+  -webkit-transition: 220ms all ease-in-out;
+  transition: 220ms all ease-in-out;
+}
+
+.button:hover,
+.button:active {
+  background-color: #e7f9f3;
+}
+
+.button:focus {
+  outline-style: solid;
+  outline-color: transparent;
+  box-shadow: 0 0 0 4px #86dfc3;
+}
+
+:host > * {
+  box-sizing: border-box;
+}
+
+:host {
+  font-family: "Baloo 2", sans-serif;
+}

@@ -18,6 +18,7 @@
 @import url("./mobile/index.css") (aspect-ratio: 3/4);
 @import url("./mobile/index.css") (aspect-ratio: 2/3);
 
+@import url("./modern-base.css");
 
 @viewport{
     zoom: 1.0;
@@ -68,30 +69,6 @@ html,body {
 main {
   padding: 20px;
   padding-bottom: 20%;
-}
-
-
-
-#installer {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 40px;
-  text-align: center;
-  transition: opacity 300ms ease-in-out;
-  z-index:9999;
-}
-
-#installer.available {
-  opacity: 1;
-}
-
-#installer .button {
-  border: white 1px solid;
-  margin:10px;
-  padding: 10px;
-  color: white;
-  background-color: transparent;
 }
 
 .gridlines * {
@@ -278,6 +255,7 @@ nav form {
 /* HEADER */
 header{
   padding-top: 80px;
+  background-size: contain;
   background-color: #111111;
 }
 header div {

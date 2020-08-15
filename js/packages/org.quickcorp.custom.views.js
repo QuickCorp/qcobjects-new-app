@@ -1,6 +1,6 @@
-'use strict';
-Package('org.quickcorp.custom.views',[
-  Class('CardView',View,{
+"use strict";
+Package("org.quickcorp.custom.views",[
+  Class("CardView",View,{
     done (){
       let component = this.component;
       component.body.style.display="block";
@@ -8,7 +8,7 @@ Package('org.quickcorp.custom.views',[
       component.body.style.height="100px";
     }
   }),
-  Class('View2',View,{
+  Class("View2",View,{
     dependencies:[],
     component:null,
     _new_:function (o){

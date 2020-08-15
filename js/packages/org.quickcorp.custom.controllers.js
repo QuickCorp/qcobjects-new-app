@@ -100,7 +100,12 @@ Package('org.quickcorp.custom.controllers',[
 	  component:null,
 		installer:null,
 		loadInstallerButton:function (){
-			this.installer = new Installer(this.component.body.subelements('#installerbutton')[0]);
+			var controller = this;
+			this.component.body.subelements('#installerbutton').map(
+				function (element){
+					controller.installer = new Installer(element);
+				}
+			);
 		},
 	  _new_:function (o){
 	    this.__new__(o);

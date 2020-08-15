@@ -1,19 +1,11 @@
-<component name="signup" template-source="none">
-  <form action="/action_page.php" style="border:1px solid #ccc">
-    <div class="container">
-      <h1>Sign Up</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-    </div>
-  </form>
+<component name="signup-form" shadowed="true">
+  <h1 slot="title">This is a custom form title</h1>
+  <p slot="subtitle">This is a custom text:</p>
+  <label slot="field-control" id="name_label" required for="name"><b>&#x1F9D1; Full Name</b></label>
+  <input slot="field-control" type="text" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" title="Please write your full name" placeholder="Full Name" name="name" data-field="name" aria-labelledby="name_label" required>
+  <label slot="field-control" id="email_label" for="email"><b>&#x1F4E7; Email</b></label>
+  <input slot="field-control" type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" title="Please write a right email address" placeholder="Enter Email" name="email" data-field="email" aria-labelledby="email_label" required>
+  <label slot="field-control" for="comment" id="comment_label"><b>&#x1F4DD; Comment</b></label>
+  <textarea slot="field-control" name="comment" title="Please write a comment" rows="10" cols="100" data-field="comment" aria-labelledby="comment_label"></textarea>
+  <p slot="field-control">By submitting this form you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 </component>

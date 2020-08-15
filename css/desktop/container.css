@@ -9,6 +9,5 @@ component[name=grid]{
     padding: 5%;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
+    height:80%;
   }
-  
-  
