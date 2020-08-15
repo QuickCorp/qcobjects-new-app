@@ -23,7 +23,7 @@
  * license document, but changing it is not allowed.
 */
 "use strict";
-const version = "1.2.43";
+const version = "1.2.49";
 const appName = "qcobjectsnewapp";
 const cacheName = `qcobjects-app-${appName}-${version}`;
 const start_url = "/?homescreen=1";
@@ -33,7 +33,11 @@ self.addEventListener('install', e => {
     caches.open(cacheName).then(cache => {
       return cache.addAll([`${start_url}`,
 	"/",
+	"css/components/button.css",
 	"css/components/card.css",
+	"css/components/hero/hero-call-to-action.css",
+	"css/components/hero/hero-overlay.css",
+	"css/components/hero/hero-two-column-form.css",
 	"css/components/modal.css",
 	"css/desktop/container.css",
 	"css/desktop/content.css",
@@ -47,6 +51,7 @@ self.addEventListener('install', e => {
 	"css/mobile/index.css",
 	"css/mobile/navbar.css",
 	"css/mobile/sidebar.css",
+	"css/modern-base.css",
 	"css/theme/basic/style.css",
 	"css/theme/cyan/style.css",
 	"css/theme/redlight/style.css",
@@ -76,12 +81,12 @@ self.addEventListener('install', e => {
 	"js/packages/installer.js",
 	"js/packages/org.quickcorp.custom.components.js",
 	"js/packages/org.quickcorp.custom.controllers.js",
+	"js/packages/org.quickcorp.custom.effects.js",
 	"js/packages/org.quickcorp.custom.js",
 	"js/packages/org.quickcorp.custom.models.js",
 	"js/packages/org.quickcorp.custom.views.js",
+	"manifest.json",
 	"robots.txt",
-	"spec/support/jasmine.json",
-	"spec/testsSpec.js",
 	"templates/components/article1.tpl.html",
 	"templates/components/article2.tpl.html",
 	"templates/components/article3.tpl.html",
@@ -92,8 +97,14 @@ self.addEventListener('install', e => {
 	"templates/components/footer.tpl.html",
 	"templates/components/footer2.tpl.html",
 	"templates/components/header.tpl.html",
+	"templates/components/hero/hero-call-to-action.tpl.html",
+	"templates/components/hero/hero-overlay.tpl.html",
+	"templates/components/hero/hero-two-column-form.tpl.html",
+	"templates/components/install-button.tpl.html",
 	"templates/components/layout-basic.tpl.html",
-	"templates/components/login.tpl.html",
+	"templates/components/loading.tpl.html",
+	"templates/components/loadingfooter.tpl.html",
+	"templates/components/login-button.tpl.html",
 	"templates/components/login2.tpl.html",
 	"templates/components/loginform.tpl.html",
 	"templates/components/modal.tpl.html",
@@ -101,14 +112,22 @@ self.addEventListener('install', e => {
 	"templates/components/pages/page1.tpl.html",
 	"templates/components/pages/page2.tpl.html",
 	"templates/components/pages/page3.tpl.html",
+	"templates/components/product.tpl.html",
+	"templates/components/profile.tpl.html",
 	"templates/components/pwa.tpl.html",
 	"templates/components/section1.tpl.html",
 	"templates/components/section2.tpl.html",
 	"templates/components/shadowed-card.tpl.html",
-	"templates/components/signin.tpl.html",
+	"templates/components/signin-button.tpl.html",
+	"templates/components/signup-form.tpl.html",
 	"templates/components/signup.tpl.html",
 	"templates/components/signupbuttons.tpl.html",
-	"templates/components/signuppage.tpl.html"])
+	"templates/components/signupform.tpl.html",
+	"templates/components/signuppage.tpl.html",
+	"templates/components/signupsuccessful.tpl.html",
+	"templates/components/signupsuccessfulfooter.tpl.html",
+	"templates/components/splashscreen.tpl.html",
+	"templates/components/topmenu.tpl.html"])
           .then(() => self.skipWaiting());
     })
   );
