@@ -11,9 +11,15 @@ Package('org.quickcorp.custom.controllers',[
 	    //TODO: Implement
 	  },
 		done:function(){
-			var controller = this;
+      var controller = this;
+      if (!MainController.loaded){
+        var s = _DOMCreateElement("style");
+        s.innerHTML = "body, html {margin:0;padding:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}";
+        document.body.append(s);
+        MainController.loaded = true;
+      }
 
-			/*
+      /*
 			Timer.thread({
 		      duration:300,
 		      timing(timeFraction,elapsed){
