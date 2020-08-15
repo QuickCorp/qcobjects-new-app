@@ -23,7 +23,7 @@
  * license document, but changing it is not allowed.
 */
 "use strict";
-const version = "0.0.2";
+const version = "1.2.43";
 const appName = "qcobjectsnewapp";
 const cacheName = `qcobjects-app-${appName}-${version}`;
 const start_url = "/?homescreen=1";
@@ -52,6 +52,7 @@ self.addEventListener('install', e => {
 	"css/theme/redlight/style.css",
 	"css/theme/xtra/style.css",
 	"favicon.ico",
+	"humans.txt",
 	"img/Q_web copy.png",
 	"img/Q_web.png",
 	"img/Q_web.svg",
@@ -63,9 +64,9 @@ self.addEventListener('install', e => {
 	"img/icons/icon-512x512.png",
 	"img/icons/icon-72x72.png",
 	"img/icons/icon-96x96.png",
-	"img/logo.png",
-  	"img/placeholder.svg",
 	"img/logo-qcobjects-white.svg",
+	"img/logo.png",
+	"img/placeholder.svg",
 	"img/screenshots/screenshot1.png",
 	"img/screenshots/screenshot1.webp",
 	"img/screenshots/screenshot2.png",
@@ -78,6 +79,9 @@ self.addEventListener('install', e => {
 	"js/packages/org.quickcorp.custom.js",
 	"js/packages/org.quickcorp.custom.models.js",
 	"js/packages/org.quickcorp.custom.views.js",
+	"robots.txt",
+	"spec/support/jasmine.json",
+	"spec/testsSpec.js",
 	"templates/components/article1.tpl.html",
 	"templates/components/article2.tpl.html",
 	"templates/components/article3.tpl.html",
@@ -88,10 +92,10 @@ self.addEventListener('install', e => {
 	"templates/components/footer.tpl.html",
 	"templates/components/footer2.tpl.html",
 	"templates/components/header.tpl.html",
+	"templates/components/layout-basic.tpl.html",
 	"templates/components/login.tpl.html",
 	"templates/components/login2.tpl.html",
 	"templates/components/loginform.tpl.html",
-	"templates/components/main.tpl.html",
 	"templates/components/modal.tpl.html",
 	"templates/components/nav.tpl.html",
 	"templates/components/pages/page1.tpl.html",
@@ -100,6 +104,7 @@ self.addEventListener('install', e => {
 	"templates/components/pwa.tpl.html",
 	"templates/components/section1.tpl.html",
 	"templates/components/section2.tpl.html",
+	"templates/components/shadowed-card.tpl.html",
 	"templates/components/signin.tpl.html",
 	"templates/components/signup.tpl.html",
 	"templates/components/signupbuttons.tpl.html",
