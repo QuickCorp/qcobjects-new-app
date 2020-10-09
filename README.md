@@ -1,10 +1,10 @@
-# QCObjects New App
+# QCObjects New App
 
 This is a demo of a QCObjects based front-end Progressive Web App
 
-# Project Structure
+# Project Structure
 
-The following is the project structure of a Progressive Web App made in QCObjects 
+The following is the project structure of a Progressive Web App made in QCObjects
 
 ```shell
 ├── index.html
@@ -28,7 +28,7 @@ The following is the project structure of a Progressive Web App made in QCObject
 └── templates
 ```
 
-#Detailed project Structure
+# Detailed project Structure
 
 ```shell
 ├── Dockerfile
