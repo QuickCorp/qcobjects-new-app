@@ -25,7 +25,8 @@
 "use strict";
 const version = "1.2.49";
 const appName = "qcobjectsnewapp";
-const cacheName = `qcobjects-app-${appName}-${version}`;
+const cacheSufix = (Math.round(Date.now()/(1000*3600))).toString(); // 1 hour
+const cacheName = `qcobjects-app-${appName}-${version}-${cacheSufix}`;
 const start_url = "/?homescreen=1";
 caches.delete(cacheName); // force to reload cache for the first time the sw is loaded
 self.addEventListener('install', e => {
