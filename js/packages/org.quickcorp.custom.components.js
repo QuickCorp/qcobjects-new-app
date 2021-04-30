@@ -7,6 +7,6 @@ Package("org.quickcorp.custom.components",[
     view:null
   }),
   Class("Component2",Component,{
-    propertyName2:"propertyValue2",
+    propertyName2:"propertyValue2"
   }),
 ]);

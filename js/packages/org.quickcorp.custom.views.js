@@ -11,7 +11,7 @@ Package("org.quickcorp.custom.views",[
   Class("View2",View,{
     dependencies:[],
     component:null,
-    _new_:function (o){
+    _new_ (o){
       this.__new__(o);
       var controller=this;
       //TODO: Implement

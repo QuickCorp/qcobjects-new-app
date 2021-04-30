@@ -6,7 +6,6 @@
    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: https://ssl.gstatic.com; img-src * 'self' data:; child-src *; style-src * 'self' 'unsafe-inline' 'unsafe-eval'; script-src * 'self' 'unsafe-inline' 'unsafe-eval'; connect-src * 'self' 'unsafe-inline' 'unsafe-eval';media-src *">
   <title>QCObjects Page Title</title>
-  <script type="text/javascript" src="https://qcobjects.dev/QCObjects.js"></script>
   <component name="pwa" controllerClass="PWAController"></component>
 </head>
 
@@ -15,10 +14,13 @@
     <!-- anchor linking to external file -->
     <p>This page needs JavaScript because it uses QCObjects (https://qcobjects.com)</p>
   </noscript>
-  <component name="layout-basic" shadowed=true cached=true controllerClass="MainController">
-  </component>
+  <splash-screen componentClass="CubeSplashScreenComponent" 
+  duration="3000" data-background="black" 
+  data-cube_image="./img/Q_web-white.png"></splash-screen>
+  <layout-basic splashscreen shadowed=true cached=true controllerClass="MainController">
+  </layout-basic>
 
-<script type="text/javascript" src="js/init.js"></script>
+<script type="module" src="js/init.js"></script>
 
 </body>
 
