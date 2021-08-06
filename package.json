@@ -8,7 +8,8 @@
     "sync": "git add . && git commit -am ",
     "preversion": "npm i --upgrade && npm test",
     "postversion": "git push && git push --tags && npm publish",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "exit 0"
   },
   "repository": {
     "type": "file",
