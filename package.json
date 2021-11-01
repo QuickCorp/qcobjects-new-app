@@ -8,6 +8,7 @@
     "sync": "git add . && git commit -am ",
     "preversion": "npm i --upgrade && npm test",
     "postversion": "git push && git push --tags && npm publish",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "start": "node app.js"
   },
   "repository": {
@@ -30,6 +31,9 @@
     "qcobjects-cli": "latest"
   },
   "dependencies": {
+    "grunt": "^1.4.1",
+    "grunt-contrib-jasmine": "^3.0.0",
+    "nyc": "^15.1.0",
     "qcobjects-sdk": "latest"
   }
 }
