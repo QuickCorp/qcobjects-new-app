@@ -9,7 +9,8 @@
     "preversion": "npm i --upgrade && npm test",
     "postversion": "git push && git push --tags && npm publish",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "exit 0"
   },
   "repository": {
     "type": "file",
