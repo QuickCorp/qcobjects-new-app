@@ -23,26 +23,28 @@
  * Everyone is permitted to copy and distribute verbatim copies of this
  * license document, but changing it is not allowed.
  */
- 
+
 /* Insert here your custom CSS */
-nav > span.topnav{
-    padding-left: 70px !important;
+nav > span.topnav {
+  padding-left: 70px !important;
 }
+
 nav .topnav .login-container {
-    float: none !important;
-    width: auto;
-    left: 45% !important;
-    height: auto;
-    position: absolute !important;
+  float: none !important;
+  width: auto;
+  left: 45% !important;
+  height: auto;
+  position: absolute !important;
 }
 
 .topnav a.createaccountlink1 {
-    display: none !important;
+  display: none !important;
 }
+
 .topnav a.createaccountlink2 {
-    display: block !important;
+  display: block !important;
 }
 
 nav form {
-    width:100% !important;
+  width: 100% !important;
 }

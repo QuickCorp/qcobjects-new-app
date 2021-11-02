@@ -23,8 +23,8 @@
  * Everyone is permitted to copy and distribute verbatim copies of this
  * license document, but changing it is not allowed.
  */
- div.container {
-  box-shadow: rgba(228, 228, 234, 0.4) 0px 22px 25px 0px, rgba(228, 228, 234, 0.8) 0px 9px 23px 0px;
+div.container {
+  box-shadow: rgba(228, 228, 234, 0.4) 0 22px 25px 0, rgba(228, 228, 234, 0.8) 0 9px 23px 0;
   transition: all 0.3s ease-in-out;
   display: grid;
   grid-template-areas: "hero";
@@ -34,11 +34,11 @@
 }
 
 div.container:hover {
-  box-shadow: rgba(228, 228, 234, 1) 0px 22px 32px 0px, rgba(228, 228, 234, 1) 0px 9px 28px 0px;
+  box-shadow: rgba(228, 228, 234, 1) 0 22px 32px 0, rgba(228, 228, 234, 1) 0 9px 28px 0;
   background-color: #fff;
 }
 
-div.container>* {
+div.container > * {
   grid-area: hero;
 }
 
@@ -117,7 +117,7 @@ div.container::before {
   transform: rotate(15deg) translate(50%, 20%);
   border-radius: 50%;
   background-color: blue;
-  background-size:cover;
+  background-size: cover;
 }
 
 div.container::after {

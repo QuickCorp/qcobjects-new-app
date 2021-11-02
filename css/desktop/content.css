@@ -23,7 +23,7 @@
  * Everyone is permitted to copy and distribute verbatim copies of this
  * license document, but changing it is not allowed.
  */
- 
+
 /* Insert here your custom CSS */
 
 /* LOGIN 2 FORM */
@@ -45,14 +45,14 @@ component[name=loginform].login2 input[type=password]:focus {
   outline: none;
 }
 
-component[name=loginform].login2 form{
-    width: 70% !important;
-    margin:0 auto;
-    grid-auto-flow: column;
-  }
+component[name=loginform].login2 form {
+  width: 70% !important;
+  margin: 0 auto;
+  grid-auto-flow: column;
+}
 
-  component[name=loginform].login2 form breakline{
-    display: block;
-  }
+component[name=loginform].login2 form breakline {
+  display: block;
+}
 
 /* END LOGIN 2 FORM */
