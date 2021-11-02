@@ -23,7 +23,7 @@
  * license document, but changing it is not allowed.
 */
 "use strict";
-const version = "1.2.49";
+const version = "1.2.86";
 const appName = "qcobjectsnewapp";
 const cacheSufix = (Math.round(Date.now()/(1000*3600))).toString(); // 1 hour
 const cacheName = `qcobjects-app-${appName}-${version}-${cacheSufix}`;
