@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "grunt": "^1.4.1",
-    "grunt-contrib-jasmine": "^3.0.0",
+    "grunt-contrib-jasmine": "^2.0.2",
     "nyc": "^15.1.0",
     "qcobjects-sdk": "latest"
   }
