@@ -53,4 +53,5 @@ Component.cached=true;
 
 Import("org.quickcorp.custom"); // this will load js/packages/org.quickcorp.custom.js file
 
+// eslint-disable-next-line no-undef
 RegisterWidgets("layout-basic", "splash-screen");

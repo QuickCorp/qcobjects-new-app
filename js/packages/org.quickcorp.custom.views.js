@@ -13,7 +13,6 @@ Package("org.quickcorp.custom.views",[
     component:null,
     _new_ (o){
       this.__new__(o);
-      var controller=this;
       //TODO: Implement
     }
   }),
