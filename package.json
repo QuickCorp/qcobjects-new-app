@@ -7,7 +7,7 @@
     "test": "(npx eslint *.js js/*.js js/packages/*.js --fix) && (npx jasmine)",
     "sync": "git add . && git commit -am ",
     "preversion": "npm i --upgrade && npm test",
-    "postversion": "git push && git push --tags && npm publish",
+    "postversion": "git push && git push --tags",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "start": "node app.js",
     "build": "exit 0"
