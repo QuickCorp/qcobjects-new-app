@@ -23,7 +23,7 @@
  * license document, but changing it is not allowed.
 */
 "use strict";
-const version = "1.2.86";
+const version = "1.2.93";
 const appName = "qcobjectsnewapp";
 const cacheSufix = (Math.round(Date.now()/(1000*3600))).toString(); // 1 hour
 const cacheName = `qcobjects-app-${appName}-${version}-${cacheSufix}`;
@@ -34,6 +34,21 @@ self.addEventListener("install", e => {
     caches.open(cacheName).then(cache => {
       return cache.addAll([`${start_url}`,
 	"/",
+	"Dockerfile",
+	"LICENSE.txt",
+	"README.md",
+	"VERSION",
+	"app.js",
+	"coverage/lcov-report/base.css",
+	"coverage/lcov-report/block-navigation.js",
+	"coverage/lcov-report/favicon.png",
+	"coverage/lcov-report/index.html",
+	"coverage/lcov-report/prettify.css",
+	"coverage/lcov-report/prettify.js",
+	"coverage/lcov-report/sort-arrow-sprite.png",
+	"coverage/lcov-report/sorter.js",
+	"coverage/lcov-report/testsSpec.js.html",
+	"coverage/lcov.info",
 	"css/components/button.css",
 	"css/components/card.css",
 	"css/components/hero/hero-call-to-action.css",
@@ -60,6 +75,7 @@ self.addEventListener("install", e => {
 	"favicon.ico",
 	"humans.txt",
 	"img/Q_web copy.png",
+	"img/Q_web-white.png",
 	"img/Q_web.png",
 	"img/Q_web.svg",
 	"img/icons/icon-128x128.png",
@@ -70,6 +86,7 @@ self.addEventListener("install", e => {
 	"img/icons/icon-512x512.png",
 	"img/icons/icon-72x72.png",
 	"img/icons/icon-96x96.png",
+	"img/logo-qcobjects-white-powered-quickcorp.svg",
 	"img/logo-qcobjects-white.svg",
 	"img/logo.png",
 	"img/placeholder.svg",
@@ -79,7 +96,7 @@ self.addEventListener("install", e => {
 	"img/screenshots/screenshot2.webp",
 	"index.html",
 	"js/init.js",
-	"js/packages/installer.js",
+	"js/packages/com.qcobjects.installer.js",
 	"js/packages/org.quickcorp.custom.components.js",
 	"js/packages/org.quickcorp.custom.controllers.js",
 	"js/packages/org.quickcorp.custom.effects.js",
@@ -87,7 +104,10 @@ self.addEventListener("install", e => {
 	"js/packages/org.quickcorp.custom.models.js",
 	"js/packages/org.quickcorp.custom.views.js",
 	"manifest.json",
+	"qcobjectsnewapp.iml",
 	"robots.txt",
+	"spec/support/jasmine.json",
+	"spec/testsSpec.js",
 	"templates/components/article1.tpl.html",
 	"templates/components/article2.tpl.html",
 	"templates/components/article3.tpl.html",
@@ -115,7 +135,6 @@ self.addEventListener("install", e => {
 	"templates/components/pages/page3.tpl.html",
 	"templates/components/product.tpl.html",
 	"templates/components/profile.tpl.html",
-	"templates/components/pwa.tpl.html",
 	"templates/components/section1.tpl.html",
 	"templates/components/section2.tpl.html",
 	"templates/components/shadowed-card.tpl.html",
