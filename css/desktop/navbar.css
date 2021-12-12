@@ -32,9 +32,11 @@ nav > span.topnav {
 nav .topnav .login-container {
   float: none !important;
   width: auto;
-  left: 45% !important;
+  right: 0 !important;
   height: auto;
   position: absolute !important;
+  padding-right: 10px;
+  padding-top: 5px;
 }
 
 .topnav a.createaccountlink1 {

@@ -43,6 +43,7 @@ nav > span.topnav {
 }
 
 nav .topnav .login-container {
+  display: none !important;
   float: none !important;
   width: 100%;
   height: auto;

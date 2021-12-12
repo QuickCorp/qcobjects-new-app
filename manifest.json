@@ -1,17 +1,23 @@
 {
-  "name": "QCObjects New App",
-  "short_name": "qcobjects_newapp",
-  "theme_color": "rgb(1,1,1)",
-  "background_color": "rgb(1,1,1)",
+  "background_color": "#000000",
+  "description": "Awesome app template that will help you achieve your dreams.",
+  "dir": "ltr",
   "display": "standalone",
-  "description": "Awesome application that will help you achieve your dreams.",
+  "name": "newapp.qcobjects",
   "orientation": "portrait-primary",
-  "lang": "en-US",
-  "dir": "auto",
   "scope": "/",
+  "short_name": "newapp.qcobjects",
+  "start_url": "/",
+  "theme_color": "#000000",
+  "shortcuts": [],  
+  "lang": "en-US",
   "categories": ["utilities"],
-  "start_url": "/?homescreen=1",
-  "icons": [{
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    },
+    {
       "src": "img/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png"

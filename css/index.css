@@ -27,24 +27,6 @@
 
 /* CSS Document */
 
-/* CSS Document for Desktop Imports */
-@import url("./desktop/index.css") ( orientation:landscape) and (min-width:460px);
-@import url("./desktop/index.css") (aspect-ratio: 16/9) and (min-width:460px);
-@import url("./desktop/index.css") (aspect-ratio: 16/10) and (min-width:460px);
-@import url("./desktop/index.css") (aspect-ratio: 8/5) and (min-width:460px);
-@import url("./desktop/index.css") (aspect-ratio: 4/3) and (min-width:460px);
-@import url("./desktop/index.css") (aspect-ratio: 3/2) and (min-width:460px);
-
-/* CSS Document for Mobile Imports */
-@import url("./mobile/index.css") (orientation:portrait);
-@import url("./mobile/index.css") (max-width:460px);
-@import url("./mobile/index.css") (aspect-ratio: 9/16);
-@import url("./mobile/index.css") (aspect-ratio: 10/16);
-@import url("./mobile/index.css") (aspect-ratio: 5/8);
-@import url("./mobile/index.css") (aspect-ratio: 3/4);
-@import url("./mobile/index.css") (aspect-ratio: 2/3);
-@import url("./modern-base.css");
-
 @viewport {
   zoom: 1;
   width: extend-to-zoom;
@@ -279,8 +261,12 @@ nav form {
 /* END TOPNAV */
 
 /* HEADER */
-header {
+component[name=header] {
+  width: 100%;
   padding-top: 80px;
+
+}
+header {
   background-size: contain;
   background-color: #111;
 }
