@@ -36,5 +36,10 @@
     "grunt-contrib-jasmine": "^2.0.2",
     "nyc": "^15.1.0",
     "qcobjects-sdk": "^2.3.30"
+  },
+  "engines": {
+    "npm": "~8.10.0",
+    "node": ">=14.17.6"
   }
+
 }
