@@ -1,6 +1,6 @@
 {
   "name": "qcobjectsnewapp",
-  "version": "1.2.97",
+  "version": "2.4.0",
   "description": "App template for New App in QCObjects",
   "main": "js/init.js",
   "scripts": {
@@ -28,7 +28,7 @@
     "eslint": "^8.2.0",
     "eslint-config-qcobjects": "^0.0.13",
     "jasmine": "^3.6.3",
-    "qcobjects": "^2.3.68",
+    "qcobjects": "^2.4.30-beta",
     "qcobjects-cli": "^2.3.50"
   },
   "dependencies": {
@@ -36,5 +36,10 @@
     "grunt-contrib-jasmine": "^2.0.2",
     "nyc": "^15.1.0",
     "qcobjects-sdk": "^2.3.30"
+  },
+  "engines": {
+    "npm": "~8.10.0",
+    "node": ">=14.17.6"
   }
+
 }
