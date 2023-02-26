@@ -23,7 +23,7 @@
  * Everyone is permitted to copy and distribute verbatim copies of this
  * license document, but changing it is not allowed.
 */
-import "https://cdn.qcobjects.dev/QCObjects.js";
+import "QCObjects.js";
 /*
 * The next values are the default settings
 * You can change any value in runtime by using CONFIG.set
