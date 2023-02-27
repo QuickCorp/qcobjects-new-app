@@ -1,12 +1,26 @@
 "use strict";
 Package("org.quickcorp.custom.components",[
-  Class("Component1",Component,{
-    name:"main",
-    cached:false,
-    controller:null,
-    view:null
-  }),
-  Class("Component2",Component,{
-    propertyName2:"propertyValue2"
-  }),
+
+  class Component1 extends Component {
+    name = "main";
+    cached=false;
+    controller=null;
+    view=null;
+
+    constructor () {
+      super(...arguments);
+    }
+  },
+
+  class Component2 extends Component {
+    name = "component-two";
+    propertyName2="propertyValue2";
+
+    constructor () {
+      super(...arguments);
+    }
+
+  }
+
+
 ]);
