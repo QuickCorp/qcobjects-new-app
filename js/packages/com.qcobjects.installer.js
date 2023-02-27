@@ -1,21 +1,9 @@
 "use strict";
 Package("com.qcobjects.installer",[
-  Class("Installer",Object,{
-    promptEvent:null,
-    beforeinstallprompt (e) {
-      logger.debug("registering installer event");
-      e.preventDefault();
-      this.promptEvent = e;
-      this.root.classList.add("available");
-      return false;
-    },
-    installed () {
-      logger.debug("app is already installed");
-      this.promptEvent = null;
-//         This fires after onbeforinstallprompt OR after manual add to homescreen.
-      this.root.classList.remove("available");
-    },
-    _new_ ({root}) {
+  class Installer extends InheritClass {
+    constructor ({root}){
+      super(...arguments);
+
       this.root = root;
       window.addEventListener("beforeinstallprompt", this.beforeinstallprompt.bind(this),false);
       window.addEventListener("appinstalled", this.installed.bind(this),false);
@@ -31,7 +19,26 @@ Package("com.qcobjects.installer",[
         NotificationComponent.success(`TWA in ${displayMode} Mode`);
       });
       global.set("installer", this);
-    },
+
+    }
+
+    promptEvent=null;
+
+    beforeinstallprompt (e) {
+      logger.debug("registering installer event");
+      e.preventDefault();
+      this.promptEvent = e;
+      this.root.classList.add("available");
+      return false;
+    }
+
+    installed () {
+      logger.debug("app is already installed");
+      this.promptEvent = null;
+//         This fires after onbeforinstallprompt OR after manual add to homescreen.
+      this.root.classList.remove("available");
+    }
+
     install () {
       var root = this.root;
       logger.debug("installer actioned");
@@ -61,5 +68,7 @@ Package("com.qcobjects.installer",[
         logger.debug("not asking for install");
       }
     }
-  })
+
+
+  }
 ]);
