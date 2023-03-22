@@ -10,6 +10,8 @@
     "postversion": "git push && git push --tags",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "start": "node app.js",
+    "serve": "node app.js",
+    "server": "node app.js",
     "collab": "node -e \"require('qcobjects-cli/qcobjects-collab')\"",
     "shell": "node -e \"require('qcobjects-cli/qcobjects-shell')\"",
     "createcert": "node -e \"require('qcobjects-cli/qcobjects-createcert')\"",
@@ -33,14 +35,16 @@
     "eslint": "^8.2.0",
     "eslint-config-qcobjects": "^0.0.13",
     "jasmine": "^3.6.3",
-    "qcobjects": "^2.4.30-beta",
-    "qcobjects-cli": "^2.3.50"
+    "qcobjects": "^2.4.38",
+    "qcobjects-cli": "^2.4.25"
   },
   "dependencies": {
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
-    "qcobjects-sdk": "^2.3.30"
+    "qcobjects": "^2.4.38",
+    "qcobjects-cli": "^2.4.25",
+    "qcobjects-sdk": "^2.4.26"
   },
   "engines": {
     "npm": ">=8.10.0",

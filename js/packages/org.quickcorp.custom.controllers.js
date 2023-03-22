@@ -6,29 +6,28 @@ Package("org.quickcorp.custom.controllers", [
 
 	class MainController extends Controller {
 		constructor() {
+			logger.debug("Initializing MainController...");
 			super(...arguments);
 		}
 
 		done() {
 			var _ret_ = super.done(...arguments);
-			if (!MainController.loaded) {
+			if (!MainController.loaded){
 				var s = _DOMCreateElement("style");
 				s.innerHTML = "body, html {margin:0;padding:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}";
 				document.body.append(s);
+				logger.debug("MainController loaded");
 				MainController.loaded = true;
 			}
 			return _ret_;
-
 		}
 
 	},
 
 	class PWAController extends Controller {
-		component = null;
 		constructor() {
 			super(...arguments);
 			logger.debug("PWAController Element Initialized");
-			this.component = o.component;
 		}
 
 		done() {
@@ -103,9 +102,6 @@ Package("org.quickcorp.custom.controllers", [
 			super(...arguments);
 		}
 
-		dependencies = [];
-		component = null;
-		installer = null;
 
 		loadInstallerButton() {
 			var controller = this;

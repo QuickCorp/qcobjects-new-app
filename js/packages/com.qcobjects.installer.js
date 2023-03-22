@@ -1,6 +1,6 @@
 "use strict";
 Package("com.qcobjects.installer",[
-  class Installer extends InheritClass {
+  class Installer extends ClassFactory("InheritClass") {
     constructor ({root}){
       super(...arguments);
 
