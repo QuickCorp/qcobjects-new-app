@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: https://ssl.gstatic.com; img-src * 'self' data:; child-src *; style-src * 'self' 'unsafe-inline' 'unsafe-eval'; script-src * 'self' 'unsafe-inline' 'unsafe-eval'; connect-src * 'self' 'unsafe-inline' 'unsafe-eval';media-src *">
+  <title>QCObjects Demo</title>
+</head>
+
+<body>
+
+
+  <my-grid cols=4 componentClass="org.qcobjects.components.grid.GridComponent" 
+    serviceClass="MyTestService">
+  </my-grid>
+
+  <script type="module">
+    import "../QCObjects.js";
+    CONFIG.set("sourceType", "module");
+    CONFIG.set("useLocalSDK", true); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
+
+    logger.debugEnabled = true;
+
+    Package("com.qcobjects.demo.grid", [
+      class MyTestService extends JSONService {
+        name = 'myservice';
+        external = true;
+        cached = false;
+        method = 'GET';
+        headers = { 'Content-Type': 'application/json' };
+        url = 'https://api.github.com/orgs/QuickCorp/repos';
+        withCredentials = false;
+
+        /**
+         * Creates the instance for MyTestService
+         */
+        constructor() {
+          super(...arguments);
+
+        }
+
+        done({ request, service }) {
+          logger.debug(request);
+          let result = JSON.parse(service.template).reverse().map(function (project) {
+              return {
+                id: project.id,
+                description: project.description,
+                title: project.name,
+                url: project.html_url,
+                image: `https://via.placeholder.com/150/FFFF00/000000?text=${encodeURI(project.name)}`
+              };
+            });
+
+          service.template = JSON.stringify({
+            result: result
+          });
+        }
+
+
+      }
+
+    ])
+
+    RegisterWidgets("my-grid")
+  </script>
+</body>
+
+</html>

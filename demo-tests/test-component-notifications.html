@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: https://ssl.gstatic.com; img-src * 'self' data:; child-src *; style-src * 'self' 'unsafe-inline' 'unsafe-eval'; script-src * 'self' 'unsafe-inline' 'unsafe-eval'; connect-src * 'self' 'unsafe-inline' 'unsafe-eval';media-src *">
+  <title>QCObjects Demo</title>
+</head>
+
+<body>
+
+
+  <custom-notification template-source="inline" componentClass="CustomNotificationComponent"></custom-notification>
+
+  <script type="module">
+    import "../QCObjects.js";
+    CONFIG.set("sourceType", "module");
+    CONFIG.set("useLocalSDK", true); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
+    logger.debugEnabled = true;
+
+    Package("com.qcobjects.demo.notification", [
+      class CustomNotificationComponent extends Component {
+        message_start = "Initializing page!";
+        message_end = "Page was loaded successfully!";
+        template = "...loading";
+
+        /**
+         * Creates the instance for CustomNotificationComponent
+         */
+        constructor() {
+          super(...arguments);
+          NotificationComponent.success(this.message_start)
+
+        }
+
+        /**
+         * What is inside this function is executed after the component loading is done
+         * 
+         * @param {*} standardResponse it brings all information of the component
+         */
+        done(standardResponse) {
+
+          /* in this case we will call a notification after the component is loaded*/
+          return Promise.resolve (
+            NotificationComponent.success(this.message_end)
+          );
+        }
+
+      }
+
+    ]);
+
+
+    RegisterWidgets("custom-notification")
+  </script>
+</body>
+
+</html>

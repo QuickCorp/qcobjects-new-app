@@ -43,7 +43,7 @@ CONFIG.set("serviceWorkerURI","/sw.js"); //QCObjects will register an launch thi
 
 // if Component.cached is true, all the Class('Component') declarations will save the template in a localStorage cache
 // until a cached=false attribute is found in a <component> html declaration
-Component.cached=false;
+Component.cached=true;
 
 /**
  * Main import sentence.
