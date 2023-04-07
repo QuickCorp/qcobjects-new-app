@@ -23,7 +23,10 @@
  * Everyone is permitted to copy and distribute verbatim copies of this
  * license document, but changing it is not allowed.
 */
-import "../QCObjects.js";
+
+//import "../QCObjects.js"; /* uncomment this line to load QCObjects from backend */
+import "https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.52/QCObjects.js"; /* uncomment this line to load QCObjects from cdnjs */
+
 /*
 * The next values are the default settings
 * You can change any value in runtime by using CONFIG.set
@@ -36,7 +39,7 @@ CONFIG.set("delayForReady", 1); // delay to wait before executing the first read
 CONFIG.set("preserveComponentBodyTag", false); // don't use <componentBody></componentBody> tag
 CONFIG.set("useConfigService", false); // Load settings from config.json
 CONFIG.set("routingWay","hash"); // routingWay possible values are 'hash','pathname','search'
-CONFIG.set("useLocalSDK",true); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
+CONFIG.set("useLocalSDK",false); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
 CONFIG.set("tplextension","tpl.html"); // this is the file extension to locate the template files (if component.name = 'main' then template name will be main.tpl.html)
 CONFIG.set("asynchronousImportsLoad",true); // it is recommended to load the Import declarations in an asyncronous way
 CONFIG.set("serviceWorkerURI","/sw.js"); //QCObjects will register an launch this service worker automatically to work offline
@@ -53,4 +56,4 @@ Component.cached=true;
 Import("org.quickcorp.custom"); // this will load js/packages/org.quickcorp.custom.js file
 
 // eslint-disable-next-line no-undef
-RegisterWidgets("layout-basic", "splash-screen");
+RegisterWidgets("layout-basic", "splash-screen", "github-grid", "octocat-icon", "lib-list");

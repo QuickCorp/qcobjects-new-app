@@ -16,9 +16,10 @@
     value-field="html_url"></my-list>
 
   <script type="module">
-    import "../QCObjects.js";
+    //import "../QCObjects.js"; /* uncomment this line to load QCObjects from backend */
+    import "https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.52/QCObjects.js"; /* uncomment this line to load QCObjects from cdnjs */
     CONFIG.set("sourceType", "module");
-    CONFIG.set("useLocalSDK", true); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
+    CONFIG.set("useLocalSDK", false); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
     logger.debugEnabled = true;
 
     Package("com.qcobjects.demo.list", [
