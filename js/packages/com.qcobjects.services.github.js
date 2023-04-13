@@ -85,7 +85,7 @@ Package("com.qcobjects.services.github", [
         _new_:()=>{
           // service instantiated
         },
-        done:({request, service})=>{
+        done:({ service})=>{
           var latest = JSON.parse(service.template)[0];
           service.template = {
             version: latest.name
@@ -103,7 +103,7 @@ Package("com.qcobjects.services.github", [
       _new_:()=>{
         // service instantiated
       },
-      done:({request, service})=>{
+      done:({service})=>{
         var repo = JSON.parse(service.template);
         service.template = {
           forks: repo.forks_count,
