@@ -11,8 +11,8 @@ pages:
   - cp -Rf templates/ public/
   - cp *.* public/
   - cd public
+  - npm i qcobjects && npm i -D eslint-config-qcobjects
   - npm i
-  - npm i -D eslint-config-qcobjects
   - npm test
   artifacts:
     paths:
