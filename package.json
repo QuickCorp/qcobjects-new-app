@@ -33,7 +33,7 @@
   "license": "LGPL-3.0-or-later",
   "devDependencies": {
     "eslint": "^8.2.0",
-    "eslint-config-qcobjects": "^0.0.13",
+    "eslint-config-qcobjects": "^0.0.23",
     "jasmine": "^3.6.3",
     "qcobjects": "^2.4.52",
     "qcobjects-cli": "^2.4.30"
@@ -42,6 +42,7 @@
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
+    "eslint-config-qcobjects": "^0.0.23",
     "qcobjects": "^2.4.52",
     "qcobjects-cli": "^2.4.30",
     "qcobjects-sdk": "^2.4.28"
