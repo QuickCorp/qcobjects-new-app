@@ -12,7 +12,7 @@ describe("QCObjects Main Test", function () {
   });
 
   it("Main intance Test Spec", function () {
-    let __main__ = New(Main, {});
+    const __main__ = New(Main, {});
     expect(typeof __main__.__instanceID).toEqual("number");
     expect(__main__.__classType).toEqual("Main");
     logger.debug("Main intance Test Spec... OK");
@@ -34,8 +34,7 @@ describe("QCObjects Main Test", function () {
   });
 
   it("Existence of QCObjects SDK", function () {
-    expect(Object.hasOwnProperty.call(global,"_sdk_")).toEqual(true);
+    expect(Object.hasOwnProperty.call(global, "_sdk_")).toEqual(true);
     logger.debug("Existence of QCObjects SDK... OK");
   });
-
 });

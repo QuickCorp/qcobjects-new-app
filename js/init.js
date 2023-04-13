@@ -24,7 +24,7 @@
  * license document, but changing it is not allowed.
 */
 
-//import "../QCObjects.js"; /* uncomment this line to load QCObjects from backend */
+// import "../QCObjects.js"; /* uncomment this line to load QCObjects from backend */
 import "https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.52/QCObjects.js"; /* uncomment this line to load QCObjects from cdnjs */
 
 /*
@@ -38,20 +38,19 @@ CONFIG.set("componentsBasePath", "templates/components/");
 CONFIG.set("delayForReady", 1); // delay to wait before executing the first ready event, it includes imports
 CONFIG.set("preserveComponentBodyTag", false); // don't use <componentBody></componentBody> tag
 CONFIG.set("useConfigService", false); // Load settings from config.json
-CONFIG.set("routingWay","hash"); // routingWay possible values are 'hash','pathname','search'
-CONFIG.set("useLocalSDK",false); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
-CONFIG.set("tplextension","tpl.html"); // this is the file extension to locate the template files (if component.name = 'main' then template name will be main.tpl.html)
-CONFIG.set("asynchronousImportsLoad",true); // it is recommended to load the Import declarations in an asyncronous way
-CONFIG.set("serviceWorkerURI","/sw.js"); //QCObjects will register an launch this service worker automatically to work offline
+CONFIG.set("routingWay", "hash"); // routingWay possible values are 'hash','pathname','search'
+CONFIG.set("useLocalSDK", false); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
+CONFIG.set("tplextension", "tpl.html"); // this is the file extension to locate the template files (if component.name = 'main' then template name will be main.tpl.html)
+CONFIG.set("asynchronousImportsLoad", true); // it is recommended to load the Import declarations in an asyncronous way
+CONFIG.set("serviceWorkerURI", "/sw.js"); // QCObjects will register an launch this service worker automatically to work offline
 
 // if Component.cached is true, all the Class('Component') declarations will save the template in a localStorage cache
 // until a cached=false attribute is found in a <component> html declaration
-Component.cached=true;
+Component.cached = true;
 
 /**
  * Main import sentence.
  */
-
 
 Import("org.quickcorp.custom"); // this will load js/packages/org.quickcorp.custom.js file
 

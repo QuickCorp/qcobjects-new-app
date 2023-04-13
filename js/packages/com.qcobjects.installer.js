@@ -1,16 +1,16 @@
 "use strict";
-Package("com.qcobjects.installer",[
+Package("com.qcobjects.installer", [
   class Installer extends ClassFactory("InheritClass") {
-    constructor ({root}){
+    constructor ({ root }) {
       super(...arguments);
 
       this.root = root;
-      window.addEventListener("beforeinstallprompt", this.beforeinstallprompt.bind(this),false);
-      window.addEventListener("appinstalled", this.installed.bind(this),false);
-  
+      window.addEventListener("beforeinstallprompt", this.beforeinstallprompt.bind(this), false);
+      window.addEventListener("appinstalled", this.installed.bind(this), false);
+
       root.addEventListener("click", this.install.bind(this));
       root.addEventListener("touchend", this.install.bind(this));
-  
+
       window.matchMedia("(display-mode: standalone)").addEventListener("change", (evt) => {
         let displayMode = "browser";
         if (evt.matches) {
@@ -19,10 +19,9 @@ Package("com.qcobjects.installer",[
         NotificationComponent.success(`TWA in ${displayMode} Mode`);
       });
       global.set("installer", this);
-
     }
 
-    promptEvent=null;
+    promptEvent = null;
 
     beforeinstallprompt (e) {
       logger.debug("registering installer event");
@@ -35,14 +34,14 @@ Package("com.qcobjects.installer",[
     installed () {
       logger.debug("app is already installed");
       this.promptEvent = null;
-//         This fires after onbeforinstallprompt OR after manual add to homescreen.
+      //         This fires after onbeforinstallprompt OR after manual add to homescreen.
       this.root.classList.remove("available");
     }
 
     install () {
-      var root = this.root;
+      const root = this.root;
       logger.debug("installer actioned");
-      var promptEvent = this.promptEvent;
+      let promptEvent = this.promptEvent;
       if (promptEvent) {
         logger.debug("prompt event");
 
@@ -68,7 +67,5 @@ Package("com.qcobjects.installer",[
         logger.debug("not asking for install");
       }
     }
-
-
   }
 ]);

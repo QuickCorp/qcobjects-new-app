@@ -1,5 +1,5 @@
 "use strict";
-Package("org.quickcorp.custom.components",[
+Package("org.quickcorp.custom.components", [
   class GitHubGrid extends Component {
     name = "github-grid";
     tplsource = "inline";
@@ -16,33 +16,18 @@ Package("org.quickcorp.custom.components",[
     </style>
       $mapper(github-card,result)
     `;
-
-    constructor (){
-      super(...arguments);
-    }
-    
   },
 
   class Component1 extends Component {
     name = "main";
-    cached=false;
-    controller=null;
-    view=null;
-
-    constructor () {
-      super(...arguments);
-    }
+    cached = false;
+    controller = null;
+    view = null;
   },
 
   class Component2 extends Component {
     name = "component-two";
-    propertyName2="propertyValue2";
-
-    constructor () {
-      super(...arguments);
-    }
-
+    propertyName2 = "propertyValue2";
   }
-
 
 ]);
