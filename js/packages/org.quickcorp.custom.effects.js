@@ -9,7 +9,7 @@ Package("org.quickcorp.custom.effects",[
     };
     effects=["Fade","MoveYInFromBottom"];
     fitToHeight=true;
-
+    
     constructor (){
       super(...arguments);
     }

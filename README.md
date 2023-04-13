@@ -2,161 +2,150 @@
 
 This is a demo of a QCObjects based front-end Progressive Web App
 
+# Open Live Demo
+
+You can view the result of this project opening [QCObjects Demo App](https://newapp.qcobjects.dev) on any browser.
+
 # Project Structure
 
 The following is the project structure of a Progressive Web App made in QCObjects
 
 ```shell
-├── index.html
-├── Dockerfile
-├── README.md
-├── VERSION
-├── app.js
+.
 ├── css
-├── favicon.ico
-├── humans.txt
+│   ├── components
+│   │   └── hero
+│   ├── desktop
+│   ├── mobile
+│   └── theme
+│       ├── basic
+│       ├── cyan
+│       ├── redlight
+│       └── xtra
+├── demo-tests
 ├── img
+│   ├── icons
+│   └── screenshots
 ├── js
-├── localhost-cert.pem
-├── localhost-privkey.pem
-├── manifest.json
-├── package-lock.json
-├── package.json
-├── robots.txt
+│   └── packages
 ├── spec
-├── sw.js
-└── templates
-```
-
-# Detailed project Structure
-
-```shell
-├── Dockerfile
-├── README.md
-├── VERSION
-├── app.js
-├── css
-│   ├── components
-│   │   ├── button.css
-│   │   ├── card.css
-│   │   ├── hero
-│   │   │   ├── hero-call-to-action.css
-│   │   │   ├── hero-overlay.css
-│   │   │   └── hero-two-column-form.css
-│   │   └── modal.css
-│   ├── desktop
-│   │   ├── container.css
-│   │   ├── content.css
-│   │   ├── footer.css
-│   │   ├── index.css
-│   │   ├── navbar.css
-│   │   └── sidebar.css
-│   ├── index.css
-│   ├── mobile
-│   │   ├── content.css
-│   │   ├── footer.css
-│   │   ├── index.css
-│   │   ├── navbar.css
-│   │   └── sidebar.css
-│   ├── modern-base.css
-│   └── theme
-│       ├── basic
-│       │   └── style.css
-│       ├── cyan
-│       │   └── style.css
-│       ├── redlight
-│       │   └── style.css
-│       └── xtra
-│           └── style.css
-├── favicon.ico
-├── humans.txt
-├── img
-│   ├── Q_web\ copy.png
-│   ├── Q_web.png
-│   ├── Q_web.svg
-│   ├── icons
-│   │   ├── icon-128x128.png
-│   │   ├── icon-144x144.png
-│   │   ├── icon-152x152.png
-│   │   ├── icon-192x192.png
-│   │   ├── icon-384x384.png
-│   │   ├── icon-512x512.png
-│   │   ├── icon-72x72.png
-│   │   └── icon-96x96.png
-│   ├── logo-qcobjects-white.svg
-│   ├── logo.png
-│   ├── placeholder.svg
-│   └── screenshots
-│       ├── screenshot1.png
-│       ├── screenshot1.webp
-│       ├── screenshot2.png
-│       └── screenshot2.webp
-├── index.html
-├── js
-│   ├── init.js
-│   └── packages
-│       ├── installer.js
-│       ├── org.quickcorp.custom.components.js
-│       ├── org.quickcorp.custom.controllers.js
-│       ├── org.quickcorp.custom.effects.js
-│       ├── org.quickcorp.custom.js
-│       ├── org.quickcorp.custom.models.js
-│       └── org.quickcorp.custom.views.js
-├── localhost-cert.pem
-├── localhost-privkey.pem
-├── manifest.json
-├── package-lock.json
-├── package.json
-├── robots.txt
-├── spec
-│   ├── support
-│   │   └── jasmine.json
-│   └── testsSpec.js
-├── sw.js
+│   └── support
 └── templates
     └── components
-        ├── article1.tpl.html
-        ├── article2.tpl.html
-        ├── article3.tpl.html
-        ├── article4.tpl.html
-        ├── blank.tpl.html
-        ├── card.tpl.html
-        ├── contentblock.tpl.html
-        ├── footer.tpl.html
-        ├── footer2.tpl.html
-        ├── header.tpl.html
         ├── hero
-        │   ├── hero-call-to-action.tpl.html
-        │   ├── hero-overlay.tpl.html
-        │   └── hero-two-column-form.tpl.html
-        ├── install-button.tpl.html
-        ├── layout-basic.tpl.html
-        ├── loading.tpl.html
-        ├── loadingfooter.tpl.html
-        ├── login-button.tpl.html
-        ├── login2.tpl.html
-        ├── loginform.tpl.html
-        ├── modal.tpl.html
-        ├── nav.tpl.html
-        ├── pages
-        │   ├── page1.tpl.html
-        │   ├── page2.tpl.html
-        │   └── page3.tpl.html
-        ├── product.tpl.html
-        ├── profile.tpl.html
-        ├── pwa.tpl.html
-        ├── section1.tpl.html
-        ├── section2.tpl.html
-        ├── shadowed-card.tpl.html
-        ├── signin-button.tpl.html
-        ├── signup-form.tpl.html
-        ├── signup.tpl.html
-        ├── signupbuttons.tpl.html
-        ├── signupform.tpl.html
-        ├── signuppage.tpl.html
-        ├── signupsuccessful.tpl.html
-        ├── signupsuccessfulfooter.tpl.html
-        ├── splashscreen.tpl.html
-        └── topmenu.tpl.html
+        └── pages
 
+```
+
+# Entry point
+
+In index.html file, you will find this script:
+
+```javascript
+<script type="module" src="js/init.js"></script>
+```
+
+In the init.js file, you will find the main front-end settings:
+
+```javascript
+CONFIG.set("sourceType", "module");
+CONFIG.set("relativeImportPath", "js/packages/");
+CONFIG.set("componentsBasePath", "templates/components/");
+CONFIG.set("delayForReady", 1); // delay to wait before executing the first ready event, it includes imports
+CONFIG.set("preserveComponentBodyTag", false); // don't use <componentBody></componentBody> tag
+CONFIG.set("useConfigService", false); // Load settings from config.json
+CONFIG.set("routingWay","hash"); // routingWay possible values are 'hash','pathname','search'
+CONFIG.set("useLocalSDK",true); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
+CONFIG.set("tplextension","tpl.html"); // this is the file extension to locate the template files (if component.name = 'main' then template name will be main.tpl.html)
+CONFIG.set("asynchronousImportsLoad",true); // it is recommended to load the Import declarations in an asyncronous way
+CONFIG.set("serviceWorkerURI","/sw.js"); //QCObjects will register an launch this service worker automatically to work offline
+
+```
+
+You will also find the main imports:
+
+```javascript
+// note that this line is pure JavaScript ECMA2020
+import "../QCObjects.js";
+```
+
+```javascript
+Import("org.quickcorp.custom"); // this will load js/packages/org.quickcorp.custom.js file
+```
+
+Above Import function comes from QCObjects Framework
+You can either use this function or import statement to load QCObjects packages.
+
+# Enable QCObjects from local server
+
+In package.json file, in scripts section, you will find some common commands that need to be present in every project that works with QCObjects.
+
+```shell
+# Executes the tests of the project (see spec and coverage folders)
+npm run test
+```
+
+```shell
+# Syncronizes the version between npm and git
+npm run sync
+```
+
+```shell
+# This command is executed before a npm version is changed
+npm run preversion
+```
+
+```shell
+# This command is executed after a npm version is changed
+npm run postversion
+```
+
+```shell
+# You can run this command to dispatch the coverage scripts (see coverage folder)
+npm run coverage
+```
+
+```shell
+# Start the QCObjects Server
+npm run start
+```
+
+```shell
+# An alias to start the QCObjects Server
+npm run serve
+```
+
+```shell
+# An alias to start the QCObjects Server
+npm run server
+```
+
+```shell
+# This command will open a shell with QCObjects Collab Tool
+npm run collab
+```
+
+```shell
+# This command will open a shell with QCObjects running
+npm run shell
+```
+
+```shell
+# This command will create a certificate for ssl
+npm run createcert
+```
+
+```shell
+# This command will run QCObjects HTTP Server without SSL
+npm run http-server
+```
+
+```shell
+# This command will run QCObjects Server adapted for Google App Engine
+npm run gae-server
+```
+
+```shell
+# This command will be implemented in the future for TypeScript
+npm run build
 ```

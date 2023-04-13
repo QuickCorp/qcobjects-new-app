@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: https://ssl.gstatic.com; img-src * 'self' data:; child-src *; style-src * 'self' 'unsafe-inline' 'unsafe-eval'; script-src * 'self' 'unsafe-inline' 'unsafe-eval'; connect-src * 'self' 'unsafe-inline' 'unsafe-eval';media-src *">
+  <title>QCObjects Demo</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.20/QCObjects.js"></script>
+</head>
+
+<body>
+
+
+  <my-slider componentClass="org.qcobjects.components.slider.SliderComponent" serviceClass="GitHubRepoListService"></my-slider>
+
+  <script type="module">
+    //import "../QCObjects.js"; /* uncomment this line to load QCObjects from backend */
+    import "https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.52/QCObjects.js"; /* uncomment this line to load QCObjects from cdnjs */
+    CONFIG.set("sourceType", "module");
+    CONFIG.set("useLocalSDK", false); // on the frontend side you can chose whether to load the SDK from sdk.qcobjects.dev or from your local website
+    logger.debugEnabled = true;
+
+    Package("com.qcobjects.demo.slider.service", [
+      class GitHubRepoListService extends Service {
+        name = 'myservice';
+        external = true;
+        cached = false;
+        method = 'GET';
+        headers = { 'Content-Type': 'application/json' };
+        url = 'https://api.github.com/orgs/QuickCorp/repos';
+        withCredentials = false;
+
+        /**
+         * Creates the instance for MyTestService
+         */
+        constructor() {
+          super(...arguments);
+        }
+
+        /**
+         * What is inside this function is executed after the component loading is done
+         * 
+         * @param {*} standardResponse it brings all information of the component
+         */
+        done({ request, service }) {
+          logger.debug(request);
+
+          /* in this case we will parse response and use only the fields we need */
+          service.template = JSON.stringify({
+            result: JSON.parse(service.template).reverse().map(function (project) {
+              return {
+                id: project.id,
+                description: project.description,
+                title: project.name,
+                link: project.html_url,
+                image: `https://via.placeholder.com/350/999990/000000?text=${encodeURI(project.name)}`,
+                label: "Go to repo",
+                category: project.name
+              };
+            })
+          });
+        }
+
+
+      }
+
+    ]);
+
+    RegisterWidgets("my-slider")
+  </script>
+</body>
+
+</html>

@@ -13,8 +13,11 @@
 
 <header>
   <component name="header" shadowed="true" controllerClass="HeaderController" effectClass="MainTransitionEffect">
+    <routing path="#author" name="blank"></routing>
+    <routing path="#about-of" name="blank"></routing>
     <routing path="^#signup$" name="blank"></routing>
     <routing path="^#signin$" name="blank"></routing>
+    <routing path="^#author$" name="blank"></routing>
     <routing path="^#page1$" name="blank"></routing>
     <routing path="^#page2$" name="blank"></routing>
     <routing path="^#page3$" name="header"></routing>
@@ -30,6 +33,8 @@
   <nav>
     <span class="topnav">
       <component name="topmenu">
+          <routing path="#author" name="blank"></routing>
+          <routing path="#about-of" name="blank"></routing>
           <routing path="#page1" name="blank"></routing>
           <routing path="#page2" name="blank"></routing>
           <routing path="#page3" name="blank"></routing>
@@ -46,6 +51,8 @@
 <main role="main">
   <section>
     <component name="contentblock" effectClass="MainTransitionEffect">
+        <routing path="#author" name="pages/author"></routing>
+        <routing path="#about-of" name="pages/about-of"></routing>
         <routing path="#page1" name="pages/page1"></routing>
         <routing path="#page2" name="pages/page2"></routing>
         <routing path="#page3" name="pages/page3"></routing>
@@ -56,11 +63,13 @@
         <routing path="#signin" name="login2"></routing>
         <routing path="#" name="contentblock"></routing>
         <routing path="" name="contentblock"></routing>
-      </component>
+    </component>
   </section>
 </main>
 <footer>
-  <component name="footer"  effectClass="MainTransitionEffect">
+  <component name="footer" shadowed="true" effectClass="MainTransitionEffect">
+      <routing path="#author" name="blank"></routing>
+      <routing path="#about-of" name="blank"></routing>
       <routing path="^#signup$" name="signupbuttons"></routing>
       <routing path="^#loading$" name="loadingfooter"></routing>
       <routing path="^#signupsuccessful$" name="signupsuccessfulfooter"></routing>
