@@ -39,7 +39,6 @@
     "qcobjects-cli": "^2.4.30"
   },
   "dependencies": {
-    "eslint": "^8.38.0",
     "eslint-config-qcobjects": "^0.0.23",
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
