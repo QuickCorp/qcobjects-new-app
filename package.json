@@ -33,13 +33,13 @@
   "license": "LGPL-3.0-or-later",
   "devDependencies": {
     "eslint": "^8.38.0",
-    "eslint-config-qcobjects": "^0.0.23",
+    "eslint-config-qcobjects": "^0.0.26",
     "jasmine": "^3.99.0",
     "qcobjects": "^2.4.52",
     "qcobjects-cli": "^2.4.30"
   },
   "dependencies": {
-    "eslint-config-qcobjects": "^0.0.23",
+    "eslint-config-qcobjects": "^0.0.26",
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
