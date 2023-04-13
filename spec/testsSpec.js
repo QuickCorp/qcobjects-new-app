@@ -5,11 +5,7 @@ describe("QCObjects Main Test", function () {
   require("qcobjects");
 
   it("Class Declaration Test Spec", function () {
-    Class("Main", Object, {
-      _new_: (o) => {
-        let main = this;
-      }
-    });
+    Class("Main", Object, {});
 
     expect(Main).toEqual(ClassFactory("Main"));
     logger.debug("Class Declaration Test Spec... OK");
@@ -38,7 +34,7 @@ describe("QCObjects Main Test", function () {
   });
 
   it("Existence of QCObjects SDK", function () {
-    expect(global.hasOwnProperty("_sdk_")).toEqual(true);
+    expect(Object.hasOwnProperty.call(global,"_sdk_")).toEqual(true);
     logger.debug("Existence of QCObjects SDK... OK");
   });
 
