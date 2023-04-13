@@ -12,6 +12,7 @@ pages:
   - cp *.* public/
   - cd public
   - npm i
+  - npm i -D eslint-config-qcobjects
   - npm test
   artifacts:
     paths:
