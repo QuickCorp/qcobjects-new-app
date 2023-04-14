@@ -149,3 +149,13 @@ npm run gae-server
 # This command will be implemented in the future for TypeScript
 npm run build
 ```
+
+# Docker installation
+
+To run this app with docker, execute the following command:
+
+```shell
+docker run -p 8080:8080 -p 8443:8443 --name qcobjects-newapp -d qcobjects/qcobjects-newapp
+```
+
+Then go to [https://127.0.0.1:8443/](https://127.0.0.1:8443/)
