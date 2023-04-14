@@ -57,8 +57,6 @@ USER root
 # Bundle app source
 COPY --chown=qcobjects:qcobjects . .
 
-EXPOSE $PORT_HTTP:$PORT_HTTP
-EXPOSE $PORT_HTTPS:$PORT_HTTPS
 EXPOSE 8080:8080
 EXPOSE 8443:8443
 
