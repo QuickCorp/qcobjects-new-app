@@ -17,7 +17,7 @@ Package("com.qcobjects.services.github", [
           description: project.description,
           title: project.name,
           url: project.html_url,
-          image: `https://via.placeholder.com/150/000000/FFFFFF?text=${encodeURI(project.name)}`
+          image: `https://via.placeholder.com/170/000000/FFFFFF?text=${encodeURI(project.name)}`
         };
       });
 
@@ -45,7 +45,7 @@ Package("com.qcobjects.services.github", [
           description: project.description,
           title: project.name,
           url: project.html_url,
-          image: `https://via.placeholder.com/150/000000/FFFFFF?text=${encodeURI(project.name)}`
+          image: `https://via.placeholder.com/170/000000/FFFFFF?text=${encodeURI(project.name)}`
         };
       });
 
