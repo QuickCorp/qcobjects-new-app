@@ -10,6 +10,7 @@ pages:
   - cp -Rf spec/ public/
   - cp -Rf templates/ public/
   - cp *.* public/
+  - cp _redirects public/
   - cd public
   - npm i qcobjects && npm i -D eslint-config-qcobjects
   - npm i
