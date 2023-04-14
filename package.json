@@ -39,15 +39,16 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
-    "jasmine": "^3.99.0",
-    "qcobjects": "^2.4.55",
-    "qcobjects-cli": "^2.4.32",
-    "qcobjects-sdk": "^2.4.28"
+    "jasmine": "^3.99.0"
   },
   "dependencies": {
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "qcobjects": "^2.4.55",
+    "qcobjects-cli": "^2.4.32",
+    "qcobjects-sdk": "^2.4.28"
+
   },
   "engines": {
     "npm": ">=8.10.0",
