@@ -1,4 +1,4 @@
-FROM quickcorp/qcobjects:latest
+FROM node:current-slim
 
 WORKDIR /usr/src/app
 
