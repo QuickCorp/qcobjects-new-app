@@ -1,6 +1,6 @@
 {
   "name": "qcobjectsnewapp",
-  "version": "2.4.5",
+  "version": "2.4.7",
   "description": "App template for New App in QCObjects",
   "main": "js/init.js",
   "scripts": {
@@ -48,7 +48,6 @@
     "qcobjects": "^2.4.55",
     "qcobjects-cli": "^2.4.32",
     "qcobjects-sdk": "^2.4.28"
-
   },
   "engines": {
     "npm": ">=8.10.0",
