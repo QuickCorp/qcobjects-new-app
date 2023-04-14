@@ -25,16 +25,16 @@
  */
 
 /* NAV */
-nav > component {
+nav > quick-component {
   background-color: rgb(106, 229, 245);
 }
 
-nav > component a {
+nav > quick-component a {
   font-size: 15px;
   color: #28197e;
 }
 
-nav > component a:hover {
+nav > quick-component a:hover {
   color: #4aa7dd;
 }
 
