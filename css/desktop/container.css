@@ -28,7 +28,7 @@
 
 
 /* GRID */
-component[name=grid] {
+quick-component[name=grid] {
   display: grid;
   grid-template-rows: 50% 50%;
   grid-template-columns: 30% 30% 30%;

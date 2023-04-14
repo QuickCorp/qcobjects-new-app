@@ -11,10 +11,11 @@ pages:
   - cp -Rf templates/ public/
   - cp *.* public/
   - cd public
+  - npm i qcobjects && npm i -D eslint-config-qcobjects
   - npm i
   - npm test
   artifacts:
     paths:
     - public
   only:
-  - master
+  - main

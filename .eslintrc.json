@@ -1,8 +1,0 @@
-{
-  "extends": [
-    "qcobjects"
-  ],
-  "parserOptions": {
-    "sourceType": "module"
-  }
-}

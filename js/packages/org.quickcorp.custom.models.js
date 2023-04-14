@@ -1,15 +1,14 @@
 "use strict";
-Package("org.quickcorp.custom.models",[
+Package("org.quickcorp.custom.models", [
 
   class ContactVO extends VO {
-    first_name="";
-    last_name="";
-    address="";
-    postalCode="";
-    city="";
-    country="";
-    email="";
-    phone="";
-
+    first_name = "";
+    last_name = "";
+    address = "";
+    postalCode = "";
+    city = "";
+    country = "";
+    email = "";
+    phone = "";
   }
 ]);

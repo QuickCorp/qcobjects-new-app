@@ -1,0 +1,38 @@
+{
+    "devmode":"debug",
+    "autodiscover":true,
+    "cacheControl":"max-age=31536000",
+    "relativeImportPath":"js/packages/",
+    "serverPortHTTP": "8080",
+    "serverPortHTTPS": "8443",
+    "useLocalSDK":true,
+    "backend":{
+        "routes":[
+          {
+            "name":"QCObjects-SDK.js for demo folder",
+            "description":"Redirection of QCObjects SDK",
+            "path":"^/demo-tests/QCObjects-SDK.js$",
+            "microservice":"com.qcobjects.backend.microservice.static",
+            "redirect_to": "./node_modules/qcobjects-sdk/QCObjects-SDK.js",
+            "responseHeaders":{
+            },
+            "cors":{
+              "allow_origins":"*"
+            }
+          },
+          {
+            "name":"QCObjects-SDK Components for demo folder",
+            "description":"Redirection of QCObjects SDK",
+            "path":"^/demo-tests/qcobjects-sdk/(.*)$",
+            "microservice":"com.qcobjects.backend.microservice.static",
+            "redirect_to": "./node_modules/qcobjects-sdk/$1",
+            "responseHeaders":{},
+            "cors":{
+              "allow_origins":"*"
+            }
+          }
+            
+        
+        ]
+    }
+}
