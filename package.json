@@ -11,15 +11,23 @@
     "postversion": "git push && git push --tags",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "start": "npm run createcert && npm run serve",
-    "serve": "node ./backend/app.js",
-    "server": "node ./backend/app.js",
-    "collab": "node -e \"require('qcobjects-cli/qcobjects-collab')\"",
-    "shell": "node -e \"require('qcobjects-cli/qcobjects-shell')\"",
-    "createcert": "node -e \"require('qcobjects-cli/qcobjects-createcert')\"",
+    "serve": "qcobjects launch app",
+    "server": "npm run serve",
+    "collab": "qcobjects-collab",
+    "shell": "qcobjects shell",
+    "createcert": "qcobjects-createcert",
+    "v-patch" : "qcobjects v-patch",
+    "v-minor": "qcobjects v-minor",
+    "v-major": "qcobjects v-major",
+    "qcobjects": "qcobjects",
     "http-server": "node -e \"require('qcobjects-cli/qcobjects-http-server')\"",
     "gae-server": "node -e \"require('qcobjects-cli/qcobjects-gae-http-server')\"",
+    "azure-server": "npm start",
+    "aws-server": "npm start",
+    "do-server": "npm start",
     "build:ts": "npm run build:ts-types && npx tsc && (npx eslint build/*.js build/**/*.js spec/*.js --fix)",
-    "build:ts-types":"npx -p typescript tsc src/**/*.ts --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "build:ts-types": "npx -p typescript tsc src/**/*.ts --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "publish:local": "qcobjects publish",
     "prepare": "husky install"
   },
   "repository": {
@@ -48,6 +56,7 @@
     "husky": "^8.0.3",
     "jasmine": "^3.99.0",
     "lint-staged": "^13.2.1",
+    "qcobjects-cli": "^2.4.32",
     "typescript": "^5.0.4"
   },
   "dependencies": {
@@ -55,7 +64,6 @@
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
     "qcobjects": "^2.4.60",
-    "qcobjects-cli": "^2.4.32",
     "qcobjects-sdk": "^2.4.28"
   },
   "engines": {
