@@ -18,7 +18,7 @@
     "createcert": "node -e \"require('qcobjects-cli/qcobjects-createcert')\"",
     "http-server": "node -e \"require('qcobjects-cli/qcobjects-http-server')\"",
     "gae-server": "node -e \"require('qcobjects-cli/qcobjects-gae-http-server')\"",
-    "build:ts": "npx tsc",
+    "build:ts": "npm run build:ts-types && npx tsc && (npx eslint build/*.js build/**/*.js spec/*.js --fix)",
     "build:ts-types":"npx -p typescript tsc src/**/*.ts --declaration --allowJs --emitDeclarationOnly --outDir types",
     "prepare": "husky install"
   },

@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use strict";
 Package("com.qcobjects.installer", [
   class Installer extends ClassFactory("InheritClass") {
-    root: any;
-    constructor ({ root }) {
-      super(...arguments);
+
+    constructor({ root }) {
+      super({root});
 
       this.root = root;
       window.addEventListener("beforeinstallprompt", this.beforeinstallprompt.bind(this), false);
@@ -24,7 +25,7 @@ Package("com.qcobjects.installer", [
 
     promptEvent = null;
 
-    beforeinstallprompt (e) {
+    beforeinstallprompt(e) {
       logger.debug("registering installer event");
       e.preventDefault();
       this.promptEvent = e;
@@ -32,14 +33,14 @@ Package("com.qcobjects.installer", [
       return false;
     }
 
-    installed () {
+    installed() {
       logger.debug("app is already installed");
       this.promptEvent = null;
       //         This fires after onbeforinstallprompt OR after manual add to homescreen.
       this.root.classList.remove("available");
     }
 
-    install () {
+    install() {
       const root = this.root;
       logger.debug("installer actioned");
       let promptEvent = this.promptEvent;
@@ -70,3 +71,4 @@ Package("com.qcobjects.installer", [
     }
   }
 ]);
+

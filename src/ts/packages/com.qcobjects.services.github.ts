@@ -1,3 +1,4 @@
+/* eslint-disable prefer-rest-params */
 "use strict";
 Package("com.qcobjects.services.github", [
   class GitHubService extends JSONService {
@@ -9,9 +10,9 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/orgs/QuickCorp/repos";
     withCredentials = false;
 
-    done ({ request, service }) {
+    done({ request, service }) {
       logger.debug(request);
-      const result = JSON.parse(service.template).reverse().map(function (project) {
+      const result = JSON.parse(service.template).reverse().map(function (project: { id: any; description: any; name: string; html_url: any; }) {
         return {
           id: project.id,
           description: project.description,
@@ -37,9 +38,9 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/search/repositories?q=qcobjects";
     withCredentials = false;
 
-    done ({ request, service }) {
+    done({ request, service }) {
       logger.debug(request);
-      const result = JSON.parse(service.template).items.map(function (project) {
+      const result = JSON.parse(service.template).items.map(function (project: { id: any; description: any; name: string; html_url: any; }) {
         return {
           id: project.id,
           description: project.description,
@@ -74,6 +75,7 @@ Package("com.qcobjects.services.github", [
       };
     }
   }),
+
   Class("QCObjectsStarsForksService", Service, {
     name: "qcobjects_stars_forks_service",
     external: true,
