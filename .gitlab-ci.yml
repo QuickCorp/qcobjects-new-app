@@ -3,18 +3,18 @@ image: quickcorp/qcobjects:latest
 pages:
   stage: deploy
   script:
+  - npm i qcobjects && npm i -D eslint-config-qcobjects
+  - npm ci
+  - npm test
+  - npm build:ts
   - mkdir public
+  - cp build/*.* public/
   - cp -Rf css/ public/
   - cp -Rf img/ public/
   - cp -Rf js/ public/
   - cp -Rf spec/ public/
   - cp -Rf templates/ public/
-  - cp *.* public/
   - cp _redirects public/
-  - cd public
-  - npm i qcobjects && npm i -D eslint-config-qcobjects
-  - npm i
-  - npm test
   artifacts:
     paths:
     - public

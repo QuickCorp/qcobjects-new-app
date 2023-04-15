@@ -2,6 +2,7 @@
 Package("org.quickcorp.custom.views", [
 
   class CardView extends View {
+    component: any;
     done () {
       const _ret_ = super.done(...arguments);
       const component = this.component;
@@ -12,3 +13,4 @@ Package("org.quickcorp.custom.views", [
     }
   }
 ]);
+

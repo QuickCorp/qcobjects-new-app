@@ -2,22 +2,25 @@
   "name": "qcobjectsnewapp",
   "version": "2.4.10",
   "description": "App template for New App in QCObjects",
-  "main": "js/init.js",
+  "main": "src/js/init.ts",
+  "types": "src/types/init.d.ts",
   "scripts": {
-    "test": "((npx eslint *.js js/*.js js/packages/*.js spec/*.js --fix) && (npx jasmine)) || exit 0",
+    "test": "((npx eslint build/*.js build/**/*.js spec/*.js --fix) && (npx jasmine)) || exit 0",
     "sync": "git add . && git commit -am ",
     "preversion": "npm i --upgrade && npm test",
     "postversion": "git push && git push --tags",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "start": "npm run createcert && npm run serve",
-    "serve": "node app.js",
-    "server": "node app.js",
+    "serve": "node ./backend/app.js",
+    "server": "node ./backend/app.js",
     "collab": "node -e \"require('qcobjects-cli/qcobjects-collab')\"",
     "shell": "node -e \"require('qcobjects-cli/qcobjects-shell')\"",
     "createcert": "node -e \"require('qcobjects-cli/qcobjects-createcert')\"",
     "http-server": "node -e \"require('qcobjects-cli/qcobjects-http-server')\"",
     "gae-server": "node -e \"require('qcobjects-cli/qcobjects-gae-http-server')\"",
-    "build": "exit 0"
+    "build:ts": "npx tsc",
+    "build:ts-types":"npx -p typescript tsc src/**/*.ts --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "file",
@@ -32,25 +35,34 @@
   "author": "Jean Machuca (correojean@gmail.com)",
   "license": "LGPL-3.0-or-later",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
     "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-config-qcobjects": "^0.0.26",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
-    "jasmine": "^3.99.0"
+    "husky": "^8.0.3",
+    "jasmine": "^3.99.0",
+    "lint-staged": "^13.2.1",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
-    "qcobjects": "^2.4.55",
+    "qcobjects": "^2.4.60",
     "qcobjects-cli": "^2.4.32",
     "qcobjects-sdk": "^2.4.28"
   },
   "engines": {
     "npm": ">=8.10.0",
     "node": ">=14.17.6"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

@@ -1,11 +1,15 @@
 {
     "devmode":"debug",
     "autodiscover":true,
+    "documentRoot": "$config(projectPath)public/",
+    "documentRootFileIndex":"index.html",
     "cacheControl":"max-age=31536000",
     "relativeImportPath":"js/packages/",
     "serverPortHTTP": "8080",
     "serverPortHTTPS": "8443",
     "useLocalSDK":true,
+    "private-key-pem": "$config(domain)-privkey.pem",
+    "private-cert-pem": "$config(domain)-cert.pem",    
     "backend":{
         "routes":[
           {
@@ -34,5 +38,13 @@
             
         
         ]
+    },
+    "package":{
+      "source":{
+        "backend":"backend",
+        "frontend":"src"
+      },
+      "build": "build",
+      "dist": "dist"
     }
 }
