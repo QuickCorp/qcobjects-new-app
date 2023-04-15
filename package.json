@@ -5,7 +5,7 @@
   "main": "src/js/init.ts",
   "types": "src/types/init.d.ts",
   "scripts": {
-    "test": "((npx eslint build/*.js build/**/*.js spec/*.js --fix) && (npx jasmine)) || exit 0",
+    "test": "((npx eslint build/**/*.js spec/*.js --fix) && (npx jasmine)) || exit 0",
     "sync": "git add . && git commit -am ",
     "preversion": "npm i --upgrade && npm test",
     "postversion": "git push && git push --tags",
