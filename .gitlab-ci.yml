@@ -6,7 +6,7 @@ pages:
   - npm i qcobjects && npm i -D eslint-config-qcobjects
   - npm ci
   - npm test
-  - npm run build:ts
+  - npm run build:ts 
   - mkdir public
   - cp build/*.* public/
   - cp -Rf css/ public/
