@@ -1,0 +1,30 @@
+<style>
+@import url("./css/components/button.css");
+#installerbutton {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 40px;
+  text-align: center;
+  transition: opacity 300ms ease-in-out;
+  z-index:9999;
+}
+
+#installerbutton.available {
+  opacity: 1;
+}
+
+#installerbutton button {
+  border: white 1px solid;
+  margin:10px;
+  padding: 10px;
+  color: white;
+  background-color: transparent;
+}
+:host{
+  place-items: center;
+  margin:-30px;
+  background:rgb(1,1,1);
+}
+</style>
+<button id="installerbutton">INSTALL</button>

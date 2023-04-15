@@ -1,0 +1,82 @@
+<style>
+  /*
+  * Main Layout Styles
+  */
+  @import url('https://sdk.qcobjects.dev/css/basic-layout.css');
+  @import url('css/index.css');
+  $layout(landscape,css/desktop/index.css)
+  $layout(portrait,css/mobile/index.css)
+
+  /* uncomment the next line to apply a theme */
+  /* @import url('css/theme/cyan/style.css'); */
+</style>
+
+<header>
+  <quick-component name="header" shadowed="true" controllerClass="HeaderController" effectClass="MainTransitionEffect">
+    <routing path="#author" name="blank"></routing>
+    <routing path="#about-of" name="blank"></routing>
+    <routing path="^#signup$" name="blank"></routing>
+    <routing path="^#signin$" name="blank"></routing>
+    <routing path="^#author$" name="blank"></routing>
+    <routing path="^#page1$" name="blank"></routing>
+    <routing path="^#page2$" name="blank"></routing>
+    <routing path="^#page3$" name="header"></routing>
+    <routing path="^#loading$" name="blank"></routing>
+    <routing path="^#signupsuccessful$" name="blank"></routing>
+    <routing path="^#overlay$" name="hero/hero-overlay"></routing>
+    <routing path="^#two-column-header$" name="hero/hero-two-column-form"></routing>
+    <routing path="^#$" name="header"></routing>
+    <routing path="" name="header"></routing>
+</quick-component>
+</header>
+<aside>
+  <nav>
+    <span class="topnav">
+      <quick-component name="topmenu">
+          <routing path="#author" name="blank"></routing>
+          <routing path="#about-of" name="blank"></routing>
+          <routing path="#page1" name="blank"></routing>
+          <routing path="#page2" name="blank"></routing>
+          <routing path="#page3" name="blank"></routing>
+          <routing path="#signup" name="blank"></routing>
+          <routing path="#signin" name="blank"></routing>
+          <routing path="#" name="topmenu"></routing>
+          <routing path="" name="topmenu"></routing>
+      </quick-component>
+    </span>
+    <button  aria-label="nav button" role="button" tabindex="-1" class="navbtn" onclick="global.sideNavController.toggle()"></button>
+    <quick-component name="nav" controllerClass="SideNavController"></quick-component>
+  </nav>
+</aside>
+<main role="main">
+  <section>
+    <quick-component name="contentblock" effectClass="MainTransitionEffect">
+        <routing path="#author" name="pages/author"></routing>
+        <routing path="#about-of" name="pages/about-of"></routing>
+        <routing path="#page1" name="pages/page1"></routing>
+        <routing path="#page2" name="pages/page2"></routing>
+        <routing path="#page3" name="pages/page3"></routing>
+        <routing path="^#signup$" name="signup" ></routing>
+        <routing path="^#coursedetail$" name="coursedetail"></routing>
+        <routing path="^#loading$" name="loading"></routing>
+        <routing path="^#signupsuccessful$" name="signupsuccessful"></routing>
+        <routing path="#signin" name="login2"></routing>
+        <routing path="#" name="contentblock"></routing>
+        <routing path="" name="contentblock"></routing>
+    </quick-component>
+  </section>
+</main>
+<footer>
+  <quick-component name="footer" shadowed="true" effectClass="MainTransitionEffect">
+      <routing path="#author" name="blank"></routing>
+      <routing path="#about-of" name="blank"></routing>
+      <routing path="^#signup$" name="signupbuttons"></routing>
+      <routing path="^#loading$" name="loadingfooter"></routing>
+      <routing path="^#signupsuccessful$" name="signupsuccessfulfooter"></routing>
+      <routing path="#page1" name="blank"></routing>
+      <routing path="#page2" name="blank"></routing>
+      <routing path="#page3" name="blank"></routing>
+      <routing path="#" name="footer"></routing>
+      <routing path="" name="footer"></routing>
+  </quick-component>
+</footer>

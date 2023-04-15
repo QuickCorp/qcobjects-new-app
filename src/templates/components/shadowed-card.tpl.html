@@ -1,0 +1,26 @@
+<!-- shadowed card
+To use this card, insert this component tag in your container file
+     <card name="shadowed-card" shadowed="true" data-title="" data-description="" data-image=""></component>
+-->
+<style>
+  /* If you use shadowed=true
+  This style will be automatically shadowed in the browser */
+  @import url("./css/components/card.css");
+</style>
+
+<div class="card">
+  <div class="img">
+  <slot id="slot-logo" name="logo"><img src="img/placeholder.svg" alt="Avatar" style="width:100%"></slot>
+  </div>
+  <div class="container">
+    <div class="title">
+      <slot id="slot-card-title" name="card_title"></slot>
+    </div>
+    <div class="description">
+    <slot id="slot-card-description" name="card_description"></slot>
+    </div>
+    <div class="card-button">
+      <slot id="slot-card-button" name="card-button" ></slot>
+    </div>
+  </div>
+</div>

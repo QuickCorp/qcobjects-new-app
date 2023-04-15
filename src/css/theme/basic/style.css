@@ -1,0 +1,74 @@
+/*!
+ * QCObjects SDK @VERSION
+ * https://sdk.qcobjects.com
+ *
+ *
+ * QCObjects SDK is a part of QCObjects
+ *
+ * Cross Browser Javascript Framework for MVC Patterns
+ * QuickCorp/QCObjects is licensed under the
+ * GNU Lesser General Public License v3.0
+ * [LICENSE] (https://github.com/QuickCorp/QCObjects/blob/master/LICENSE.txt)
+ *
+ * Permissions of this copyleft license are conditioned on making available
+ * complete source code of licensed works and modifications under the same
+ * license or the GNU GPLv3. Copyright and license notices must be preserved.
+ * Contributors provide an express grant of patent rights. However, a larger
+ * work using the licensed work through interfaces provided by the licensed
+ * work may be distributed under different terms and without source code for
+ * the larger work.
+ *
+ * Copyright (C) 2015 Jean Machuca,<correojean@gmail.com>
+ *
+ * Everyone is permitted to copy and distribute verbatim copies of this
+ * license document, but changing it is not allowed.
+ */
+
+/* NAV */
+nav > quick-component {
+  background-color: #111;
+}
+
+nav > quick-component a {
+  font-size: 15px;
+  color: #ecffc7;
+}
+
+nav > quick-component a:hover {
+  color: #f1f1f1;
+}
+
+nav details {
+  background-color: #222;
+}
+
+nav { color: white; }
+
+
+
+nav {
+  text-align: justify;
+}
+
+nav > button.navbtn {
+  background-color: #111;
+  color: white;
+}
+
+nav > span.topnav {
+  background-color: #111;
+}
+
+/* HEADER */
+header {
+  padding-top: 80px;
+}
+
+header div {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* FOOTER */
+footer {
+  background: #fff7f7;
+}

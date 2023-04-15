@@ -1,0 +1,70 @@
+/*!
+ * QCObjects SDK @VERSION
+ * https://sdk.qcobjects.com
+ *
+ *
+ * QCObjects SDK is a part of QCObjects
+ *
+ * Cross Browser Javascript Framework for MVC Patterns
+ * QuickCorp/QCObjects is licensed under the
+ * GNU Lesser General Public License v3.0
+ * [LICENSE] (https://github.com/QuickCorp/QCObjects/blob/master/LICENSE.txt)
+ *
+ * Permissions of this copyleft license are conditioned on making available
+ * complete source code of licensed works and modifications under the same
+ * license or the GNU GPLv3. Copyright and license notices must be preserved.
+ * Contributors provide an express grant of patent rights. However, a larger
+ * work using the licensed work through interfaces provided by the licensed
+ * work may be distributed under different terms and without source code for
+ * the larger work.
+ *
+ * Copyright (C) 2015 Jean Machuca,<correojean@gmail.com>
+ *
+ * Everyone is permitted to copy and distribute verbatim copies of this
+ * license document, but changing it is not allowed.
+ */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  border-radius: 12px !important;
+  border: none !important;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #111;
+  background-image: radial-gradient(#edeeef, #dee3de, #fcfcfc);
+  margin: auto;
+  padding: 20px;
+  border-radius: 12px !important;
+  border: 1px solid #909090;
+  width: 80%;
+  height: auto;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal * { color: black; }
