@@ -3,7 +3,7 @@
   "version": "2.4.10",
   "description": "App template for New App in QCObjects",
   "main": "src/js/init.ts",
-  "types": "src/types/init.d.ts",
+  "types": "types/init.d.ts",
   "scripts": {
     "test": "((npx eslint build/**/*.js spec/*.js --fix) && (npx jasmine)) || exit 0",
     "sync": "git add . && git commit -am ",
@@ -16,18 +16,22 @@
     "collab": "qcobjects-collab",
     "shell": "qcobjects shell",
     "createcert": "qcobjects-createcert",
-    "v-patch" : "qcobjects v-patch",
+    "v-patch": "qcobjects v-patch",
     "v-minor": "qcobjects v-minor",
     "v-major": "qcobjects v-major",
     "qcobjects": "qcobjects",
+    "cli": "qcobjects",
     "http-server": "node -e \"require('qcobjects-cli/qcobjects-http-server')\"",
     "gae-server": "node -e \"require('qcobjects-cli/qcobjects-gae-http-server')\"",
     "azure-server": "npm start",
     "aws-server": "npm start",
     "do-server": "npm start",
-    "build:ts": "npm run build:ts-types && npx tsc && (npx eslint build/*.js build/**/*.js spec/*.js --fix)",
-    "build:ts-types": "npx -p typescript tsc src/**/*.ts --declaration --allowJs --emitDeclarationOnly --outDir types",
-    "publish:local": "qcobjects publish",
+    "build:ts": "npx tsc && (npx eslint build/**/*.js spec/*.js --fix)",
+    "build:ts-types": "npx -p typescript tsc src/**/*.ts --declaration --allowJs --esModuleInterop --emitDeclarationOnly --outDir types",
+    "publish:local": "qcobjects publish local",
+    "publish:ios": "qcobjects publish ios",
+    "publish:android": "qcobjects publish android",
+    "publish:electron": "qcobjects publish electron",
     "prepare": "husky install"
   },
   "repository": {
@@ -43,6 +47,8 @@
   "author": "Jean Machuca (correojean@gmail.com)",
   "license": "LGPL-3.0-or-later",
   "devDependencies": {
+    "@types/qcobjects": "github:QCObjects/-types-qcobjects",
+    "@types/qcobjects-sdk": "github:QCObjects/-types-qcobjects-sdk",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "eslint": "^8.38.0",
@@ -63,7 +69,7 @@
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
-    "qcobjects": "^2.4.60",
+    "qcobjects": "^2.4.63",
     "qcobjects-sdk": "^2.4.28"
   },
   "engines": {

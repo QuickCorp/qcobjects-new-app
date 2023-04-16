@@ -1,5 +1,7 @@
 /* eslint-disable prefer-rest-params */
 "use strict";
+import { Package, JSONService, Service, Class, logger } from "qcobjects";
+
 Package("com.qcobjects.services.github", [
   class GitHubService extends JSONService {
     name = "myservice";
@@ -10,9 +12,9 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/orgs/QuickCorp/repos";
     withCredentials = false;
 
-    done({ request, service }) {
+    done({ request, service }: { request: XMLHttpRequest, service: Service }) {
       logger.debug(request);
-      const result = JSON.parse(service.template).reverse().map(function (project: { id: any; description: any; name: string; html_url: any; }) {
+      const result = JSON.parse(service.template).reverse().map(function (project: { id: string; description: string; name: string; html_url: string; }) {
         return {
           id: project.id,
           description: project.description,
@@ -38,9 +40,9 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/search/repositories?q=qcobjects";
     withCredentials = false;
 
-    done({ request, service }) {
+    done({ request, service }: { request: XMLHttpRequest, service: Service }) {
       logger.debug(request);
-      const result = JSON.parse(service.template).items.map(function (project: { id: any; description: any; name: string; html_url: any; }) {
+      const result = JSON.parse(service.template).items.map(function (project: { id: string; description: string; name: string; html_url: string; }) {
         return {
           id: project.id,
           description: project.description,
@@ -68,7 +70,7 @@ Package("com.qcobjects.services.github", [
     _new_: () => {
       // service instantiated
     },
-    done: ({ service }) => {
+    done: ({ service }: { service: Service }) => {
       const latest = JSON.parse(service.template)[0];
       service.template = {
         version: latest.name
@@ -87,7 +89,7 @@ Package("com.qcobjects.services.github", [
     _new_: () => {
       // service instantiated
     },
-    done: ({ service }) => {
+    done: ({ service }: { service: Service }) => {
       const repo = JSON.parse(service.template);
       service.template = {
         forks: repo.forks_count,

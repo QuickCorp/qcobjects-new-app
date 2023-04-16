@@ -1,4 +1,7 @@
 "use strict";
+
+import { Package, VO } from "qcobjects";
+
 Package("org.quickcorp.custom.models", [
 
   class ContactVO extends VO {

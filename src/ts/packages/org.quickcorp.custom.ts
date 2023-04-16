@@ -1,4 +1,6 @@
 "use script";
+import {Import} from "qcobjects";
+
 Import("com.qcobjects.installer");
 Import("org.quickcorp.custom.effects");
 Import("org.quickcorp.custom.models");

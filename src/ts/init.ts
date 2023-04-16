@@ -25,7 +25,8 @@
 */
 
 // import "../QCObjects.js"; /* uncomment this line to load QCObjects from backend */
-import "https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.52/QCObjects.js"; /* uncomment this line to load QCObjects from cdnjs */
+// import "https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.52/QCObjects.js"; /* uncomment this line to load QCObjects from cdnjs */
+import {CONFIG, Component, Import, RegisterWidgets} from "qcobjects";
 
 /*
 * The next values are the default settings

@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use strict";
-Package("com.qcobjects.installer", [
-  class Installer extends ClassFactory("InheritClass") {
+import {Package, logger, global} from "qcobjects";
+import { NotificationComponent } from "qcobjects-sdk";
 
-    constructor({ root }) {
-      super({root});
+Package("com.qcobjects.installer", [
+  class Installer {
+    root: Element;
+    promptEvent!: any;
+
+    constructor(root:any) {
 
       this.root = root;
       window.addEventListener("beforeinstallprompt", this.beforeinstallprompt.bind(this), false);
@@ -23,9 +27,7 @@ Package("com.qcobjects.installer", [
       global.set("installer", this);
     }
 
-    promptEvent = null;
-
-    beforeinstallprompt(e) {
+    beforeinstallprompt(e:Event) {
       logger.debug("registering installer event");
       e.preventDefault();
       this.promptEvent = e;
@@ -49,7 +51,7 @@ Package("com.qcobjects.installer", [
 
         promptEvent.prompt();
         promptEvent.userChoice
-          .then(function (choiceResult) {
+          .then(function (choiceResult: { outcome: string; }) {
             if (choiceResult.outcome === "accepted") {
               // The user actioned the prompt (good or bad).
               // good is handled in
@@ -59,7 +61,7 @@ Package("com.qcobjects.installer", [
             }
             promptEvent = null;
           })
-          .catch(function (installError) {
+          .catch(function (installError: { toString: () => any; }) {
             // Boo. update the UI.
             promptEvent = null;
             root.classList.remove("available");
