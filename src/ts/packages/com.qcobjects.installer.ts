@@ -8,6 +8,13 @@ Package("com.qcobjects.installer", [
     root: Element;
     promptEvent!: HTMLElement;
 
+    /**
+     * Creates an instance of Installer.
+     * @date 18/04/2023 - 22:27:17
+     *
+     * @constructor
+     * @param {HTMLElement} root
+     */
     constructor(root:HTMLElement) {
       super();
 
@@ -28,6 +35,13 @@ Package("com.qcobjects.installer", [
       global.set("installer", this);
     }
 
+    /**
+     * It is executed before the install prompt event
+     * @date 18/04/2023 - 22:27:30
+     *
+     * @param {Event} e
+     * @returns {boolean}
+     */
     beforeinstallprompt(e:Event) {
       logger.debug("registering installer event");
       e.preventDefault();
@@ -36,6 +50,10 @@ Package("com.qcobjects.installer", [
       return false;
     }
 
+    /**
+     * it works after the install event
+     * @date 18/04/2023 - 22:28:36
+     */
     installed() {
       logger.debug("app is already installed");
       global.set("promptEvent", null);
@@ -43,6 +61,10 @@ Package("com.qcobjects.installer", [
       this.root.classList.remove("available");
     }
 
+    /**
+     * it executes the install after the button click
+     * @date 18/04/2023 - 22:29:11
+     */
     install() {
       const root = this.root;
       logger.debug("installer actioned");
