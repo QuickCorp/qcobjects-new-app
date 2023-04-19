@@ -69,7 +69,6 @@
     "lint-staged": "^13.2.1",
     "parcel": "^2.8.3",
     "process": "^0.11.10",
-    "qcobjects": "file:../QCObjects-v2.4-beta",
     "qcobjects-cli": "^2.4.32",
     "typescript": "^5.0.4"
   },
@@ -77,6 +76,7 @@
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
+    "qcobjects": "^2.4.60",
     "qcobjects-sdk": "^2.4.28"
   },
   "engines": {
