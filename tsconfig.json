@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2021",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "lib": ["ES2021", "ES2020","DOM"],                                      /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    "module": "ES2020",                                /* Specify what module code is generated. */
+    "target": "ES2022",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "lib": ["ES2022","ES2021", "ES2020","DOM"],                                      /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+    "module": "ESNext",                                /* Specify what module code is generated. */
     "rootDir": "src/ts",                                    /* Specify the root folder within your source files. */
     "allowJs": true,                                     /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
     "outDir": "build/js",                                   /* Specify an output folder for all emitted files. */
@@ -12,8 +12,10 @@
     "noImplicitAny": true,                               /* Enable error reporting for expressions and declarations with an implied 'any' type. */
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     "moduleResolution": "nodenext",
-    "declaration": false
+    "declaration": false,
+    "sourceMap": false,
+    "isolatedModules": true
   },
   "include": ["src/ts/**/*.ts"],
-  "exclude": ["src/**/*.spec.ts", "src/*.js"]
+  "exclude": ["src/**/*.spec.js", "src/*.js"]
 }

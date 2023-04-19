@@ -1,6 +1,6 @@
 /* eslint-disable prefer-rest-params */
 "use strict";
-import { Package, JSONService, Service, Class, logger } from "qcobjects";
+import { Package, JSONService, Service, logger, Class } from "qcobjects";
 
 Package("com.qcobjects.services.github", [
   class GitHubService extends JSONService {

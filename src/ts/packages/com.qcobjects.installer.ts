@@ -1,21 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-unreachable */
 "use strict";
-import {Package, logger, global} from "qcobjects";
+import global, { InheritClass, Package, logger } from "qcobjects";
 import { NotificationComponent } from "qcobjects-sdk";
 
 Package("com.qcobjects.installer", [
-  class Installer {
+  class Installer extends InheritClass{
     root: Element;
-    promptEvent!: any;
+    promptEvent!: HTMLElement;
 
-    constructor(root:any) {
+    constructor(root:HTMLElement) {
+      super();
 
       this.root = root;
-      window.addEventListener("beforeinstallprompt", this.beforeinstallprompt.bind(this), false);
-      window.addEventListener("appinstalled", this.installed.bind(this), false);
+      window.addEventListener("beforeinstallprompt", ()=>this.beforeinstallprompt.bind(this), false);
+      window.addEventListener("appinstalled", ()=>this.installed.bind(this), false);
 
-      root.addEventListener("click", this.install.bind(this));
-      root.addEventListener("touchend", this.install.bind(this));
+      root.addEventListener("click", ()=>this.install.bind(this));
+      root.addEventListener("touchend", ()=>this.install.bind(this));
 
       window.matchMedia("(display-mode: standalone)").addEventListener("change", (evt) => {
         let displayMode = "browser";
@@ -30,14 +31,14 @@ Package("com.qcobjects.installer", [
     beforeinstallprompt(e:Event) {
       logger.debug("registering installer event");
       e.preventDefault();
-      this.promptEvent = e;
+      global.set("promptEvent", e);
       this.root.classList.add("available");
       return false;
     }
 
     installed() {
       logger.debug("app is already installed");
-      this.promptEvent = null;
+      global.set("promptEvent", null);
       //         This fires after onbeforinstallprompt OR after manual add to homescreen.
       this.root.classList.remove("available");
     }
@@ -45,7 +46,7 @@ Package("com.qcobjects.installer", [
     install() {
       const root = this.root;
       logger.debug("installer actioned");
-      let promptEvent = this.promptEvent;
+      let promptEvent = global.get("promptEvent", null);
       if (promptEvent) {
         logger.debug("prompt event");
 

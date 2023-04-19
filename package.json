@@ -2,8 +2,10 @@
   "name": "qcobjectsnewapp",
   "version": "2.4.10",
   "description": "App template for New App in QCObjects",
-  "main": "src/js/init.ts",
-  "types": "types/init.d.ts",
+  "source": "build/ts/init.ts",
+  "main": "public/js/init.js",
+  "type": "commonjs",
+  "types": "src/ts/types/init.d.ts",
   "scripts": {
     "test": "((npx eslint build/**/*.js spec/*.js --fix) && (npx jasmine)) || exit 0",
     "sync": "git add . && git commit -am ",
@@ -32,6 +34,8 @@
     "publish:ios": "qcobjects publish ios",
     "publish:android": "qcobjects publish android",
     "publish:electron": "qcobjects publish electron",
+    "publish:esbuild": "npx esbuild build/js/init.js --bundle --servedir=public --outdir=public/js",
+    "publish:parcel": "npx parcel",
     "prepare": "husky install"
   },
   "repository": {
@@ -47,6 +51,7 @@
   "author": "Jean Machuca (correojean@gmail.com)",
   "license": "LGPL-3.0-or-later",
   "devDependencies": {
+    "@parcel/transformer-typescript-types": "^2.8.3",
     "@types/qcobjects": "github:QCObjects/-types-qcobjects",
     "@types/qcobjects-sdk": "github:QCObjects/-types-qcobjects-sdk",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
@@ -62,6 +67,9 @@
     "husky": "^8.0.3",
     "jasmine": "^3.99.0",
     "lint-staged": "^13.2.1",
+    "parcel": "^2.8.3",
+    "process": "^0.11.10",
+    "qcobjects": "file:../QCObjects-v2.4-beta",
     "qcobjects-cli": "^2.4.32",
     "typescript": "^5.0.4"
   },
@@ -69,7 +77,6 @@
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
-    "qcobjects": "^2.4.63",
     "qcobjects-sdk": "^2.4.28"
   },
   "engines": {

@@ -25,14 +25,21 @@
 */
 
 // import "../QCObjects.js"; /* uncomment this line to load QCObjects from backend */
-// import "https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.52/QCObjects.js"; /* uncomment this line to load QCObjects from cdnjs */
-import {CONFIG, Component, Import, RegisterWidgets} from "qcobjects";
+/* import "https://cdnjs.cloudflare.com/ajax/libs/qcobjects/2.4.52/QCObjects.js"; */ /* uncomment this line to load QCObjects from cdnjs */
+import { CONFIG, Component, Import, RegisterWidgets } from "qcobjects";
+
+/**
+ * Main import sentence.
+ */
+
+Import ("./packages/org.quickcorp.custom");
 
 /*
 * The next values are the default settings
 * You can change any value in runtime by using CONFIG.set
 * or changing the static initial value in a config.json file
 */
+CONFIG.set("useSDK", false);
 CONFIG.set("sourceType", "module");
 CONFIG.set("relativeImportPath", "js/packages/");
 CONFIG.set("componentsBasePath", "templates/components/");
@@ -47,13 +54,7 @@ CONFIG.set("serviceWorkerURI", "/sw.js"); // QCObjects will register an launch t
 
 // if Component.cached is true, all the Class('Component') declarations will save the template in a localStorage cache
 // until a cached=false attribute is found in a <component> html declaration
-Component.cached = true;
-
-/**
- * Main import sentence.
- */
-
-Import("org.quickcorp.custom"); // this will load js/packages/org.quickcorp.custom.js file
+Component.cached = true; // this will load js/packages/org.quickcorp.custom.js file
 
 // eslint-disable-next-line no-undef
 RegisterWidgets("layout-basic", "splash-screen", "github-grid", "octocat-icon", "lib-list");

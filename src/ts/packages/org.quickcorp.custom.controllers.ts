@@ -2,8 +2,8 @@
 /* eslint-disable no-unused-vars */
 "use strict";
 
-import { Package, Controller, logger, _DOMCreateElement, New, Effect, QCObjectsElement, QCObjectsShadowedElement, ClassFactory } from "qcobjects";
-import global from "../../../types/global";
+import { Package, Controller, logger, _DOMCreateElement, Effect, New, ClassFactory, QCObjectsElement, QCObjectsShadowedElement } from "qcobjects";
+import global from "../types/global.d";
 
 Package("org.quickcorp.custom.controllers", [
 
@@ -91,7 +91,8 @@ Package("org.quickcorp.custom.controllers", [
   },
 
   class HeaderController extends Controller {
-    installer: any;
+    installer:any;
+
     loadInstallerButton () {
       const componentRoot = (this.component.shadowed) ? (this.component.shadowRoot as QCObjectsShadowedElement) : (this.component.body as QCObjectsElement);
       componentRoot.subelements("#installerbutton").map(
@@ -102,7 +103,7 @@ Package("org.quickcorp.custom.controllers", [
       );
     }
 
-    done (...args:Array<any>) {
+    done (...args:Array<never>) {
       const _ret_ = super.done(args);
       this.loadInstallerButton();
       return _ret_;

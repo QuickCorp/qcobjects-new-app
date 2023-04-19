@@ -1,11 +1,10 @@
 "use strict";
 
-import { Component, Package, View } from "qcobjects";
+import { Package, View } from "qcobjects";
 
 Package("org.quickcorp.custom.views", [
 
   class CardView extends View {
-    component!: Component;
     
     done (...args:Array<never>) {
       const _ret_ = super.done(args);
