@@ -6,17 +6,12 @@ pages:
   - npm i qcobjects && npm i -D eslint-config-qcobjects
   - npm ci
   - npm test
-  - npm run build:ts 
   - mkdir public
-  - cp build/*.* public/
-  - cp -Rf css/ public/
-  - cp -Rf img/ public/
-  - cp -Rf js/ public/
-  - cp -Rf spec/ public/
-  - cp -Rf templates/ public/
+  - npm run publish:web
   - cp _redirects public/
   artifacts:
     paths:
+    - build
     - public
   only:
   - main
