@@ -16,7 +16,7 @@ module.exports = {
     "qcobjects"
 
   ],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
   root: true
 };

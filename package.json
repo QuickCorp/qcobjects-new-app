@@ -2,18 +2,26 @@
   "name": "qcobjectsnewapp",
   "version": "2.4.10",
   "description": "App template for New App in QCObjects",
-  "source": "build/ts/init.ts",
+  "targets": {
+    "default": {
+      "source": "build/index.html",
+      "distDir": "public"
+    }
+  },
   "main": "public/js/init.js",
   "type": "commonjs",
   "types": "src/ts/types/init.d.ts",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "test": "((npx eslint build/**/*.js spec/*.js --fix) && (npx jasmine)) || exit 0",
+    "test": "(npm run lint && (npx jasmine))",
+    "lint": "(npx eslint src/**/*.ts --fix --ext ts)",
     "sync": "git add . && git commit -am ",
     "preversion": "npm i --upgrade && npm test",
     "postversion": "git push && git push --tags",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "start": "npm run createcert && npm run serve",
-    "serve": "qcobjects launch app",
+    "start:parcel": "npx parcel --dist-dir public",
+    "serve": "qcobjects-server",
     "server": "npm run serve",
     "collab": "qcobjects-collab",
     "shell": "qcobjects shell",
@@ -28,15 +36,19 @@
     "azure-server": "npm start",
     "aws-server": "npm start",
     "do-server": "npm start",
-    "build:ts": "npx tsc && (npx eslint build/**/*.js spec/*.js --fix)",
+    "build:static": "rm -Rf build && (rsync -av --progress src/ build --exclude js )",
+    "build:ts": "npm test && npx tsc",
     "build:ts-types": "npx -p typescript tsc src/**/*.ts --declaration --allowJs --esModuleInterop --emitDeclarationOnly --outDir types",
+    "publish:static": "rm -Rf public && (rsync -av --progress build/ public --exclude js --exclude index.html )",
     "publish:local": "qcobjects publish local",
     "publish:ios": "qcobjects publish ios",
     "publish:android": "qcobjects publish android",
     "publish:electron": "qcobjects publish electron",
-    "publish:esbuild": "npx esbuild build/js/init.js --bundle --servedir=public --outdir=public/js",
-    "publish:parcel": "npx parcel",
-    "prepare": "husky install"
+    "publish:esbuild": "cp build/index.html public/ && npx esbuild build/js/*.js build/js/**/*.js --bundle --outdir=public/js --keep-names --minify --global-name=global --sourcemap",
+    "publish:parcel": "npx parcel build",
+    "publish:web": "npm-run-all build:static build:ts publish:static publish:esbuild",
+    "prepare": "husky install",
+    "prestart": "npm run publish:web"
   },
   "repository": {
     "type": "file",
@@ -51,7 +63,13 @@
   "author": "Jean Machuca (correojean@gmail.com)",
   "license": "LGPL-3.0-or-later",
   "devDependencies": {
+    "@parcel/config-default": "^2.8.3",
+    "@parcel/packager-raw-url": "^2.8.3",
+    "@parcel/packager-ts": "^2.8.3",
+    "@parcel/transformer-typescript-tsc": "^2.8.3",
     "@parcel/transformer-typescript-types": "^2.8.3",
+    "@parcel/transformer-webmanifest": "^2.8.3",
+    "@parcel/validator-typescript": "^2.8.3",
     "@types/qcobjects": "github:QCObjects/-types-qcobjects",
     "@types/qcobjects-sdk": "github:QCObjects/-types-qcobjects-sdk",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
@@ -64,24 +82,27 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
+    "hint": "^2.0.0",
     "husky": "^8.0.3",
     "jasmine": "^3.99.0",
     "lint-staged": "^13.2.1",
+    "npm-run-all": "^4.1.5",
     "parcel": "^2.8.3",
     "process": "^0.11.10",
     "qcobjects-cli": "^2.4.32",
+    "systemjs": "^6.14.1",
     "typescript": "^5.0.4"
   },
   "dependencies": {
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
-    "qcobjects": "^2.4.60",
-    "qcobjects-sdk": "^2.4.28"
+    "qcobjects": "^2.4.67",
+    "qcobjects-sdk": "^2.4.30"
   },
   "engines": {
-    "npm": ">=8.10.0",
-    "node": ">=14.17.6"
+    "npm": ">=8",
+    "node": ">=16"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

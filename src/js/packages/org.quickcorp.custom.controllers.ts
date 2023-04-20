@@ -1,17 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 "use strict";
 
-import { Package, Controller, logger, _DOMCreateElement, Effect, New, ClassFactory, QCObjectsElement, QCObjectsShadowedElement } from "qcobjects";
-import global from "../types/global.d";
+import global, { Package, Controller, logger, _DOMCreateElement, Effect, New, ClassFactory, QCObjectsElement, QCObjectsShadowedElement, Component } from "qcobjects";
 
 Package("org.quickcorp.custom.controllers", [
-
   class MainController extends Controller {
     static loaded: boolean;
-    constructor (...arg:Array<never>) {
+    constructor ({component}:{component:Component}) {
       logger.debug("Initializing MainController...");
-      super(arg);
+      super({component});
     }
 
     done (...args:Array<never>) {
@@ -30,9 +29,10 @@ Package("org.quickcorp.custom.controllers", [
   class SideNavController extends Controller {
     effect!: Effect;
     visibility!: boolean;
-    constructor (...args:Array<never>) {
-      super(args);
-      global.sideNavController = this;
+    constructor ({component}:{component:Component}) {
+      logger.debug("Initializing SideNavController...");
+      super({component});
+      (global as any).sideNavController = this;
     }
 
     done (...args:Array<any>){
