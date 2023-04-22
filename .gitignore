@@ -1,4 +1,10 @@
 .DS_Store
+build
+public
+dist
+.parcel*
+.husky
+hint-report
 # Logs
 logs
 *.log

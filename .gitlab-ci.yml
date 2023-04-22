@@ -3,20 +3,19 @@ image: quickcorp/qcobjects:latest
 pages:
   stage: deploy
   script:
-  - mkdir public
-  - cp -Rf css/ public/
-  - cp -Rf img/ public/
-  - cp -Rf js/ public/
-  - cp -Rf spec/ public/
-  - cp -Rf templates/ public/
-  - cp *.* public/
-  - cp _redirects public/
-  - cd public
   - npm i qcobjects && npm i -D eslint-config-qcobjects
-  - npm i
+  - npm ci
   - npm test
+  - mkdir public
+  - npm run publish:web
+  - cp _redirects public/
+  - cp -r node_modules/qcobjects-sdk public/qcobjects-sdk
+  # Build the public/ directory first
+  - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
   artifacts:
     paths:
+    - node_modules/qcobjects-sdk
+    - build
     - public
   only:
   - main
