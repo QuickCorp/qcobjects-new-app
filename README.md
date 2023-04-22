@@ -2,6 +2,11 @@
 
 This is a demo of a QCObjects based front-end Progressive Web App
 
+# Deploy to Netlify
+
+[![Deploy on Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/QuickCorp/qcobjects-new-app)
+
+
 # Open Live Demo
 
 You can view the result of this project opening [QCObjects Demo App](https://newapp.qcobjects.dev) on any browser.
