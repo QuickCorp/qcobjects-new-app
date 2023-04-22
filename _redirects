@@ -1,2 +1,3 @@
+/qcobjects-sdk/js/* /node_modules/qcobjects-sdk/js/:splat 200
 /qcobjects-sdk/* /node_modules/qcobjects-sdk/:splat 200
 /* /index.html 200
