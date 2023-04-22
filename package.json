@@ -31,24 +31,24 @@
     "v-major": "qcobjects v-major",
     "qcobjects": "qcobjects",
     "cli": "qcobjects",
-    "http-server": "node -e \"require('qcobjects-cli/qcobjects-http-server')\"",
-    "gae-server": "node -e \"require('qcobjects-cli/qcobjects-gae-http-server')\"",
+    "http-server": "qcobjects-http-server",
+    "gae-server": "qcobjects-gae-server",
     "azure-server": "npm start",
     "aws-server": "npm start",
     "do-server": "npm start",
-    "build:static": "rm -Rf build && (rsync -av --progress src/ build --exclude js )",
+    "build:static": "qcobjects publish:static src/ build/ --exclude js --exclude=.DS_Store",
     "build:ts": "npm test && npx tsc",
     "build:ts-types": "npx -p typescript tsc src/**/*.ts --declaration --allowJs --esModuleInterop --emitDeclarationOnly --outDir types",
-    "publish:static": "rm -Rf public && (rsync -av --progress build/ public --exclude js --exclude index.html )",
-    "publish:local": "qcobjects publish local",
+    "publish:static": "qcobjects publish:static build/ public/ --exclude js --exclude=.DS_Store",
     "publish:ios": "qcobjects publish ios",
     "publish:android": "qcobjects publish android",
     "publish:electron": "qcobjects publish electron",
-    "publish:esbuild": "cp build/index.html public/ && npx esbuild build/js/*.js build/js/**/*.js --bundle --outdir=public/js --keep-names --minify --global-name=global --sourcemap",
+    "publish:esbuild": "npx esbuild build/js/*.js build/js/**/*.js --bundle --outdir=public/js --keep-names --minify --global-name=global --sourcemap",
     "publish:parcel": "npx parcel build",
     "publish:web": "npm-run-all build:static build:ts publish:static publish:esbuild",
     "prepare": "husky install",
-    "prestart": "npm run publish:web"
+    "prestart": "npm run publish:web",
+    "cli:help": "qcobjects --help"
   },
   "repository": {
     "type": "file",
@@ -89,7 +89,7 @@
     "npm-run-all": "^4.1.5",
     "parcel": "^2.8.3",
     "process": "^0.11.10",
-    "qcobjects-cli": "^2.4.32",
+    "qcobjects-cli": "^2.4.34",
     "systemjs": "^6.14.1",
     "typescript": "^5.0.4"
   },
@@ -98,6 +98,7 @@
     "grunt-contrib-jasmine": "^4.0.0",
     "nyc": "^15.1.0",
     "qcobjects": "^2.4.67",
+    "qcobjects-command-publish-static": "^1.0.2",
     "qcobjects-sdk": "^2.4.30"
   },
   "engines": {

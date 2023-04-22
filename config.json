@@ -1,6 +1,7 @@
 {
     "devmode":"debug",
     "autodiscover":true,
+    "autodiscover_commands":true,
     "documentRoot": "$config(projectPath)public/",
     "documentRootFileIndex":"index.html",
     "cacheControl":"max-age=31536000",
