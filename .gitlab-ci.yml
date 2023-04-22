@@ -4,7 +4,7 @@ pages:
   stage: deploy
   script:
   - npm i qcobjects && npm i -D eslint-config-qcobjects
-  - npm i
+  - npm ci
   - npm test
   - mkdir public
   - npm run publish:web
