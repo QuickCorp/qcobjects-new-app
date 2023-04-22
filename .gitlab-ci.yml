@@ -9,6 +9,7 @@ pages:
   - mkdir public
   - npm run publish:web
   - cp _redirects public/
+  - cp node_modules public/
   artifacts:
     paths:
     - node_modules/qcobjects-sdk
