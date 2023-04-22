@@ -2,7 +2,6 @@
 
 import { Package, TransitionEffect } from "qcobjects";
 
-
 Package("org.quickcorp.custom.effects", [
 
   class MainTransitionEffect extends TransitionEffect {

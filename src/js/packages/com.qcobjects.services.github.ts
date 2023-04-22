@@ -4,7 +4,6 @@ import { Package, JSONService, Service, logger, Class } from "qcobjects";
 
 Package("com.qcobjects.services.github", [
   class GitHubService extends JSONService {
-
     /**
      * Name of the service
      * @date 18/04/2023 - 22:30:07
@@ -12,7 +11,6 @@ Package("com.qcobjects.services.github", [
      * @type {string}
      */
     name = "myservice";
-
 
     /**
      * It specifies if the service has a external url. If true, you can pass absolute urls in url property
@@ -22,7 +20,6 @@ Package("com.qcobjects.services.github", [
      */
     external = true;
 
-
     /**
      * If it is true, the service call will be cached
      * @date 18/04/2023 - 22:31:41
@@ -30,7 +27,6 @@ Package("com.qcobjects.services.github", [
      * @type {boolean}
      */
     cached = false;
-
 
     /**
      * It can be GET, POST, PUT
@@ -40,7 +36,6 @@ Package("com.qcobjects.services.github", [
      */
     method = "GET";
 
-    
     /**
      * You can add special headers using this property
      * @date 18/04/2023 - 22:33:20
@@ -49,7 +44,6 @@ Package("com.qcobjects.services.github", [
      */
     headers = { "Content-Type": "application/json" };
 
-    
     /**
      * URL for the service call
      * @date 18/04/2023 - 22:34:09
@@ -58,7 +52,6 @@ Package("com.qcobjects.services.github", [
      */
     url = "https://api.github.com/orgs/QuickCorp/repos";
 
-    
     /**
      * This is used internally for XHR requests. Default value is false.
      * @date 18/04/2023 - 22:34:29
@@ -67,15 +60,14 @@ Package("com.qcobjects.services.github", [
      */
     withCredentials = false;
 
-
     /**
      * It is called once the service call is done
      * @param param0 this param has two properties, one is the native request call (XHR or Fetch object). The second property is the service object.
      * @returns Promise
      */
-    done({ request, service }: { request: XMLHttpRequest, service: Service }) {
+    done ({ request, service }: { request: XMLHttpRequest, service: Service }) {
       logger.debug(request);
-      const result = JSON.parse(service.template).reverse().map(function (project: { id: string; description: string; name: string; html_url: string; }) {
+      const result = JSON.parse(service.template).reverse().map(function (project: { id: string, description: string, name: string, html_url: string }) {
         return {
           id: project.id,
           description: project.description,
@@ -101,9 +93,9 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/search/repositories?q=qcobjects";
     withCredentials = false;
 
-    done({ request, service }: { request: XMLHttpRequest, service: Service }) {
+    done ({ request, service }: { request: XMLHttpRequest, service: Service }) {
       logger.debug(request);
-      const result = JSON.parse(service.template).items.map(function (project: { id: string; description: string; name: string; html_url: string; }) {
+      const result = JSON.parse(service.template).items.map(function (project: { id: string, description: string, name: string, html_url: string }) {
         return {
           id: project.id,
           description: project.description,

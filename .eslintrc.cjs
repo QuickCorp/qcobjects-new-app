@@ -9,12 +9,11 @@ module.exports = {
   },
 
   extends: [
-    "semistandard",
+    "eslint-config-semistandard",
     "standard",
     "prettier",
     "eslint:recommended", "plugin:@typescript-eslint/recommended",
     "qcobjects"
-
   ],
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],

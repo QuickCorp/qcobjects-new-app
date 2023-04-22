@@ -4,7 +4,7 @@ import global, { InheritClass, Package, logger } from "qcobjects";
 import { NotificationComponent } from "qcobjects-sdk";
 
 Package("com.qcobjects.installer", [
-  class Installer extends InheritClass{
+  class Installer extends InheritClass {
     root: Element;
     promptEvent!: HTMLElement;
 
@@ -15,15 +15,15 @@ Package("com.qcobjects.installer", [
      * @constructor
      * @param {HTMLElement} root
      */
-    constructor(root:HTMLElement) {
+    constructor (root: HTMLElement) {
       super();
 
       this.root = root;
-      window.addEventListener("beforeinstallprompt", ()=>this.beforeinstallprompt.bind(this), false);
-      window.addEventListener("appinstalled", ()=>this.installed.bind(this), false);
+      window.addEventListener("beforeinstallprompt", () => this.beforeinstallprompt.bind(this), false);
+      window.addEventListener("appinstalled", () => this.installed.bind(this), false);
 
-      root.addEventListener("click", ()=>this.install.bind(this));
-      root.addEventListener("touchend", ()=>this.install.bind(this));
+      root.addEventListener("click", () => this.install.bind(this));
+      root.addEventListener("touchend", () => this.install.bind(this));
 
       window.matchMedia("(display-mode: standalone)").addEventListener("change", (evt) => {
         let displayMode = "browser";
@@ -42,7 +42,7 @@ Package("com.qcobjects.installer", [
      * @param {Event} e
      * @returns {boolean}
      */
-    beforeinstallprompt(e:Event) {
+    beforeinstallprompt (e: Event) {
       logger.debug("registering installer event");
       e.preventDefault();
       global.set("promptEvent", e);
@@ -54,7 +54,7 @@ Package("com.qcobjects.installer", [
      * it works after the install event
      * @date 18/04/2023 - 22:28:36
      */
-    installed() {
+    installed () {
       logger.debug("app is already installed");
       global.set("promptEvent", null);
       //         This fires after onbeforinstallprompt OR after manual add to homescreen.
@@ -65,7 +65,7 @@ Package("com.qcobjects.installer", [
      * it executes the install after the button click
      * @date 18/04/2023 - 22:29:11
      */
-    install() {
+    install () {
       const root = this.root;
       logger.debug("installer actioned");
       let promptEvent = global.get("promptEvent", null);
@@ -74,7 +74,7 @@ Package("com.qcobjects.installer", [
 
         promptEvent.prompt();
         promptEvent.userChoice
-          .then(function (choiceResult: { outcome: string; }) {
+          .then(function (choiceResult: { outcome: string }) {
             if (choiceResult.outcome === "accepted") {
               // The user actioned the prompt (good or bad).
               // good is handled in
@@ -84,7 +84,7 @@ Package("com.qcobjects.installer", [
             }
             promptEvent = null;
           })
-          .catch(function (installError: { toString: () => any; }) {
+          .catch(function (installError: { toString: () => string }) {
             // Boo. update the UI.
             promptEvent = null;
             root.classList.remove("available");
@@ -96,4 +96,3 @@ Package("com.qcobjects.installer", [
     }
   }
 ]);
-

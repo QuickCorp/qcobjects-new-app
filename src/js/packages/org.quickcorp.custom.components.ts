@@ -2,7 +2,6 @@
 
 import { Package, Component } from "qcobjects";
 
-
 Package("org.quickcorp.custom.components", [
   class GitHubGrid extends Component {
     name = "github-grid";

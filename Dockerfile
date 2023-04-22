@@ -35,8 +35,6 @@ ENV container docker
 
 RUN npm i -g qcobjects qcobjects-sdk qcobjects-cli
 
-USER qcobjects
-
 #Configure the internal user permissions
 RUN mkdir -p /home/qcobjects/app && chown -R qcobjects:qcobjects /home/qcobjects/app
 
@@ -49,13 +47,13 @@ COPY package*.json ./
 #Run the initial install init scripts for jasmine and cache verify
 #RUN jasmine init
 RUN npm cache verify
-RUN npm ci --save --only=production
+RUN npm i
 
-
-USER root
 
 # Bundle app source
 COPY --chown=qcobjects:qcobjects . .
+
+USER qcobjects
 
 EXPOSE 8080:8080
 EXPOSE 8443:8443
