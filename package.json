@@ -1,6 +1,6 @@
 {
   "name": "qcobjectsnewapp",
-  "version": "2.4.11",
+  "version": "2.4.12",
   "description": "App template for New App in QCObjects",
   "targets": {
     "default": {
@@ -49,7 +49,7 @@
     "publish:web": "npm run build:static && npm run build:ts && npm run publish:static && npm run publish:esbuild",
     "publish:docker": "docker push qcobjects/qcobjects-newapp:latest",
     "deploy:docker": "npm-run-all build:docker publish:docker",
-    "docker-server":"docker run -p 8080:8080 -p 8443:8443 -d --name qcobjects-newapp qcobjects/qcobjects-newapp",
+    "docker-server": "docker run -p 8080:8080 -p 8443:8443 -d --name qcobjects-newapp qcobjects/qcobjects-newapp",
     "prepare": "node -e \"if(!require('fs').existsSync('.git')){process.exit(0)}\" || npx -y husky install",
     "prestart": "npm run publish:web",
     "cli:help": "qcobjects --help"
