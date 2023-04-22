@@ -11,6 +11,7 @@ pages:
   - cp _redirects public/
   artifacts:
     paths:
+    - node_modules/qcobjects-sdk
     - build
     - public
   only:
