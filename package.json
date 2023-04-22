@@ -10,8 +10,18 @@
   },
   "main": "public/js/init.js",
   "type": "commonjs",
-  "types": "src/ts/types/init.d.ts",
+  "types": "src/**/*.d.ts",
   "browserslist": "> 0.5%, last 2 versions, not dead",
+  "watch": {
+    "start":{
+      "patterns": ["src"],
+      "extensions": "ts",
+      "quiet": true,
+      "legacyWatch": true,
+      "delay": 2500,
+      "runOnChangeOnly": false
+    }
+  },
   "scripts": {
     "test": "(npm run lint && (npx jasmine))",
     "lint": "(npx eslint \"src/**/*.ts\" --fix --ext ts)",
@@ -39,7 +49,8 @@
     "build:docker": "docker build -t qcobjects/qcobjects-newapp:latest .",
     "build:static": "npx qcobjects publish:static src/ build/ --exclude js --exclude=.DS_Store",
     "build:ts": "npm test && npx tsc",
-    "build:ts-types": "npx -p typescript tsc src/**/*.ts --declaration --allowJs --esModuleInterop --emitDeclarationOnly --outDir types",
+    "build:ts-types": "npx tsc --project tsconfig.declaration.json",
+    "build":"npm run build:ts-types && npm run build:ts && npm run build:static && npm run build:docker",
     "publish:static": "npx qcobjects publish:static build/ public/ --exclude js --exclude=.DS_Store",
     "publish:ios": "qcobjects publish ios",
     "publish:android": "qcobjects publish android",
@@ -48,11 +59,13 @@
     "publish:parcel": "npx parcel build",
     "publish:web": "npm run build:static && npm run build:ts && npm run publish:static && npm run publish:esbuild",
     "publish:docker": "docker push qcobjects/qcobjects-newapp:latest",
-    "deploy:docker": "npm-run-all build:docker publish:docker",
+    "deploy:docker": "npm run build:docker && npm run publish:docker",
     "docker-server": "docker run -p 8080:8080 -p 8443:8443 -d --name qcobjects-newapp qcobjects/qcobjects-newapp",
     "prepare": "node -e \"if(!require('fs').existsSync('.git')){process.exit(0)}\" || npx -y husky install",
     "prestart": "npm run publish:web",
-    "cli:help": "qcobjects --help"
+    "cli:help": "qcobjects --help",
+    "start:dev": "npm-watch start",
+    "build:dev": "npm-watch build"
   },
   "repository": {
     "type": "file",
@@ -101,6 +114,7 @@
   "dependencies": {
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
+    "npm-watch": "^0.11.0",
     "nyc": "^15.1.0",
     "qcobjects": "^2.4.67",
     "qcobjects-command-publish-static": "^1.0.2",

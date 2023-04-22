@@ -5,3 +5,4 @@ coverage
 dist
 public
 build
+src/**/.d.ts
