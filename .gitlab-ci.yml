@@ -2,8 +2,6 @@ image: quickcorp/qcobjects:latest
 
 pages:
   stage: deploy
-  before_script:
-  - apk add openssh git curl rsync
   script:
   - npm i qcobjects && npm i -D eslint-config-qcobjects
   - npm ci
