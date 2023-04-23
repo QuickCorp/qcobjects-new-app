@@ -51,7 +51,7 @@
     "build:ts": "npm test && npx tsc",
     "build:ts-types": "npx tsc --project tsconfig.declaration.json",
     "build":"npm run build:ts-types && npm run build:ts && npm run build:static && npm run build:docker",
-    "publish:static": "npx qcobjects publish:static build/ public/ --exclude js --exclude=.DS_Store",
+    "publish:static": "(npx esbuild ./build/css/**/*.css --outdir=public/css --keep-names --minify --global-name=global --sourcemap --loader:.svg=file) && (npx qcobjects publish:static build/ public/ --exclude js --exclude css --exclude=.DS_Store)",
     "publish:ios": "qcobjects publish ios",
     "publish:android": "qcobjects publish android",
     "publish:electron": "qcobjects publish electron",
