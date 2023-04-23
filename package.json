@@ -65,7 +65,8 @@
     "prestart": "npm run publish:web",
     "cli:help": "qcobjects --help",
     "start:dev": "npm-watch start",
-    "build:dev": "npm-watch build"
+    "build:dev": "npm-watch build",
+    "tree": "tree -d --gitignore"
   },
   "repository": {
     "type": "file",
