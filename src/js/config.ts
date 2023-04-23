@@ -1,4 +1,4 @@
-import { CONFIG, Component, RegisterWidget, RegisterWidgets } from "qcobjects";
+import { CONFIG, Component } from "qcobjects";
 /*
 * The next values are the default settings
 * You can change any value in runtime by using CONFIG.set
