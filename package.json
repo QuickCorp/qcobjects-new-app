@@ -13,8 +13,10 @@
   "types": "src/**/*.d.ts",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "watch": {
-    "start":{
-      "patterns": ["src"],
+    "start": {
+      "patterns": [
+        "src"
+      ],
       "extensions": "ts,html,css",
       "quiet": true,
       "legacyWatch": true,
@@ -51,7 +53,7 @@
     "build:static": "npx qcobjects publish:static src/ build/ --exclude js --exclude=.DS_Store",
     "build:ts": "npm test && npx tsc",
     "build:ts-types": "npx tsc --project tsconfig.declaration.json",
-    "build":"npm run build:ts-types && npm run build:ts && npm run build:static && npm run build:docker",
+    "build": "npm run build:ts-types && npm run build:ts && npm run build:static && npm run build:docker",
     "publish:static": "(npx qcobjects publish:static build/ public/ --exclude js --exclude=.DS_Store) && npm run minify:css",
     "publish:ios": "qcobjects publish ios",
     "publish:android": "qcobjects publish android",
@@ -96,6 +98,7 @@
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-qcobjects": "^0.0.26",
+    "eslint-config-qcobjects-typescript": "^2.4.5",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
