@@ -91,7 +91,7 @@ Package("com.qcobjects.installer", [
             logger.warn(`Error during install:  ${installError.toString()}`);
           });
       } else {
-        logger.debug("not asking for install");
+        logger.debug("It is not possible to get the prompt event for install ");
       }
     }
   }

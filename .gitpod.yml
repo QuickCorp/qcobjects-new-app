@@ -1,0 +1,21 @@
+image: quickcorp/qcobjects
+
+# List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 8080
+    onOpen: ignore
+    visibility: public
+  - port: 8443
+    onOpen: open-browser
+    visibility: public
+
+# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - init: |
+      npm install
+    command: |
+      npm run start
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint

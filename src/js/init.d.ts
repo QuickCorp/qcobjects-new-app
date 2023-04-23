@@ -1,4 +1,3 @@
-"use strict";
 /**
  * QCObjects New App PWA Template 1.x
  * ________________

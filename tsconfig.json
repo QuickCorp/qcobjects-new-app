@@ -1,22 +1,9 @@
 {
+  "extends": "qcobjects-tsconfig/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2021",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "lib": ["ES2021", "DOM"],                                      /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    "module": "NodeNext",                                /* Specify what module code is generated. */
     "rootDir": "src",                                    /* Specify the root folder within your source files. */
     "allowJs": true,                                     /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
-    "outDir": "build",                                  /* Specify an output folder for all emitted files. */
-    /*"outFile": "build/init.js",*/
-    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    "strict": true,                                      /* Enable all strict type-checking options. */
-    "noImplicitAny": true,                               /* Enable error reporting for expressions and declarations with an implied 'any' type. */
-    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
-    "moduleResolution": "nodenext",
-    "resolveJsonModule": false,
-    "declaration": false,
-    "sourceMap": false,
-    "isolatedModules": false
+    "outDir": "build",                                  /* Specify an output folder for all emitted files. */  
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.spec.js", "src/*.js"]

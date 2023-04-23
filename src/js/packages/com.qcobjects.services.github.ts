@@ -1,6 +1,6 @@
 /* eslint-disable prefer-rest-params */
 "use strict";
-import { Package, JSONService, Service, logger, Class } from "qcobjects";
+import { Package, JSONService, Service, logger } from "qcobjects";
 
 Package("com.qcobjects.services.github", [
   class GitHubService extends JSONService {
@@ -112,37 +112,34 @@ Package("com.qcobjects.services.github", [
     }
   },
 
-  Class("QCObjectsVersionService", Service, {
-    name: "qcobjects_version_service",
-    external: true,
-    cached: false,
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-    url: "https://api.github.com/repos/QuickCorp/QCObjects/tags",
-    withCredentials: false,
-    _new_: () => {
-      // service instantiated
-    },
-    done: ({ service }: { service: Service }) => {
+  class QCObjectsVersionService extends Service {
+    name= "qcobjects_version_service";
+    external= true;
+    cached= false;
+    method= "GET";
+    headers= { "Content-Type": "application/json" };
+    url= "https://api.github.com/repos/QuickCorp/QCObjects/tags";
+    withCredentials= false;
+
+    done ({ service }: { service: Service }) {
       const latest = JSON.parse(service.template)[0];
       service.template = {
         version: latest.name
       };
     }
-  }),
 
-  Class("QCObjectsStarsForksService", Service, {
-    name: "qcobjects_stars_forks_service",
-    external: true,
-    cached: false,
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-    url: "https://api.github.com/repos/QuickCorp/QCObjects",
-    withCredentials: false,
-    _new_: () => {
-      // service instantiated
-    },
-    done: ({ service }: { service: Service }) => {
+  },
+
+  class QCObjectsStarsForksService extends Service {
+    name= "qcobjects_stars_forks_service";
+    external= true;
+    cached= false;
+    method= "GET";
+    headers= { "Content-Type": "application/json" };
+    url= "https://api.github.com/repos/QuickCorp/QCObjects";
+    withCredentials= false;
+
+    done ({ service }: { service: Service }) {
       const repo = JSON.parse(service.template);
       service.template = {
         forks: repo.forks_count,
@@ -151,6 +148,7 @@ Package("com.qcobjects.services.github", [
         size: Math.round(repo.size / 1000)
       };
     }
-  })
+
+  }
 
 ]);

@@ -31,6 +31,8 @@ ENV LC_ALL C
 ENV DEBIAN_FRONTEND noninteractive
 
 LABEL MAINTAINER "Jean Machuca <jean@qcobjects.com>"
+LABEL Author "Jean Machuca <jean@qcobjects.com>"
+LABEL org.opencontainers.image.authors="Jean Machuca <jean@qcobjects.com>"
 ENV container docker
 
 RUN npm i -g qcobjects qcobjects-sdk qcobjects-cli

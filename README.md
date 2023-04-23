@@ -2,6 +2,11 @@
 
 This is a demo of a QCObjects based front-end Progressive Web App
 
+# Deploy to Netlify
+
+[![Deploy on Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/QuickCorp/qcobjects-new-app)
+
+
 # Open Live Demo
 
 You can view the result of this project opening [QCObjects Demo App](https://newapp.qcobjects.dev) on any browser.
@@ -12,29 +17,31 @@ The following is the project structure of a Progressive Web App made in QCObject
 
 ```shell
 .
-├── css
-│   ├── components
-│   │   └── hero
-│   ├── desktop
-│   ├── mobile
-│   └── theme
-│       ├── basic
-│       ├── cyan
-│       ├── redlight
-│       └── xtra
-├── demo-tests
-├── img
-│   ├── icons
-│   └── screenshots
-├── js
-│   └── packages
+├── backend
 ├── spec
 │   └── support
-└── templates
-    └── components
-        ├── hero
-        └── pages
-
+└── src
+    ├── css
+    │   ├── components
+    │   │   └── hero
+    │   ├── desktop
+    │   │   └── components
+    │   ├── mobile
+    │   │   └── components
+    │   └── theme
+    │       ├── basic
+    │       ├── cyan
+    │       ├── redlight
+    │       └── xtra
+    ├── img
+    │   ├── icons
+    │   └── screenshots
+    ├── js
+    │   └── packages
+    └── templates
+        └── components
+            ├── hero
+            └── pages
 ```
 
 # Entry point
@@ -61,20 +68,6 @@ CONFIG.set("asynchronousImportsLoad",true); // it is recommended to load the Imp
 CONFIG.set("serviceWorkerURI","/sw.js"); //QCObjects will register an launch this service worker automatically to work offline
 
 ```
-
-You will also find the main imports:
-
-```javascript
-// note that this line is pure JavaScript ECMA2020
-import "../QCObjects.js";
-```
-
-```javascript
-Import("org.quickcorp.custom"); // this will load js/packages/org.quickcorp.custom.js file
-```
-
-Above Import function comes from QCObjects Framework
-You can either use this function or import statement to load QCObjects packages.
 
 # Enable QCObjects from local server
 
@@ -145,6 +138,16 @@ npm run serve
 # An alias to start the QCObjects Server
 npm run server
 ```
+
+# Run start DEV
+
+The "start:dev" script will build, publish and start the server using npm-watch.
+
+```shell
+# Start the QCObjects Server
+npm run start:dev
+```
+
 
 # Run QCObjects Collab
 

@@ -144,7 +144,7 @@ nav details {
 }
 
 nav summary::before {
-  content: url('/img/Q_web.svg'); /* the icon for list in sidebar */
+  content: url('../img/Q_web.svg'); /* the icon for list in sidebar */
   color: #e5f59d;
   margin-right: 20px;
 }
