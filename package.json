@@ -113,7 +113,7 @@
     "parcel": "^2.8.3",
     "process": "^0.11.10",
     "qcobjects-cli": "^2.4.34",
-    "qcobjects-tsconfig": "^2.4.9",
+    "qcobjects-tsconfig": "^2.4.10",
     "systemjs": "^6.14.1",
     "typescript": "^5.0.4"
   },
