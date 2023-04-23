@@ -23,6 +23,8 @@
  * license document, but changing it is not allowed.
 */
 "use strict";
+// eslint-disable-next-line no-undef
+importScripts("./pwabuilder-sw.js");
 const version = "1.2.93";
 const appName = "qcobjectsnewapp";
 const cacheSufix = (Math.round(Date.now() / (1000 * 3600))).toString(); // 1 hour
