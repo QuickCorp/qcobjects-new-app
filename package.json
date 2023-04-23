@@ -15,7 +15,7 @@
   "watch": {
     "start":{
       "patterns": ["src"],
-      "extensions": "ts",
+      "extensions": "ts,html,css",
       "quiet": true,
       "legacyWatch": true,
       "delay": 2500,

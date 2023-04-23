@@ -1,4 +1,4 @@
-import { CONFIG, Component, RegisterWidgets } from "qcobjects";
+import { CONFIG, Component, RegisterWidget, RegisterWidgets } from "qcobjects";
 /*
 * The next values are the default settings
 * You can change any value in runtime by using CONFIG.set
@@ -19,6 +19,3 @@ CONFIG.set("serviceWorkerURI", "/sw.js"); // QCObjects will register an launch t
 // if Component.cached is true, all the Class('Component') declarations will save the template in a localStorage cache
 // until a cached=false attribute is found in a <component> html declaration
 Component.cached = true; // this will load js/packages/org.quickcorp.custom.js file
-
-// eslint-disable-next-line no-undef
-RegisterWidgets("layout-basic", "splash-screen", "github-grid", "octocat-icon", "lib-list");
