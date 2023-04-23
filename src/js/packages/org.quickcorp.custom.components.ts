@@ -8,8 +8,8 @@ Package("org.quickcorp.custom.components", [
     tplsource = "inline";
     template = `
     <style>
-    $layout(landscape,css/components/github-grid-landscape.css)
-    $layout(portrait,css/components/github-grid-portrait.css)
+    $layout(landscape,css/desktop/components/github-grid.css)
+    $layout(portrait,css/mobile/components/github-grid.css)
 
     :host {
       margin:0 auto;
@@ -21,16 +21,18 @@ Package("org.quickcorp.custom.components", [
     `;
   },
 
-  class Component1 extends Component {
-    name = "main";
-    cached = false;
-    controller = null;
-    view = null;
-  },
-
-  class Component2 extends Component {
-    name = "component-two";
-    propertyName2 = "propertyValue2";
+  class DeployGrid extends Component {
+    name = "deploygrid";
+    template = `
+    <style>
+    $layout(landscape,css/desktop/components/deploy-grid.css)
+    $layout(portrait,css/mobile/components/deploy-grid.css)
+    </style>
+    <div class="deploy-grid">
+      <netlify-button></netlify-button>
+      <gitpod-button></gitpod-button>
+    </div>
+    `;
   }
 
 ]);

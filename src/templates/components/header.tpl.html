@@ -5,13 +5,17 @@
     place-items: center;
     margin: -30px;
   }
+  .header-logo {
+    min-height:300px;
+    margin-top: 30px;
+  }
 
 
 </style>
 <div>
-  <div style="min-height:300px">
+  <div class="header-logo">
     <img alt="logo" src="img/logo-qcobjects-white.svg" width="320px" />
   </div>
-  <netlify-button></netlify-button>
-  <gitpod-button></gitpod-button>
+  <deploy-grid componentClass="DeployGrid">
+  </deploy-grid>
 </div>
