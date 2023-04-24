@@ -32,26 +32,28 @@ Package("org.quickcorp.custom.controllers", [
     constructor ({ component }: { component: Component }) {
       logger.debug("Initializing SideNavController...");
       super({ component });
+      this.effect = New(ClassFactory("Fade"), {
+        duration: 300
+      });
       (global as any).sideNavController = this;
     }
 
     done (...args: any[]) {
-      super.done(args);
-      this.effect = New(ClassFactory("Fade"), {
-        duration: 300
-      });
+      const _ret_ = super.done(args);
       this.close();
+      return _ret_;
     }
 
     open () {
-      const componentRoot = (this.component.shadowed != null) ? (this.component.shadowRoot) : (this.component.body);
-      if (this.effect != null) {
-        this.effect.apply(componentRoot, 0, 1);
-      }
-      if (componentRoot !== undefined) {
+      const componentRoot = this.component.body;
+      if (typeof componentRoot !== "undefined") {
+        if (this.effect != null) {
+          this.effect.apply(componentRoot, 0, 1);
+        }
         componentRoot.style.width = "100%";
         componentRoot.style.overflowX = "visible";
-        if (Object.hasOwnProperty.call(componentRoot, "parentElement") && typeof componentRoot.parentElement !== "undefined") {
+        // eslint-disable-next-line no-extra-boolean-cast
+        if (!!componentRoot.parentElement) {
           const parentElement = componentRoot.parentElement as QCObjectsElement;
           if (parentElement !== null) {
             parentElement.subelements(".navbtn")[0].style.display = "none";
@@ -64,14 +66,15 @@ Package("org.quickcorp.custom.controllers", [
     }
 
     close () {
-      const componentRoot = (this.component.shadowed != null) ? (this.component.shadowRoot) : (this.component.body);
-      if (this.effect != null) {
-        this.effect.apply(componentRoot, 1, 0);
-      }
-      if (componentRoot !== undefined) {
+      const componentRoot = this.component.body;
+      if (typeof componentRoot !== "undefined") {
+        if (this.effect != null) {
+          this.effect.apply(componentRoot, 1, 0);
+        }
         componentRoot.style.width = "0px";
         componentRoot.style.overflowX = "hidden";
-        if (Object.hasOwnProperty.call(componentRoot, "parentElement") && typeof componentRoot.parentElement !== "undefined") {
+        // eslint-disable-next-line no-extra-boolean-cast
+        if (!!componentRoot.parentElement) {
           const parentElement = componentRoot.parentElement as QCObjectsElement;
           parentElement.subelements(".navbtn")[0].style.display = "block";
           parentElement.subelements(".closebtn")[0].style.display = "none";
