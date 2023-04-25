@@ -4,6 +4,7 @@
 "use strict";
 
 import global, { Package, Controller, logger, _DOMCreateElement, type Effect, New, ClassFactory, type QCObjectsElement, type QCObjectsShadowedElement, type Component } from "qcobjects";
+import { Fade } from "qcobjects-sdk";
 
 Package("org.quickcorp.custom.controllers", [
   class MainController extends Controller {
@@ -27,37 +28,43 @@ Package("org.quickcorp.custom.controllers", [
   },
 
   class SideNavController extends Controller {
-    effect!: Effect;
+    effect: Effect|null = null;
     visibility!: boolean;
-    constructor ({ component }: { component: Component }) {
+    componentRoot!: any;
+    component:Component;
+
+    constructor (args:{component:Component, dependencies:Array<any>}) {
       logger.debug("Initializing SideNavController...");
-      super({ component });
-      this.effect = New(ClassFactory("Fade"), {
-        duration: 300
-      });
-      (global as any).sideNavController = this;
+      super(args);
+      this.component = args.component;
+      if (this.component.shadowed) {
+        this.componentRoot = this.component.shadowRoot;
+      } else {
+        this.componentRoot = this.component.body;
+      }
     }
 
     done (...args: any[]) {
       const _ret_ = super.done(args);
+      this.effect = New(Fade, {
+        duration: 300
+      });
+      (global as any).sideNavController = this;
       this.close();
       return _ret_;
     }
 
     open () {
-      const componentRoot = this.component.body;
-      if (typeof componentRoot !== "undefined") {
+      if (this.componentRoot !== null) {
         if (this.effect != null) {
-          this.effect.apply(componentRoot, 0, 1);
+          this.effect.apply(this.componentRoot, 0, 1);
         }
-        componentRoot.style.width = "100%";
-        componentRoot.style.overflowX = "visible";
+        this.componentRoot?.classList.add("open");
         // eslint-disable-next-line no-extra-boolean-cast
-        if (!!componentRoot.parentElement) {
-          const parentElement = componentRoot.parentElement as QCObjectsElement;
-          if (parentElement !== null) {
-            parentElement.subelements(".navbtn")[0].style.display = "none";
-            parentElement.subelements(".closebtn")[0].style.display = "block";
+        if (!!this.componentRoot?.parentElement) {
+          if (this.componentRoot.parentElement !== null) {
+            (this.componentRoot.parentElement as QCObjectsElement).subelements(".navbtn")[0].style.display = "none";
+            (this.componentRoot.parentElement as QCObjectsElement).subelements(".closebtn")[0].style.display = "block";
           }
         }
       }
@@ -66,18 +73,15 @@ Package("org.quickcorp.custom.controllers", [
     }
 
     close () {
-      const componentRoot = this.component.body;
-      if (typeof componentRoot !== "undefined") {
+      if (this.componentRoot !== null) {
         if (this.effect != null) {
-          this.effect.apply(componentRoot, 1, 0);
+          this.effect.apply(this.componentRoot, 1, 0);
         }
-        componentRoot.style.width = "0px";
-        componentRoot.style.overflowX = "hidden";
+        this.componentRoot?.classList.remove("open");
         // eslint-disable-next-line no-extra-boolean-cast
-        if (!!componentRoot.parentElement) {
-          const parentElement = componentRoot.parentElement as QCObjectsElement;
-          parentElement.subelements(".navbtn")[0].style.display = "block";
-          parentElement.subelements(".closebtn")[0].style.display = "none";
+        if (!!this.componentRoot?.parentElement) {
+          (this.componentRoot.parentElement as QCObjectsElement).subelements(".navbtn")[0].style.display = "block";
+          (this.componentRoot.parentElement as QCObjectsElement).subelements(".closebtn")[0].style.display = "none";
         }
       }
       this.visibility = false;
@@ -95,6 +99,12 @@ Package("org.quickcorp.custom.controllers", [
 
   class HeaderController extends Controller {
     installer: any;
+    component!: Component;
+
+    constructor(args:{component:Component, dependencies:Array<any>}){
+      super(args);
+      logger.debug("Header controller initialized");
+    }
 
     loadInstallerButton () {
       const componentRoot = (this.component.shadowed != null) ? (this.component.shadowRoot as QCObjectsShadowedElement) : (this.component.body as QCObjectsElement);
