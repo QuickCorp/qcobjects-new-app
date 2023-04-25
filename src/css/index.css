@@ -101,6 +101,7 @@ nav {
 
 nav > quick-component {
   width: 0;
+  min-height: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -111,7 +112,6 @@ nav > quick-component {
   background-color: #111;
   transition: 0.5s;
   padding-top: 60px;
-  padding-bottom: 20%;
 }
 
 nav > quick-component a {
