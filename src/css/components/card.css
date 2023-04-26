@@ -91,3 +91,10 @@
 .card {
   max-height: 1600px;
 }
+
+#slot-card-description::slotted(div) {
+  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  overflow-y: clip;
+}

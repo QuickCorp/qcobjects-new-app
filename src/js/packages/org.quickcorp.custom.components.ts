@@ -14,7 +14,6 @@ Package("org.quickcorp.custom.components", [
     :host {
       margin:0 auto;
       justify-content: center;
-      overflow-y: clip;
     }
     </style>
       $mapper(github-card,result)
@@ -27,10 +26,19 @@ Package("org.quickcorp.custom.components", [
     <style>
     $layout(landscape,css/desktop/components/deploy-grid.css)
     $layout(portrait,css/mobile/components/deploy-grid.css)
+    .deploy-grid{
+      display:inline-grid;
+      justify-content: space-evenly;
+      align-items: center;
+      justify-items: stretch;
+    }
     </style>
     <div class="deploy-grid">
-      <netlify-button></netlify-button>
+      <aws-button></aws-button>
       <gitpod-button></gitpod-button>
+      <codespaces-button></codespaces-button>
+      <netlify-button></netlify-button>
+      <github-button></github-button>
     </div>
     `;
   }

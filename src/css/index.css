@@ -33,7 +33,8 @@
 }
 
 @-ms-viewport {
-  width: device-width;
+  zoom: 1;
+  width: extend-to-zoom;
 }
 
 * {

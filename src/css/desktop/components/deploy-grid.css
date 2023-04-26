@@ -1,4 +1,3 @@
 .deploy-grid {
-    display:grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 270px 270px 270px;
   }

@@ -1,22 +1,39 @@
 <style>
-      .gitpod-button {
+.gitpod-button {
     background-color: #191712;
     padding: 0.4em;
-    max-width: 192px;
+    max-width: 232px;
     max-height: 51px;
     margin: 0 auto;
     border: 1px solid #2d2828;
     border-radius: 0.7em;
+    box-shadow: rgba(228, 228, 234, 0.22) 2px 6px 25px 0, rgba(228, 228, 234, 0.5) 1px 2px 23px 0;
+    transition: all 0.3s ease-in-out;
+    margin: 10px;
+}
+.gitpod-button:hover {
+  box-shadow: rgba(228, 228, 234, 0.56) 0 22px 32px 0, rgba(228, 228, 234, 0.64) 0 9px 28px 0;
 }
 .text-white{
   color: white;
 }
+.text-small {
+  font-size: small;
+}
+.gitpod-button> a > span.logo {
+  vertical-align: middle;
+}
+.gitpod-button> a > span.text {
+  vertical-align: top;
+}
+
 </style>
 <div class="gitpod-button">
     <a href="https://gitpod.io#https://github.com/QuickCorp/qcobjects-new-app"
     target="_blank"
-    class="text-white inline-flex stroked after:dark:hover:bg-light-black after:!filter-none py-3 px-4 items-center justify-center bg-bg dark:bg-card rounded-2xl text-important dark:text-white shadow-light dark:shadow-none font-semibold hover:bg-card focus:bg-card dark:hover:bg-light-black dark:focus:bg-light-black  svelte-1bcz8bs"
-    rel="noopener noreferrer" data-analytics="{&quot;variant&quot;:&quot;open_in_gitpod&quot;}"><span>
+    class="text-small text-white inline-flex stroked after:dark:hover:bg-light-black after:!filter-none py-3 px-4 items-center justify-center bg-bg dark:bg-card rounded-2xl text-important dark:text-white shadow-light dark:shadow-none font-semibold hover:bg-card focus:bg-card dark:hover:bg-light-black dark:focus:bg-light-black  svelte-1bcz8bs"
+    rel="noopener noreferrer" data-analytics="{&quot;variant&quot;:&quot;open_in_gitpod&quot;}">
+    <span class="logo">
       <svg
         viewBox="0 0 24 24" height="24" width="24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0-textless-renderedOn)">
@@ -34,5 +51,6 @@
             <path fill="#fff" d="M0 0h24v24H0z"></path>
           </clipPath>
         </defs>
-      </svg></span> <span class="ml-3">Edit in Gitpod</span></a>
+      </svg></span>
+      <span class="text">Edit in Gitpod</span></a>
   </div>
