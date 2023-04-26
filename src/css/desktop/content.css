@@ -56,3 +56,6 @@ quick-component[name=loginform].login2 form breakline {
 }
 
 /* END LOGIN 2 FORM */
+article{
+  min-height: 146em;
+}
