@@ -8,7 +8,7 @@ pages:
   - npm test
   - mkdir public
   - npm run publish:web
-  - cp _redirects public/
+  - cp src/_redirects public/
   - cp -r node_modules/qcobjects-sdk public/qcobjects-sdk
   # Build the public/ directory first
   - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
