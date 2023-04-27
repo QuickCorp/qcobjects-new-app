@@ -114,6 +114,7 @@ button:not(.navbtn) {
   cursor: pointer;
   color: var(--text-inverse);
   box-shadow: 0 10px 30px var(--primary-shadow);
+  -webkit-transition: var(--transition);
   transition: var(--transition);
   -webkit-transition: var(--transition);
   font-family: var(--font2);
@@ -131,6 +132,7 @@ button:not(.navbtn):hover {
 
 header {
   z-index: 10;
+  -webkit-transition: var(--transition);
   transition: var(--transition);
   -webkit-transition: var(--transition);
   justify-content: center;

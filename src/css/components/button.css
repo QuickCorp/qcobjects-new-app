@@ -23,8 +23,7 @@
  * Everyone is permitted to copy and distribute verbatim copies of this
  * license document, but changing it is not allowed.
  */
-button:not(.navbtn),
-input {
+button:not(.navbtn), input {
   border-radius: 27px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   outline: none;
@@ -52,7 +51,7 @@ button:not(.navbtn):hover {
   background-color: #333;
 }
 
-button:not(.navbtn), {
+button:not(.navbtn){
   padding: 10px 20px 10px 20px;
   border: 0;
   outline: 0;
