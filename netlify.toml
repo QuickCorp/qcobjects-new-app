@@ -1,2 +1,2 @@
 [build]
-    command = "npm run publish:web"
+    command = "npm run build:netlify"
