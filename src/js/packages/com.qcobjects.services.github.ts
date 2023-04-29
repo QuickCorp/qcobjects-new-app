@@ -2,6 +2,37 @@
 "use strict";
 import { Package, JSONService, Service, logger } from "qcobjects";
 
+type Project = {
+  id: string;
+  description: string;
+  name: string;
+  html_url: string;
+  owner: { avatar_url: string },
+  forks_count:number,
+  stargazers_count:number,
+  watchers_count:number,
+  size:number
+}
+
+type StandardResponse = { 
+  request: XMLHttpRequest;
+  service: Service; 
+};
+
+type GitHubTagServiceResponse = {
+  total_count:number;
+  incomplete_results: boolean;
+  items:Array<Project>
+};
+type ItemProject = {
+  id:string;
+  description:string;
+  title:string;
+  url:string;
+  image:string;
+};
+type ItemsProject = Array<ItemProject>;
+
 Package("com.qcobjects.services.github", [
   class GitHubService extends JSONService {
     /**
@@ -65,9 +96,10 @@ Package("com.qcobjects.services.github", [
      * @param param0 this param has two properties, one is the native request call (XHR or Fetch object). The second property is the service object.
      * @returns Promise
      */
-    done ({ request, service }: { request: XMLHttpRequest, service: Service }) {
-      logger.debug(request);
-      const result = JSON.parse(service.template).reverse().map(function (project: { id: string, description: string, name: string, html_url: string }) {
+    done({ request, service }: StandardResponse) {
+
+      const result:ItemsProject = (JSON.parse(service.template) as Array<Project>)
+      .reverse().map(function (project: Project) {
         return {
           id: project.id,
           description: project.description,
@@ -80,7 +112,7 @@ Package("com.qcobjects.services.github", [
       service.template = JSON.stringify({
         result
       });
-      return super.done(...arguments);
+      return super.done({ request, service });
     }
   },
 
@@ -93,9 +125,10 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/search/repositories?q=qcobjects";
     withCredentials = false;
 
-    done ({ request, service }: { request: XMLHttpRequest, service: Service }) {
+    done({ request, service }: StandardResponse) {
       logger.debug(request);
-      const result = JSON.parse(service.template).items.map(function (project: { id: string, description: string, name: string, html_url: string }) {
+      const result:ItemsProject = (JSON.parse(service.template) as GitHubTagServiceResponse)
+        .items.map(function (project: Project) {
         return {
           id: project.id,
           description: project.description,
@@ -108,20 +141,20 @@ Package("com.qcobjects.services.github", [
       service.template = JSON.stringify({
         result
       });
-      return super.done(...arguments);
+      return super.done({ request, service });
     }
   },
 
   class QCObjectsVersionService extends Service {
-    name= "qcobjects_version_service";
-    external= true;
-    cached= false;
-    method= "GET";
-    headers= { "Content-Type": "application/json" };
-    url= "https://api.github.com/repos/QuickCorp/QCObjects/tags";
-    withCredentials= false;
+    name = "qcobjects_version_service";
+    external = true;
+    cached = false;
+    method = "GET";
+    headers = { "Content-Type": "application/json" };
+    url = "https://api.github.com/repos/QuickCorp/QCObjects/tags";
+    withCredentials = false;
 
-    done ({ service }: { service: Service }) {
+    done({ service }: StandardResponse) {
       const latest = JSON.parse(service.template)[0];
       service.template = {
         version: latest.name
@@ -131,16 +164,16 @@ Package("com.qcobjects.services.github", [
   },
 
   class QCObjectsStarsForksService extends Service {
-    name= "qcobjects_stars_forks_service";
-    external= true;
-    cached= false;
-    method= "GET";
-    headers= { "Content-Type": "application/json" };
-    url= "https://api.github.com/repos/QuickCorp/QCObjects";
-    withCredentials= false;
+    name = "qcobjects_stars_forks_service";
+    external = true;
+    cached = false;
+    method = "GET";
+    headers = { "Content-Type": "application/json" };
+    url = "https://api.github.com/repos/QuickCorp/QCObjects";
+    withCredentials = false;
 
-    done ({ service }: { service: Service }) {
-      const repo = JSON.parse(service.template);
+    done({ service }: StandardResponse) {
+      const repo:Project = (JSON.parse(service.template) as Project);
       service.template = {
         forks: repo.forks_count,
         stars: repo.stargazers_count,
@@ -150,5 +183,4 @@ Package("com.qcobjects.services.github", [
     }
 
   }
-
 ]);
