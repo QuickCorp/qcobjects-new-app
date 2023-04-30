@@ -2,6 +2,7 @@
     "devmode":"debug",
     "autodiscover":true,
     "autodiscover_commands":true,
+    "autodiscover_handlers":true,
     "documentRoot": "$config(projectPath)public/",
     "documentRootFileIndex":"index.html",
     "cacheControl":"max-age=31536000",
@@ -35,8 +36,21 @@
             "cors":{
               "allow_origins":"*"
             }
+          },
+          {
+            "name":"Hello World!",
+            "description":"Hello world Microservice!",
+            "path":"^/hello-world",
+            "microservice":"qcobjects-handler-hello-world",
+            "headers": {
+              "content-type": "text/html; charset=utf-8"
+            },
+            "responseHeaders":{
+            },
+            "cors":{
+              "allow_origins":"*"
+            }
           }
-            
         
         ]
     },
