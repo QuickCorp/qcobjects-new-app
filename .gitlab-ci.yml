@@ -1,5 +1,9 @@
 image: quickcorp/qcobjects:latest
 
+cache:
+  paths:
+    - node_modules/
+
 pages:
   stage: deploy
   script:

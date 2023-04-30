@@ -3,18 +3,20 @@
 /* eslint-disable no-unused-vars */
 "use strict";
 
-import global, { Package, Controller, logger, _DOMCreateElement, type Effect, New, ClassFactory, type QCObjectsElement, type QCObjectsShadowedElement, type Component } from "qcobjects";
+import global, { Package, Controller, logger, _DOMCreateElement, 
+                type Effect, New, ClassFactory, type QCObjectsElement, 
+                type QCObjectsShadowedElement, type Component, type ControllerParams } from "qcobjects";
 import { Fade } from "qcobjects-sdk";
 
 Package("org.quickcorp.custom.controllers", [
   class MainController extends Controller {
     static loaded: boolean;
-    constructor ({ component }: { component: Component }) {
+    constructor(controller:ControllerParams) {
       logger.debug("Initializing MainController...");
-      super({ component });
+      super(controller);
     }
 
-    done (...args: never[]) {
+    done(...args: never[]) {
       const _ret_ = super.done(args);
       if (!MainController.loaded) {
         const s = _DOMCreateElement("style");
@@ -28,15 +30,15 @@ Package("org.quickcorp.custom.controllers", [
   },
 
   class SideNavController extends Controller {
-    effect: Effect|null = null;
+    effect: Effect | null = null;
     visibility!: boolean;
     componentRoot!: any;
-    component:Component;
+    component: Component;
 
-    constructor (args:{component:Component, dependencies:Array<any>}) {
+    constructor(controller:ControllerParams) {
       logger.debug("Initializing SideNavController...");
-      super(args);
-      this.component = args.component;
+      super(controller);
+      this.component = controller.component;
       if (this.component.shadowed) {
         this.componentRoot = this.component.shadowRoot;
       } else {
@@ -44,7 +46,7 @@ Package("org.quickcorp.custom.controllers", [
       }
     }
 
-    done (...args: any[]) {
+    done(...args: any[]) {
       const _ret_ = super.done(args);
       this.effect = New(Fade, {
         duration: 300
@@ -54,7 +56,7 @@ Package("org.quickcorp.custom.controllers", [
       return _ret_;
     }
 
-    open () {
+    open() {
       if (this.componentRoot !== null) {
         if (this.effect != null) {
           this.effect.apply(this.componentRoot, 0, 1);
@@ -72,7 +74,7 @@ Package("org.quickcorp.custom.controllers", [
       return this.visibility;
     }
 
-    close () {
+    close() {
       if (this.componentRoot !== null) {
         if (this.effect != null) {
           this.effect.apply(this.componentRoot, 1, 0);
@@ -88,7 +90,7 @@ Package("org.quickcorp.custom.controllers", [
       return this.visibility;
     }
 
-    toggle () {
+    toggle() {
       if (this.visibility) {
         this.close();
       } else {
@@ -101,13 +103,15 @@ Package("org.quickcorp.custom.controllers", [
     installer: any;
     component!: Component;
 
-    constructor(args:{component:Component, dependencies:Array<any>}){
-      super(args);
+    constructor(controller: ControllerParams) {
+      super(controller);
       logger.debug("Header controller initialized");
     }
 
-    loadInstallerButton () {
-      const componentRoot = (this.component.shadowed != null) ? (this.component.shadowRoot as QCObjectsShadowedElement) : (this.component.body as QCObjectsElement);
+    loadInstallerButton() {
+      const componentRoot = (this.component.shadowed != null) 
+                            ? (this.component.shadowRoot as QCObjectsShadowedElement) 
+                            : (this.component.body as QCObjectsElement);
       componentRoot.subelements("#installerbutton").map(
         (element) => {
           this.installer = New(ClassFactory("Installer"), element);
@@ -116,7 +120,7 @@ Package("org.quickcorp.custom.controllers", [
       );
     }
 
-    done (...args: never[]) {
+    done(...args: never[]) {
       const _ret_ = super.done(args);
       this.loadInstallerButton();
       return _ret_;

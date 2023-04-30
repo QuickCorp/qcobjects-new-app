@@ -127,7 +127,7 @@
     "nyc": "^15.1.0",
     "qcobjects": "^2.4.73",
     "qcobjects-handler-hello-world": "^1.0.0",
-    "qcobjects-sdk": "^2.4.34"
+    "qcobjects-sdk": "^2.4.35"
   },
   "engines": {
     "npm": ">=8",
