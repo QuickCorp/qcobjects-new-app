@@ -127,9 +127,9 @@
     "grunt-contrib-jasmine": "^4.0.0",
     "npm-watch": "^0.11.0",
     "nyc": "^15.1.0",
-    "qcobjects": "^2.4.73",
+    "qcobjects": "^2.4.74",
     "qcobjects-handler-hello-world": "^1.0.0",
-    "qcobjects-sdk": "^2.4.35"
+    "qcobjects-sdk": "^2.4.37"
   },
   "engines": {
     "npm": ">=8",

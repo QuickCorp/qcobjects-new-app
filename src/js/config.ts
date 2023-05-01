@@ -15,6 +15,7 @@ CONFIG.set("useLocalSDK", true); // on the frontend side you can chose whether t
 CONFIG.set("tplextension", "tpl.html"); // this is the file extension to locate the template files (if component.name = 'main' then template name will be main.tpl.html)
 CONFIG.set("asynchronousImportsLoad", true); // it is recommended to load the Import declarations in an asyncronous way
 CONFIG.set("serviceWorkerURI", "/sw.js"); // QCObjects will register an launch this service worker automatically to work offline
+CONFIG.set("overrideComponentTag", true);
 
 // if Component.cached is true, all the Class('Component') declarations will save the template in a localStorage cache
 // until a cached=false attribute is found in a <component> html declaration
