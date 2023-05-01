@@ -1,6 +1,6 @@
 {
   "name": "qcobjectsnewapp",
-  "version": "2.4.22",
+  "version": "2.4.27",
   "description": "App template for New App in QCObjects",
   "targets": {
     "default": {
@@ -70,7 +70,8 @@
     "cli:help": "qcobjects --help",
     "start:dev": "npm-watch start",
     "build:dev": "npm-watch build",
-    "tree": "tree -d --gitignore"
+    "tree": "tree -d --gitignore",
+    "lighthouse": "lighthouse https://127.0.0.1:8443/ --quiet --chrome-flags=\"--ignore-certificate-errors\" --budget-path=./lighthouse-budget.json --output html --output-path ./lighthouse/lighthouse-report.html --view"
   },
   "repository": {
     "type": "file",
@@ -109,6 +110,7 @@
     "hint": "^2.0.0",
     "husky": "^8.0.3",
     "jasmine": "^3.99.0",
+    "lighthouse": "^10.1.1",
     "lint-staged": "^13.2.1",
     "npm-run-all": "^4.1.5",
     "parcel": "^2.8.3",
@@ -125,9 +127,9 @@
     "grunt-contrib-jasmine": "^4.0.0",
     "npm-watch": "^0.11.0",
     "nyc": "^15.1.0",
-    "qcobjects": "^2.4.73",
+    "qcobjects": "^2.4.74",
     "qcobjects-handler-hello-world": "^1.0.0",
-    "qcobjects-sdk": "^2.4.35"
+    "qcobjects-sdk": "^2.4.37"
   },
   "engines": {
     "npm": ">=8",
