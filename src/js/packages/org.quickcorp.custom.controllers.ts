@@ -20,7 +20,9 @@ Package("org.quickcorp.custom.controllers", [
       const _ret_ = super.done(args);
       if (!MainController.loaded) {
         const s = _DOMCreateElement("style");
-        s.innerHTML = "body, html {margin:0;padding:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}";
+        s.innerHTML = `
+        @import url(css/body-layout.css);
+        `;
         document.body.append(s);
         logger.debug("MainController loaded");
         MainController.loaded = true;

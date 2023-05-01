@@ -13,5 +13,20 @@ Package("org.quickcorp.custom.effects", [
 
     effects = ["Fade", "MoveYInFromBottom"];
     fitToHeight = true;
+  },
+
+  class SlideLeftTransitionEffect extends TransitionEffect {
+    duration = 450;
+
+    effects = ["Fade", "MoveXInFromLeft"];
+    fitToWidth = true;
+  },
+
+  class SlideRightTransitionEffect extends TransitionEffect {
+    duration = 450;
+
+    effects = ["Fade", "MoveXInFromRight"];
+    fitToWidth = true;
   }
+  
 ]);
