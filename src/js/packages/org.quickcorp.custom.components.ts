@@ -34,11 +34,11 @@ Package("org.quickcorp.custom.components", [
     }
     </style>
     <div class="deploy-grid">
-      <aws-button></aws-button>
-      <gitpod-button></gitpod-button>
-      <codespaces-button></codespaces-button>
-      <netlify-button></netlify-button>
-      <github-button></github-button>
+      <aws-button effectClass=SlideLeftTransitionEffect apply-effect-to=observe></aws-button>
+      <gitpod-button effectClass=SlideRightTransitionEffect apply-effect-to=observe></gitpod-button>
+      <codespaces-button effectClass=SlideLeftTransitionEffect apply-effect-to=observe></codespaces-button>
+      <netlify-button effectClass=SlideRightTransitionEffect apply-effect-to=observe></netlify-button>
+      <github-button effectClass=SlideLeftTransitionEffect apply-effect-to=observe></github-button>
     </div>
     `;
   }
