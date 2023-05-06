@@ -10,6 +10,7 @@
     "serverPortHTTP": "8080",
     "serverPortHTTPS": "8443",
     "useLocalSDK":true,
+    "useLegacyHTTP": false,
     "private-key-pem": "$config(domain)-privkey.pem",
     "private-cert-pem": "$config(domain)-cert.pem",    
     "backend":{
