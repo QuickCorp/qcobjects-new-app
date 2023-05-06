@@ -115,7 +115,7 @@
     "npm-run-all": "^4.1.5",
     "parcel": "^2.8.3",
     "process": "^0.11.10",
-    "qcobjects-cli": "^2.4.49",
+    "qcobjects-cli": "^2.4.52",
     "qcobjects-command-publish-static": "^1.0.2",
     "qcobjects-tsconfig": "^2.4.10",
     "semistandard": "^16.0.1",
@@ -127,9 +127,9 @@
     "grunt-contrib-jasmine": "^4.0.0",
     "npm-watch": "^0.11.0",
     "nyc": "^15.1.0",
-    "qcobjects": "^2.4.84",
+    "qcobjects": "^2.4.89",
     "qcobjects-handler-hello-world": "^1.0.0",
-    "qcobjects-sdk": "^2.4.38"
+    "qcobjects-sdk": "^2.4.57"
   },
   "engines": {
     "npm": ">=8",
