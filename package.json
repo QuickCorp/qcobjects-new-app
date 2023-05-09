@@ -1,6 +1,6 @@
 {
   "name": "qcobjectsnewapp",
-  "version": "2.4.30",
+  "version": "2.4.33",
   "description": "App template for New App in QCObjects",
   "targets": {
     "default": {
@@ -129,7 +129,7 @@
     "nyc": "^15.1.0",
     "qcobjects": "^2.4.89",
     "qcobjects-handler-hello-world": "^1.0.0",
-    "qcobjects-sdk": "^2.4.57"
+    "qcobjects-sdk": "^2.4.59"
   },
   "engines": {
     "npm": ">=8",
