@@ -20,3 +20,4 @@ CONFIG.set("overrideComponentTag", true);
 // if Component.cached is true, all the Class('Component') declarations will save the template in a localStorage cache
 // until a cached=false attribute is found in a <component> html declaration
 Component.cached = true; // this will load js/packages/org.quickcorp.custom.js file
+

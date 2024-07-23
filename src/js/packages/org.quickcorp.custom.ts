@@ -7,3 +7,4 @@ import "./org.quickcorp.custom.components";
 import "./org.quickcorp.custom.controllers";
 import "./org.quickcorp.custom.views";
 import "./com.qcobjects.services.github";
+import "./com.qcobjects.services.newapp";

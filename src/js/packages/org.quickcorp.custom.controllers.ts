@@ -32,7 +32,7 @@ Package("org.quickcorp.custom.controllers", [
   },
 
   class SideNavController extends Controller {
-    effect: Effect | null = null;
+    effect: Effect | null;
     visibility!: boolean;
     componentRoot!: any;
     component: Component;
@@ -46,14 +46,14 @@ Package("org.quickcorp.custom.controllers", [
       } else {
         this.componentRoot = this.component.body;
       }
+      (global as any).sideNavController = this;
+      this.effect = new Fade({
+        duration: 300
+      });
     }
 
     done(...args: any[]) {
       const _ret_ = super.done(args);
-      this.effect = New(Fade, {
-        duration: 300
-      });
-      (global as any).sideNavController = this;
       this.close();
       return _ret_;
     }
@@ -77,7 +77,7 @@ Package("org.quickcorp.custom.controllers", [
     }
 
     close() {
-      if (this.componentRoot !== null) {
+      if (typeof this.componentRoot !== "undefined" && this.componentRoot !== null) {
         if (this.effect != null) {
           this.effect.apply(this.componentRoot, 1, 0);
         }
