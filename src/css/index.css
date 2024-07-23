@@ -373,3 +373,7 @@ img:not([data-src]) {
 }
 
 /* end lazy loading images blurry */
+
+body::-webkit-scrollbar {
+  width: 0vw !important;
+}
