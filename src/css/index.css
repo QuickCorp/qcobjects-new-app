@@ -142,6 +142,10 @@ article {
   position: relative;
 }
 
+article {
+  padding-bottom: 400px;
+}
+
 /* END NAV */
 
 /* TOPNAV */
@@ -240,7 +244,7 @@ footer {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background: #fff7f7;
+  background: #111;
   z-index: 10;
 }
 
@@ -376,4 +380,28 @@ img:not([data-src]) {
 
 body::-webkit-scrollbar {
   width: 0vw !important;
+}
+
+section quick-component article quick-component h1 {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 12px;
+  padding: 10px 5px 10px 5px;
+  font-size: xx-large;
+}
+
+section quick-component article quick-component p {
+  font-size: larger;
+}
+
+section {
+  background: rgb(0 0 0 / 0%);
+}
+
+main {
+  background: white;
+}
+
+main[dark-mode]{
+  background: rgba(0, 0, 0, 0.8);
 }
