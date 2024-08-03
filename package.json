@@ -1,6 +1,6 @@
 {
   "name": "qcobjectsnewapp",
-  "version": "2.4.38-ts",
+  "version": "2.4.40-ts",
   "description": "App template for New App in QCObjects",
   "targets": {
     "default": {
@@ -50,7 +50,7 @@
     "do-server": "npm start",
     "minify:css": "(npx esbuild build/css/*.css build/css/**/*.css --outdir=public/css --keep-names --minify --global-name=global --sourcemap --loader:.svg=file --target=es2021)",
     "build:docker": "docker build -t qcobjects/qcobjects-newapp:latest .",
-    "build:docker-compose":"docker-compose -f docker-compose.yml build --no-cache --force-rm --pull -q qcobjects",
+    "build:docker-compose": "docker-compose -f docker-compose.yml build --no-cache --force-rm --pull -q qcobjects",
     "build:static": "npx qcobjects-cli publish:static src/ build/ --exclude js --exclude=.DS_Store",
     "build:ts": "npm test && npx tsc",
     "build:ts-types": "npx tsc --project tsconfig.d.json",
@@ -66,8 +66,8 @@
     "publish:docker": "docker push qcobjects/qcobjects-newapp:latest",
     "deploy:docker": "npm run build:docker && npm run publish:docker",
     "docker-server": "docker run -p 8080:8080 -p 8443:8443 -d --name qcobjects-newapp qcobjects/qcobjects-newapp",
-    "docker-compose-server":"docker-compose -f docker-compose.yml up --quiet-pull -d qcobjects",
-    "start:docker-compose":"npm run build:docker-compose && npm run docker-compose-server",
+    "docker-compose-server": "docker-compose -f docker-compose.yml up --quiet-pull -d qcobjects",
+    "start:docker-compose": "npm run build:docker-compose && npm run docker-compose-server",
     "prepare": "node -e \"if(!require('fs').existsSync('.git')){process.exit(0)}\" || npx -y husky install",
     "prestart": "npm run publish:web",
     "cli:help": "qcobjects --help",
