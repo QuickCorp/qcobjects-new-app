@@ -1,5 +1,7 @@
 {
-    "devmode":"info",
+    "domain":"$ENV(DOMAIN)",
+    "certificate_provider":"$ENV(CERTIFICATE_PROVIDER)",
+    "devmode":"$ENV(DEVMODE)",
     "autodiscover":true,
     "autodiscover_commands":true,
     "autodiscover_handlers":true,

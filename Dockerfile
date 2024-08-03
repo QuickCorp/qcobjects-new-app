@@ -1,4 +1,5 @@
-FROM quickcorp/qcobjects:latest
+FROM qcobjects/qcobjects:latest
+
 ###
 #  QCObjects Framework
 #  ________________
@@ -55,9 +56,9 @@ RUN npm i
 # Bundle app source
 COPY --chown=qcobjects:qcobjects . .
 
-USER qcobjects
+RUN apk add --no-cache openssl
 
+USER qcobjects
 EXPOSE 8080:8080
 EXPOSE 8443:8443
-
 CMD [ "npm", "start" ]
