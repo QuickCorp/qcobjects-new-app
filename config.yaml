@@ -1,0 +1,58 @@
+---
+devmode: info
+autodiscover: true
+autodiscover_commands: true
+autodiscover_handlers: true
+documentRoot: "$config(projectPath)public/"
+documentRootFileIndex: index.html
+cacheControl: max-age=31536000
+relativeImportPath: js/packages/
+serverPortHTTP: '8080'
+serverPortHTTPS: '8443'
+useLocalSDK: true
+useLegacyHTTP: false
+private-key-pem: "$config(domain)-privkey.pem"
+private-cert-pem: "$config(domain)-cert.pem"
+enableShellCommands: true
+backend:
+  db_engine:
+    name: "$ENV(ENGINE_NAME)"
+    databaseName: "$ENV(DATABASE_NAME)"
+  auth:
+    enabled: true
+    defaultUser: "$ENV(DEFAULT_USER)"
+    defaultPasswd: "$ENV(DEFAULT_PASSWORD)"
+    microsoftapikey: "$ENV(MICROSOFT_API_KEY)"
+    googleapikey: "$ENV(GOOGLE_API_KEY)"
+  routes:
+  - name: QCObjects-SDK.js for demo folder
+    description: Redirection of QCObjects SDK
+    path: "^/demo-tests/QCObjects-SDK.js$"
+    microservice: com.qcobjects.backend.microservice.static
+    redirect_to: "./node_modules/qcobjects-sdk/QCObjects-SDK.js"
+    responseHeaders: {}
+    cors:
+      allow_origins: "*"
+  - name: QCObjects-SDK Components for demo folder
+    description: Redirection of QCObjects SDK
+    path: "^/demo-tests/qcobjects-sdk/(.*)$"
+    microservice: com.qcobjects.backend.microservice.static
+    redirect_to: "./node_modules/qcobjects-sdk/$1"
+    responseHeaders: {}
+    cors:
+      allow_origins: "*"
+  - name: Hello World!
+    description: Hello world Microservice!
+    path: "^/hello-world"
+    microservice: qcobjects-handler-hello-world
+    headers:
+      content-type: text/html; charset=utf-8
+    responseHeaders: {}
+    cors:
+      allow_origins: "*"
+package:
+  source:
+    backend: backend
+    frontend: src
+  build: build
+  dist: dist

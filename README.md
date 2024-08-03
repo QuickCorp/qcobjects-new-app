@@ -118,6 +118,20 @@ The "coverage" script generates a code coverage report using the "nyc" library. 
 npm run coverage
 ```
 
+# Setup ENV Variables
+
+```sh
+# Env file .env
+export ENGINE_NAME=sqlite3
+export DATABASE_NAME=admin.db
+# Example: admin
+export DEFAULT_USER=admin
+# Example: admin123
+export DEFAULT_PASSWORD=admin123
+export MICROSOFT_API_KEY=<Get the key from Azure Platform>
+export GOOGLE_API_KEY=<Get the key from GCP>
+```
+
 # Run start
 
 The "start" script runs the "createcert" and "serve" scripts. This is useful for quickly launching the app and getting started with development.
@@ -259,3 +273,14 @@ docker run -p 8080:8080 -p 8443:8443 --name qcobjects-newapp -d qcobjects/qcobje
 ```
 
 Then go to [https://127.0.0.1:8443/](https://127.0.0.1:8443/)
+
+# Configuration Instructions
+
+To properly configure the application, please refer to the [`CONFIG.md`](CONFIG.md) file for detailed information on each configuration field. Follow these steps:
+
+1. **Open the configuration file**: The main configuration file is `config.json`. QCObjects will prioritize `config.json` if it is present. If `config.json` is not available, it will look for `config.yaml` or `config.yml`. If both JSON and YAML files are present, the YAML file will be considered, and the other files will be dismissed.
+2. **Refer to `CONFIG.md`**: For a detailed explanation of each field in the configuration file, consult the [`CONFIG.md`](CONFIG.md) file. This document provides descriptions, possible values, and examples for each configuration option.
+3. **Update the settings**: Modify the fields in the configuration file as per your requirements, using the guidance provided in [`CONFIG.md`](CONFIG.md).
+4. **Save your changes**: Ensure that all changes are saved before running the application.
+
+

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  qcobjects:
+    image: qcobjects_newapp:latest
+    hostname: qcobjects_newapp
+    command: ["npm","run", "start"]
+    privileged: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./letsencrypt:/etc/letsencrypt/live/newapp.qcobjects.dev
+      - ./data:/home/qcobjects/app/data
+    expose:
+      - 8080:8080
+      - 8443:8443
+      - 10300:10300
+    ports:
+      - 8080:8080
+      - 8443:8443
+      - 10300:10300
+    env_file:
+      - ./.env
