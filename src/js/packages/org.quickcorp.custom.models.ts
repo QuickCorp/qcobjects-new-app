@@ -1,6 +1,7 @@
 "use strict";
 
-import { Package, VO } from "qcobjects";
+import QCObjects from "qcobjects";
+const { Package, VO } = QCObjects;
 
 Package("org.quickcorp.custom.models", [
 

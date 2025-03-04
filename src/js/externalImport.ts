@@ -1,4 +1,5 @@
-import { CONFIG, Import, logger } from "qcobjects";
+import QCObjects from "qcobjects";
+const { CONFIG, Import, logger } = QCObjects;
 
 const externalImport = (libName:string, loadedMessage?:string):void => {
     const prevRemoteImportsPath = CONFIG.get("remoteImportsPath", "");

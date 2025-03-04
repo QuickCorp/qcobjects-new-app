@@ -1,6 +1,11 @@
 "use strict";
 
-import { Package, QCObjectsElement, View } from "qcobjects";
+import QCObjects from "qcobjects";
+const { Package, View } = QCObjects;
+
+type QCElement = {
+  style: CSSStyleDeclaration;
+};
 
 Package("org.quickcorp.custom.views", [
 
@@ -9,9 +14,10 @@ Package("org.quickcorp.custom.views", [
       const _ret_ = super.done(args);
       const component = this.component;
       if (component !== undefined && component.body !== undefined) {
-        (component.body as QCObjectsElement).style.display = "block";
-        (component.body as QCObjectsElement).style.width = "100px";
-        (component.body as QCObjectsElement).style.height = "100px";
+        const body = component.body as QCElement;
+        body.style.display = "block";
+        body.style.width = "100px";
+        body.style.height = "100px";
       }
       return _ret_;
     }

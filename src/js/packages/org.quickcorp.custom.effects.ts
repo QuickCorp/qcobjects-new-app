@@ -1,6 +1,7 @@
 "use strict";
 
-import { Package, TransitionEffect } from "qcobjects";
+import QCObjects from "qcobjects";
+const { Package, TransitionEffect } = QCObjects;
 
 Package("org.quickcorp.custom.effects", [
 

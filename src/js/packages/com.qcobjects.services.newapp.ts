@@ -1,31 +1,36 @@
 /* eslint-disable prefer-rest-params */
 "use strict";
-import { Package, Service, _DataStringify } from "qcobjects";
+import QCObjects from "qcobjects";
+import type { ServiceResponse } from '../../types/shared.d.ts';
 
-type StandardResponse = { 
-  request: XMLHttpRequest;
-  service: Service; 
-};
+const { Package, Service } = QCObjects;
+
+function hasAdmin(template: string | undefined): boolean {
+  return template !== undefined && template.includes('admin');
+}
+
+class AdminCheckService extends Service {
+  url = "/admin";
+
+  async done(args?: ServiceResponse): Promise<unknown> {
+    if (args) {
+      args.serviceData = {
+        hasAdmin: hasAdmin(args.template)
+      };
+    }
+    return args;
+  }
+
+  async fail(args?: ServiceResponse): Promise<unknown> {
+    if (args) {
+      args.serviceData = {
+        hasAdmin: false
+      };
+    }
+    return args;
+  }
+}
 
 Package("com.qcobjects.services.newapp", [
-  class AdminCheckService extends Service {
-    
-    url = "/admin";
-
-    done (standardResponse:StandardResponse){
-      const hasAdmin = (template:string) => {
-        return (/<base href="\/admin\/" target="_self">/).test(template);
-      };
-      standardResponse.service.template = _DataStringify({
-        hasAdmin: hasAdmin(standardResponse.service.template)
-      });
-    }
-
-    fail (standardResponse:StandardResponse){
-      standardResponse.service.template = _DataStringify({
-        hasAdmin: false
-      });
-    }
-
-  }
+  AdminCheckService
 ]);
