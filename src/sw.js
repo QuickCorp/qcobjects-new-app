@@ -23,9 +23,9 @@
  * license document, but changing it is not allowed.
 */
 "use strict";
-// eslint-disable-next-line no-undef
+ 
 
-/* eslint-disable no-undef */
+ 
 // This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
 
 const CACHE = "qcobjectsnewapp-offline-page";
@@ -52,7 +52,7 @@ if (workbox.navigationPreload.isSupported()) {
 }
 
 workbox.routing.registerRoute(
-  // eslint-disable-next-line prefer-regex-literals
+   
   new RegExp("/*"),
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: CACHE

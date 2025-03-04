@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-/* eslint-disable no-undef */
+
+import QCObjects from 'qcobjects';
+const { Class, ClassFactory, New } = QCObjects;
 
 describe("QCObjects Main Test", function () {
-  require("qcobjects");
 
   it("Class Declaration Test Spec", function () {
     Class("Main", Object, {});
@@ -36,5 +37,17 @@ describe("QCObjects Main Test", function () {
   it("Existence of QCObjects SDK", function () {
     expect(Object.hasOwnProperty.call(global, "_sdk_")).toEqual(true);
     logger.debug("Existence of QCObjects SDK... OK");
+  });
+
+  it('has Class defined', function () {
+    expect(Class).toBeDefined();
+  });
+
+  it('has ClassFactory defined', function () {
+    expect(ClassFactory).toBeDefined();
+  });
+
+  it('has New defined', function () {
+    expect(New).toBeDefined();
   });
 });
