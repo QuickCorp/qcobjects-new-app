@@ -74,7 +74,7 @@
     "start:dev": "npm-watch start",
     "build:dev": "npm-watch build",
     "tree": "tree -d --gitignore",
-    "lighthouse": "lighthouse https://127.0.0.1:8443/ --quiet --chrome-flags=\"--ignore-certificate-errors\" --budget-path=./lighthouse-budget.json --output html --output-path ./lighthouse/lighthouse-report.html --view",
+    "lighthouse": "npx -y lighthouse https://127.0.0.1:8443/ --quiet --chrome-flags=\"--ignore-certificate-errors\" --budget-path=./lighthouse-budget.json --output html --output-path ./lighthouse/lighthouse-report.html --view",
     "generate-sw": "npx qcobjects generate-sw qcobjectsnewapp -d public"
   },
   "repository": {
