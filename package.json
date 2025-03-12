@@ -92,25 +92,20 @@
   "devDependencies": {
     "@types/jasmine": "^5.1.4",
     "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "^9.22.0",
     "globals": "^13.24.0",
     "jasmine": "^5.1.0",
-    "qcobjects-cli": "^2.5.126-beta",
+    "qcobjects-cli": "^2.5.137-beta",
     "qcobjects-tsconfig": "^2.4.10",
     "typescript": "^5.0.4"
   },
   "dependencies": {
     "qcobjects": "^2.4.95",
+    "qcobjects-admin": "^1.0.1",
     "qcobjects-command-publish-static": "^1.0.4",
     "qcobjects-sdk": "^2.4.64"
-  },
-  "resolutions": {
-    "typescript": "^5.0.4",
-    "eslint": "^8.56.0",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0"
   },
   "engines": {
     "npm": ">=8",
