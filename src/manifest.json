@@ -1,48 +1,71 @@
 {
-  "background_color": "#000000",
-  "description": "Awesome app template that will help you achieve your dreams.",
+  "background_color": "#FFFFFF",
+  "description": "A powerful and intuitive application built with QCObjects that helps you manage your tasks and boost productivity. Features offline support, real-time updates, and seamless cross-device synchronization.",
   "dir": "ltr",
   "display": "standalone",
-  "name": "qcobjectsnewapp",
-  "orientation": "portrait-primary",
+  "name": "QCObjects Task Manager",
+  "orientation": "any",
   "scope": "/",
-  "short_name": "qcobjectsnewapp",
-  "start_url": "/",
-  "theme_color": "#000000",
-  "shortcuts": [],
+  "short_name": "QCTasks",
+  "start_url": "/?source=pwa",
+  "theme_color": "#2196F3",
+  "shortcuts": [
+    {
+      "name": "New Task",
+      "short_name": "Add",
+      "description": "Create a new task",
+      "url": "/new?source=shortcut",
+      "icons": [{ "src": "img/icons/add-task.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "View Tasks",
+      "short_name": "Tasks",
+      "description": "View your task list",
+      "url": "/tasks?source=shortcut",
+      "icons": [{ "src": "img/icons/view-tasks.png", "sizes": "192x192" }]
+    }
+  ],
   "lang": "en-US",
   "categories": [
-    "utilities"
+    "productivity",
+    "utilities",
+    "lifestyle"
   ],
   "icons": [
     {
       "src": "./favicon.ico",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "sizes": "64x64"
     },
     {
       "src": "img/icons/icon-72x72.png",
       "sizes": "72x72",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "img/icons/icon-96x96.png",
       "sizes": "96x96",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "img/icons/icon-128x128.png",
       "sizes": "128x128",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "img/icons/icon-144x144.png",
       "sizes": "144x144",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "img/icons/icon-152x152.png",
       "sizes": "152x152",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "img/icons/icon-192x192.png",
@@ -53,31 +76,50 @@
     {
       "src": "img/icons/icon-384x384.png",
       "sizes": "384x384",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "img/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "img/icons/icon-512x512.png",
-      "sizes": "any",
-      "purpose":"any maskable",
-      "type": "image/png"
+      "src": "img/icons/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-
   ],
   "screenshots": [
     {
-      "src": "img/screenshots/screenshot1.webp",
-      "sizes": "1280x720",
-      "type": "image/webp"
+      "src": "img/screenshots/desktop-home.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Homescreen of QCObjects Task Manager"
     },
     {
-      "src": "img/screenshots/screenshot2.webp",
-      "sizes": "386x511",
-      "type": "image/webp"
+      "src": "img/screenshots/desktop-tasks.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Task management interface"
+    },
+    {
+      "src": "img/screenshots/mobile-home.webp",
+      "sizes": "750x1334",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Mobile homescreen view"
+    },
+    {
+      "src": "img/screenshots/mobile-tasks.webp",
+      "sizes": "750x1334",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Mobile task management"
     }
   ],
   "splash_pages": null,
@@ -94,7 +136,31 @@
     }
   ],
   "display_override": [
+    "window-controls-overlay",
     "standalone",
     "minimal-ui"
+  ],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "file_handlers": [
+    {
+      "action": "/open-task",
+      "accept": {
+        "application/json": [".task"]
+      },
+      "icons": [
+        {
+          "src": "img/icons/task-file.png",
+          "sizes": "256x256",
+          "type": "image/png"
+        }
+      ],
+      "launch_type": "single-client"
+    }
   ]
 }

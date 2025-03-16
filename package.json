@@ -94,10 +94,11 @@
     "@types/node": "^20.11.24",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
+    "esbuild": "^0.25.1",
     "eslint": "^9.22.0",
     "globals": "^13.24.0",
     "jasmine": "^5.1.0",
-    "qcobjects-cli": "^2.5.137-beta",
+    "qcobjects-cli": "file:../qcobjects-cli-v2.5-beta",
     "qcobjects-tsconfig": "^2.4.10",
     "typescript": "^5.0.4"
   },
