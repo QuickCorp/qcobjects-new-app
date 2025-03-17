@@ -17,7 +17,6 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "types": ["node", "jasmine"],
     "paths": {
       "qcobjects": ["node_modules/qcobjects"],
       "qcobjects-sdk": ["node_modules/qcobjects-sdk"]
