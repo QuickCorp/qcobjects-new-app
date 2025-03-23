@@ -15,10 +15,18 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GITLAB_SSH_PRIVATE_KEY }}" > ~/.ssh/gitlab_key
+          chmod 600 ~/.ssh/gitlab_key
+          ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+      
       - name: GitLab Sync
         run: |
           git remote add gitlab git@gitlab.com:quickcorp-demos/qcobjects-new-app.git
           git push gitlab --force --all
           git push gitlab --force --tags
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITLAB_SSH_PRIVATE_KEY }}
+          GIT_SSH_COMMAND: "ssh -i ~/.ssh/gitlab_key"
