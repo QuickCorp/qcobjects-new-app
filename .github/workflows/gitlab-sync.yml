@@ -1,0 +1,24 @@
+name: GitLab Sync
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: GitLab Sync
+        run: |
+          git remote add gitlab git@gitlab.com:quickcorp-demos/qcobjects-new-app.git
+          git push gitlab --force --all
+          git push gitlab --force --tags
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITLAB_SSH_PRIVATE_KEY }}
