@@ -97,7 +97,7 @@
     "eslint": "^8.56.0",
     "globals": "^13.24.0",
     "jasmine": "^5.1.0",
-    "qcobjects-cli": "^2.5.105-beta",
+    "qcobjects-cli": "^2.5.143-beta",
     "qcobjects-tsconfig": "^2.4.10",
     "typescript": "^5.0.4"
   },
