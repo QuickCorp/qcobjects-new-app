@@ -1,22 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 "use strict";
 
-import global, { Package, Controller, logger, _DOMCreateElement, 
-                type Effect, New, ClassFactory, type QCObjectsElement, 
-                type QCObjectsShadowedElement, type Component, type ControllerParams } from "qcobjects";
+import QCObjects from "qcobjects";
 import { Fade } from "qcobjects-sdk";
+import type { DOMElement, ControllerConfig } from '../../types/shared.d.ts';
+
+const {
+  Package,
+  Controller,
+  logger,
+  _DOMCreateElement,
+  New,
+  ClassFactory
+} = QCObjects;
 
 Package("org.quickcorp.custom.controllers", [
   class MainController extends Controller {
     static loaded: boolean;
-    constructor(controller:ControllerParams) {
+    constructor(controller: ControllerConfig) {
       logger.debug("Initializing MainController...");
       super(controller);
     }
 
-    done(...args: never[]) {
+    done(...args: never[]): Promise<unknown> {
       const _ret_ = super.done(args);
       if (!MainController.loaded) {
         const s = _DOMCreateElement("style");
@@ -32,19 +38,19 @@ Package("org.quickcorp.custom.controllers", [
   },
 
   class SideNavController extends Controller {
-    effect: Effect | null;
+    effect: Fade | null;
     visibility!: boolean;
-    componentRoot!: any;
-    component: Component;
+    declare componentRoot: DOMElement;
+    declare component: ControllerConfig["component"];
 
-    constructor(controller:ControllerParams) {
+    constructor(controller: ControllerConfig) {
       logger.debug("Initializing SideNavController...");
       super(controller);
       this.component = controller.component;
       if (this.component.shadowed) {
-        this.componentRoot = this.component.shadowRoot;
+        this.componentRoot = this.component.shadowRoot as DOMElement;
       } else {
-        this.componentRoot = this.component.body;
+        this.componentRoot = this.component.body as DOMElement;
       }
       (global as any).sideNavController = this;
       this.effect = new Fade({
@@ -52,47 +58,49 @@ Package("org.quickcorp.custom.controllers", [
       });
     }
 
-    done(...args: any[]) {
+    done(...args: any[]): Promise<unknown> {
       const _ret_ = super.done(args);
       this.close();
       return _ret_;
     }
 
-    open() {
+    open(): boolean {
       if (this.componentRoot !== null) {
         if (this.effect != null) {
-          this.effect.apply(this.componentRoot, 0, 1);
+          this.effect.apply(this.componentRoot, 0);
         }
         this.componentRoot?.classList.add("open");
-        // eslint-disable-next-line no-extra-boolean-cast
-        if (!!this.componentRoot?.parentElement) {
-          if (this.componentRoot.parentElement !== null) {
-            (this.componentRoot.parentElement as QCObjectsElement).subelements(".navbtn")[0].style.display = "none";
-            (this.componentRoot.parentElement as QCObjectsElement).subelements(".closebtn")[0].style.display = "block";
-          }
+        if (this.componentRoot?.parentElement) {
+          const parent = this.componentRoot.parentElement as DOMElement;
+          const navBtn = parent.subelements(".navbtn")[0];
+          const closeBtn = parent.subelements(".closebtn")[0];
+          if (navBtn) navBtn.style.display = "none";
+          if (closeBtn) closeBtn.style.display = "block";
         }
       }
       this.visibility = true;
       return this.visibility;
     }
 
-    close() {
-      if (typeof this.componentRoot !== "undefined" && this.componentRoot !== null) {
+    close(): boolean {
+      if (this.componentRoot !== null) {
         if (this.effect != null) {
-          this.effect.apply(this.componentRoot, 1, 0);
+          this.effect.apply(this.componentRoot, 1);
         }
         this.componentRoot?.classList.remove("open");
-        // eslint-disable-next-line no-extra-boolean-cast
-        if (!!this.componentRoot?.parentElement) {
-          (this.componentRoot.parentElement as QCObjectsElement).subelements(".navbtn")[0].style.display = "block";
-          (this.componentRoot.parentElement as QCObjectsElement).subelements(".closebtn")[0].style.display = "none";
+        if (this.componentRoot?.parentElement) {
+          const parent = this.componentRoot.parentElement as DOMElement;
+          const navBtn = parent.subelements(".navbtn")[0];
+          const closeBtn = parent.subelements(".closebtn")[0];
+          if (navBtn) navBtn.style.display = "block";
+          if (closeBtn) closeBtn.style.display = "none";
         }
       }
       this.visibility = false;
       return this.visibility;
     }
 
-    toggle() {
+    toggle(): void {
       if (this.visibility) {
         this.close();
       } else {
@@ -103,26 +111,27 @@ Package("org.quickcorp.custom.controllers", [
 
   class HeaderController extends Controller {
     installer: any;
-    component!: Component;
-
-    constructor(controller: ControllerParams) {
+    declare component: ControllerConfig["component"];
+    
+    constructor(controller: ControllerConfig) {
       super(controller);
       logger.debug("Header controller initialized");
     }
 
-    loadInstallerButton() {
-      const componentRoot = (this.component.shadowed != null) 
-                            ? (this.component.shadowRoot as QCObjectsShadowedElement) 
-                            : (this.component.body as QCObjectsElement);
+    loadInstallerButton(): void {
+      const componentRoot = this.component.shadowed 
+        ? this.component.shadowRoot as DOMElement
+        : this.component.body as DOMElement;
+      
       componentRoot.subelements("#installerbutton").map(
-        (element) => {
+        (element: HTMLElement) => {
           this.installer = New(ClassFactory("Installer"), element);
           return element;
         }
       );
     }
 
-    done(...args: never[]) {
+    done(...args: never[]): Promise<unknown> {
       const _ret_ = super.done(args);
       this.loadInstallerButton();
       return _ret_;

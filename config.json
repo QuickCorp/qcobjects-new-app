@@ -16,6 +16,7 @@
     "private-key-pem": "$config(domain)-privkey.pem",
     "private-cert-pem": "$config(domain)-cert.pem",
     "enableShellCommands": true,    
+    "OPENAI_API_KEY":"$ENV(OPENAI_API_KEY)",
     "backend":{
       "db_engine":{
         "name":"$ENV(ENGINE_NAME)",

@@ -1,6 +1,9 @@
 /* eslint-disable prefer-rest-params */
 "use strict";
-import { Package, JSONService, Service, logger } from "qcobjects";
+import QCObjects from "qcobjects";
+import type { ServiceResponse } from '../../types/shared.d.ts';
+
+const { Package, JSONService, Service, logger } = QCObjects;
 
 type Project = {
   id: string;
@@ -8,29 +11,26 @@ type Project = {
   name: string;
   html_url: string;
   owner: { avatar_url: string },
-  forks_count:number,
-  stargazers_count:number,
-  watchers_count:number,
-  size:number
+  forks_count: number,
+  stargazers_count: number,
+  watchers_count: number,
+  size: number
 }
 
-type StandardResponse = { 
-  request: XMLHttpRequest;
-  service: Service; 
+type GitHubTagServiceResponse = {
+  total_count: number;
+  incomplete_results: boolean;
+  items: Array<Project>
 };
 
-type GitHubTagServiceResponse = {
-  total_count:number;
-  incomplete_results: boolean;
-  items:Array<Project>
-};
 type ItemProject = {
-  id:string;
-  description:string;
-  title:string;
-  url:string;
-  image:string;
+  id: string;
+  description: string;
+  title: string;
+  url: string;
+  image: string;
 };
+
 type ItemsProject = Array<ItemProject>;
 
 Package("com.qcobjects.services.github", [
@@ -96,23 +96,24 @@ Package("com.qcobjects.services.github", [
      * @param param0 this param has two properties, one is the native request call (XHR or Fetch object). The second property is the service object.
      * @returns Promise
      */
-    done({ request, service }: StandardResponse) {
+    async done(args?: ServiceResponse): Promise<unknown> {
+      if (!args) return;
 
-      const result:ItemsProject = (JSON.parse(service.template) as Array<Project>)
-      .reverse().map(function (project: Project) {
-        return {
-          id: project.id,
-          description: project.description,
-          title: project.name,
-          url: project.html_url,
-          image: `https://via.placeholder.com/170/000000/FFFFFF?text=${encodeURI(project.name)}`
-        };
-      });
+      const result: ItemsProject = (JSON.parse(args.template as string) as Array<Project>)
+        .reverse().map(function (project: Project) {
+          return {
+            id: project.id,
+            description: project.description,
+            title: project.name,
+            url: project.html_url,
+            image: `https://via.placeholder.com/170/000000/FFFFFF?text=${encodeURI(project.name)}`
+          };
+        });
 
-      service.template = JSON.stringify({
+      args.template = JSON.stringify({
         result
       });
-      return super.done({ request, service });
+      return super.done(args);
     }
   },
 
@@ -125,23 +126,25 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/search/repositories?q=qcobjects";
     withCredentials = false;
 
-    done({ request, service }: StandardResponse) {
-      logger.debug(request);
-      const result:ItemsProject = (JSON.parse(service.template) as GitHubTagServiceResponse)
-        .items.map(function (project: Project) {
-        return {
-          id: project.id,
-          description: project.description,
-          title: project.name,
-          url: project.html_url,
-          image: `https://via.placeholder.com/170/000000/FFFFFF?text=${encodeURI(project.name)}`
-        };
-      });
+    async done(args?: ServiceResponse): Promise<unknown> {
+      if (!args) return;
+      logger.debug(args);
 
-      service.template = JSON.stringify({
+      const result: ItemsProject = (JSON.parse(args.template as string) as GitHubTagServiceResponse)
+        .items.map(function (project: Project) {
+          return {
+            id: project.id,
+            description: project.description,
+            title: project.name,
+            url: project.html_url,
+            image: `https://via.placeholder.com/170/000000/FFFFFF?text=${encodeURI(project.name)}`
+          };
+        });
+
+      args.template = JSON.stringify({
         result
       });
-      return super.done({ request, service });
+      return super.done(args);
     }
   },
 
@@ -154,13 +157,14 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/repos/QuickCorp/QCObjects/tags";
     withCredentials = false;
 
-    done({ service }: StandardResponse) {
-      const latest = JSON.parse(service.template)[0];
-      service.template = {
+    async done(args?: ServiceResponse): Promise<unknown> {
+      if (!args) return;
+      const latest = JSON.parse(args.template as string)[0];
+      args.template = JSON.stringify({
         version: latest.name
-      };
+      });
+      return args;
     }
-
   },
 
   class QCObjectsStarsForksService extends Service {
@@ -172,15 +176,16 @@ Package("com.qcobjects.services.github", [
     url = "https://api.github.com/repos/QuickCorp/QCObjects";
     withCredentials = false;
 
-    done({ service }: StandardResponse) {
-      const repo:Project = (JSON.parse(service.template) as Project);
-      service.template = {
+    async done(args?: ServiceResponse): Promise<unknown> {
+      if (!args) return;
+      const repo: Project = (JSON.parse(args.template as string) as Project);
+      args.template = JSON.stringify({
         forks: repo.forks_count,
         stars: repo.stargazers_count,
         watchers: repo.watchers_count,
         size: Math.round(repo.size / 1000)
-      };
+      });
+      return args;
     }
-
   }
 ]);
