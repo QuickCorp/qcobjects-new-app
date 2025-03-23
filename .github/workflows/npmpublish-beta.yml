@@ -9,9 +9,29 @@ on:
       - 'v*.*-beta'
     tags:
       - 'v*.*.*-beta'
+    paths-ignore:
+      - '.github/workflows/npmpublish-main.yml'
+      - '.github/workflows/npmpublish-lts.yml'
 
 jobs:
+  check_version:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - id: check
+        name: Check if version is beta
+        run: |
+          if [[ "${{ github.ref }}" =~ ^refs/(tags|heads)/v.*-beta$ ]]; then
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          fi
+
   build:
+    needs: check_version
+    if: needs.check_version.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.3.0
@@ -22,7 +42,8 @@ jobs:
       - run: npm test
 
   publish-npm:
-    needs: build
+    needs: [check_version, build]
+    if: needs.check_version.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.3.0
