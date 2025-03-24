@@ -25,7 +25,9 @@
     }
   },
   "scripts": {
-    "test": "npm run lint && NODE_OPTIONS=--experimental-vm-modules jasmine",
+    "test:ts-types": "npx tsc --project ./tsconfig.jasmine.json",
+    "test:jasmine": "npm run test:ts-types && npx ts-node -r tsconfig-paths/register --project ./tsconfig.jasmine.json ./node_modules/jasmine/bin/jasmine.js",
+    "test": "npm run lint && npm run test:jasmine",
     "lint": "npx eslint . --config eslint.config.js --max-warnings 4",
     "sync": "git add . && git commit -am ",
     "preversion": "npm i --upgrade && npm test",
@@ -55,7 +57,7 @@
     "build:ts": "npm test && npx tsc",
     "build:ts-types": "npx tsc --project tsconfig.d.json",
     "build:netlify": "npm run publish:web",
-    "build": "npm run publish:web",
+    "build": "npm run clean && tsc",
     "publish:static": "(qcobjects publish:static build/ public/) && npm run minify:css",
     "publish:ios": "qcobjects publish ios",
     "publish:android": "qcobjects publish:android",
@@ -75,7 +77,9 @@
     "build:dev": "npm-watch build",
     "tree": "tree -d --gitignore",
     "lighthouse": "lighthouse https://127.0.0.1:8443/ --quiet --chrome-flags=\"--ignore-certificate-errors\" --budget-path=./lighthouse-budget.json --output html --output-path ./lighthouse/lighthouse-report.html --view",
-    "generate-sw": "npx qcobjects generate-sw qcobjectsnewapp -d public"
+    "generate-sw": "npx qcobjects generate-sw qcobjectsnewapp -d public",
+    "clean:js": "find src -name \"*.js\" -type f -delete && find src -name \"*.js.map\" -type f -delete",
+    "clean": "rm -rf build/* && rm -rf public/*.ts && find public -name \"*.ts\" -type f -delete"
   },
   "repository": {
     "type": "file",
@@ -91,25 +95,28 @@
   "license": "LGPL-3.0-or-later",
   "devDependencies": {
     "@types/jasmine": "^5.1.4",
-    "@types/node": "^20.11.24",
+    "@types/node": "^20.17.25",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
+    "esbuild": "^0.25.1",
     "eslint": "^8.56.0",
     "globals": "^13.24.0",
     "jasmine": "^5.1.0",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "qcobjects-cli": "^2.5.143-beta",
+    "qcobjects-sdk": "file:../QCObjects-SDK-v2.5-beta",
     "qcobjects-tsconfig": "^2.4.10",
-    "typescript": "^5.0.4"
+    "typescript": "~5.3.3"
   },
   "dependencies": {
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "npm-watch": "^0.11.0",
-    "nyc": "^15.1.0",
     "qcobjects": "^2.5.142-beta",
     "qcobjects-admin": "^1.0.1",
-    "qcobjects-command-publish-static": "^1.0.4",
-    "qcobjects-sdk": "^2.4.66"
+    "qcobjects-command-publish-static": "^1.0.4"
   },
   "resolutions": {
     "typescript": "^5.0.4",
