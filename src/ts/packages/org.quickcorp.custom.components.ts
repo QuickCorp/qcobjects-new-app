@@ -1,12 +1,18 @@
 "use strict";
 import QCObjects from "qcobjects";
-import type { ComponentServiceData } from '../../types/shared.d.ts';
+import type { StandardResponse } from "qcobjects";
 
-const { Package, Component } = QCObjects;
+const { Package, Component, logger } = QCObjects;
 
 interface AdminComponentParams {
   body: HTMLElement | null;
   [key: string]: unknown;
+}
+
+interface QCObjectsAdmin {
+  admin?: {
+    [key: string]: unknown;
+  };
 }
 
 class GitHubGrid extends Component {
@@ -57,6 +63,19 @@ class AdminCheckComponent extends Component {
     o.body?.setAttribute("serviceClass", "AdminCheckService");
     o.body?.setAttribute("response-to", "data");
     super(o);
+  }
+
+  async done(standardResponse?: StandardResponse): Promise<StandardResponse> {
+    try {
+      if (typeof (QCObjects as QCObjectsAdmin).admin !== "undefined") {
+        logger.debug("Admin module is present");
+      } else {
+        logger.debug("Admin module is not present");
+      }
+    } catch (error) {
+      logger.error("Error checking admin module:", error);
+    }
+    return standardResponse || { data: null, status: 200, headers: {}, component: this };
   }
 }
 
@@ -123,25 +142,7 @@ class AdminSidebarOption extends AdminCheckComponent {
   </div>
   `;
 
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  async done(standardResponse?: any): Promise<any> {
-    const component = standardResponse?.component as ComponentServiceData;
-    try {
-      const parsedData = component.serviceData ? JSON.parse(component.serviceData as string) : null;
-      if (parsedData?.hasAdmin) {
-        logger.debug("Admin module is present");
-      } else {
-        logger.debug("Admin module is NOT present. Install admin module in a dynamic served application (non-static server)");
-        this.shadowRoot?.querySelector("style")?.remove();
-        this.shadowRoot?.querySelector(".admin_option_container")?.remove();
-      }
-    } catch (e) {
-      logger.debug(`It was not possible to check if admin module is present: ${e}`);
-      this.shadowRoot?.querySelector("style")?.remove();
-      this.shadowRoot?.querySelector(".admin_option_container")?.remove();
-    }
-    return super.done(standardResponse);
-  }
+  declare shadowRoot: HTMLElement | null;
 }
 
 class AdminButton extends AdminCheckComponent {
@@ -171,27 +172,8 @@ class AdminButton extends AdminCheckComponent {
   </div>
   `;
 
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  async done(standardResponse?: any): Promise<any> {
-    const component = standardResponse?.component as ComponentServiceData;
-    try {
-      const parsedData = component.serviceData ? JSON.parse(component.serviceData as string) : null;
-      if (parsedData?.hasAdmin){
-        logger.debug("Admin module is present");
-      } else {
-        logger.debug("Admin module is NOT present. Install admin module in a dynamic served application (non-static server)");
-        this.shadowRoot?.querySelector("style")?.remove();
-        this.shadowRoot?.querySelector(".admin_button_container")?.remove();
-      }
-    } catch (e){
-      logger.debug(`It was not possible to check if admin module is present: ${e}`);
-      this.shadowRoot?.querySelector("style")?.remove();
-      this.shadowRoot?.querySelector(".admin_button_container")?.remove();
-    }
-    return super.done(standardResponse);
-  }
+  declare shadowRoot: HTMLElement | null;
 }
-
 
 Package("org.quickcorp.custom.components", [
   AdminButton,

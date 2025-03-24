@@ -19,9 +19,7 @@ declare module 'qcobjects-sdk' {
   }
 
   export class NotificationComponent extends Component {
-    static success(arg0: string) {
-      throw new Error("Method not implemented.");
-    }
+    static success(message: string): void;
     done(standardResponse?: StandardResponse): Promise<StandardResponse>;
   }
 
@@ -32,4 +30,8 @@ declare module 'qcobjects-sdk' {
 
   const QCObjectsSDK: QCObjectsSDKType;
   export default QCObjectsSDK;
+
+  declare interface QCObjectsSDK {
+    someMethod(_unused: unknown): void;
+  }
 } 

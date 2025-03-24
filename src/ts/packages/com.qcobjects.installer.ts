@@ -5,7 +5,7 @@ import QCObjects from "qcobjects";
 import QCObjectsSDK from "qcobjects-sdk";
 
 const { InheritClass, Package, logger } = QCObjects;
-const { NotificationComponent } = QCObjectsSDK;
+const NotificationComponent = (QCObjectsSDK as any).NotificationComponent;
 
 Package("com.qcobjects.installer", [
   class Installer extends InheritClass {

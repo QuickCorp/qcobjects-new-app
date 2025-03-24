@@ -9,8 +9,8 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./build",
-    "rootDir": "./src",
+    "outDir": "./build/js",
+    "rootDir": "./src/ts",
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -23,7 +23,7 @@
       "qcobjects-sdk": ["../node_modules/qcobjects-sdk"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/ts/**/*.ts"],
   "exclude": [
     "node_modules",
     "build",
