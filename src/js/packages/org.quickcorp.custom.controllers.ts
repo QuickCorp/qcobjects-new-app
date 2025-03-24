@@ -2,8 +2,6 @@
 "use strict";
 
 import QCObjects from "qcobjects";
-import { Fade } from "qcobjects-sdk";
-import type { DOMElement, ControllerConfig } from '../../types/shared.d.ts';
 
 const {
   Package,
@@ -11,13 +9,14 @@ const {
   logger,
   _DOMCreateElement,
   New,
-  ClassFactory
+  ClassFactory,
+  TransitionEffect
 } = QCObjects;
 
 Package("org.quickcorp.custom.controllers", [
   class MainController extends Controller {
     static loaded: boolean;
-    constructor(controller: ControllerConfig) {
+    constructor(controller: any) {
       logger.debug("Initializing MainController...");
       super(controller);
     }
@@ -38,22 +37,22 @@ Package("org.quickcorp.custom.controllers", [
   },
 
   class SideNavController extends Controller {
-    effect: Fade | null;
+    effect: InstanceType<typeof TransitionEffect> | null;
     visibility!: boolean;
-    declare componentRoot: DOMElement;
-    declare component: ControllerConfig["component"];
+    declare componentRoot: any;
+    declare component: any;
 
-    constructor(controller: ControllerConfig) {
+    constructor(controller: any) {
       logger.debug("Initializing SideNavController...");
       super(controller);
       this.component = controller.component;
       if (this.component.shadowed) {
-        this.componentRoot = this.component.shadowRoot as DOMElement;
+        this.componentRoot = this.component.shadowRoot;
       } else {
-        this.componentRoot = this.component.body as DOMElement;
+        this.componentRoot = this.component.body;
       }
       (global as any).sideNavController = this;
-      this.effect = new Fade({
+      this.effect = new TransitionEffect({
         duration: 300
       });
     }
@@ -71,7 +70,7 @@ Package("org.quickcorp.custom.controllers", [
         }
         this.componentRoot?.classList.add("open");
         if (this.componentRoot?.parentElement) {
-          const parent = this.componentRoot.parentElement as DOMElement;
+          const parent = this.componentRoot.parentElement;
           const navBtn = parent.subelements(".navbtn")[0];
           const closeBtn = parent.subelements(".closebtn")[0];
           if (navBtn) navBtn.style.display = "none";
@@ -89,7 +88,7 @@ Package("org.quickcorp.custom.controllers", [
         }
         this.componentRoot?.classList.remove("open");
         if (this.componentRoot?.parentElement) {
-          const parent = this.componentRoot.parentElement as DOMElement;
+          const parent = this.componentRoot.parentElement;
           const navBtn = parent.subelements(".navbtn")[0];
           const closeBtn = parent.subelements(".closebtn")[0];
           if (navBtn) navBtn.style.display = "block";
@@ -111,17 +110,17 @@ Package("org.quickcorp.custom.controllers", [
 
   class HeaderController extends Controller {
     installer: any;
-    declare component: ControllerConfig["component"];
+    declare component: any;
     
-    constructor(controller: ControllerConfig) {
+    constructor(controller: any) {
       super(controller);
       logger.debug("Header controller initialized");
     }
 
     loadInstallerButton(): void {
       const componentRoot = this.component.shadowed 
-        ? this.component.shadowRoot as DOMElement
-        : this.component.body as DOMElement;
+        ? this.component.shadowRoot
+        : this.component.body;
       
       componentRoot.subelements("#installerbutton").map(
         (element: HTMLElement) => {

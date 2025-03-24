@@ -1,22 +1,23 @@
 #!/usr/bin/env node
 
-import QCObjects from 'qcobjects';
-const { Class, ClassFactory, New } = QCObjects;
+const QCObjects = require('qcobjects');
+
+const { Class, ClassFactory, New, Logger } = QCObjects;
+const logger = new Logger();
 
 describe("QCObjects Main Test", function () {
 
   it("Class Declaration Test Spec", function () {
-    const Main =Class("Main", Object, {});
-
+    const Main = Class("Main", Object, {});
     expect(Main).toEqual(ClassFactory("Main"));
     logger.debug("Class Declaration Test Spec... OK");
   });
 
   it("Main intance Test Spec", function () {
-    const Main =Class("Main", Object, {});
+    const Main = Class("Main", Object, {});
     const __main__ = New(Main, {});
     expect(typeof __main__.__instanceID).toEqual("number");
-    expect(__main__.__classType).toEqual("Main");
+    expect(__main__ instanceof Main).toBe(true);
     logger.debug("Main intance Test Spec... OK");
   });
 
@@ -26,7 +27,7 @@ describe("QCObjects Main Test", function () {
   });
 
   it("Existence of Effect Class", function () {
-    const Effect = Class("Effect", Object, {});
+    expect(Effect).toBeDefined();
     expect(Effect).toEqual(ClassFactory("Effect"));
     logger.debug("Existence of Effect Class... OK");
   });
