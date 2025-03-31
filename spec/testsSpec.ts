@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
-const QCObjects = require('qcobjects');
-
-const { Class, ClassFactory, New, Logger } = QCObjects;
-const logger = new Logger();
+import "qcobjects";
+import { Class, ClassFactory, New, logger } from "qcobjects";
 
 describe("QCObjects Main Test", function () {
 

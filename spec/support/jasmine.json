@@ -2,13 +2,11 @@
   "spec_dir": "spec",
 
   "spec_files": [
-    "**/*[sS]pec.?(c)js",
-    "**/*[sS]pec.ts"
+    "**/*[sS]pec.?(c)js"
   ],
 
   "helpers": [
-    "helpers/**/*.?(c)js",
-    "helpers/**/*.ts"
+    "helpers/**/*.?(c)js"
   ],
 
   "env": {

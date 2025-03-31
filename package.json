@@ -103,18 +103,18 @@
     "globals": "^13.24.0",
     "jasmine": "^5.1.0",
     "nyc": "^15.1.0",
-    "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0",
     "qcobjects-cli": "^2.5.143-beta",
     "qcobjects-sdk": "file:../QCObjects-SDK-v2.5-beta",
     "qcobjects-tsconfig": "^2.4.10",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "~5.3.3"
   },
   "dependencies": {
     "grunt": "^1.4.1",
     "grunt-contrib-jasmine": "^4.0.0",
     "npm-watch": "^0.11.0",
-    "qcobjects": "^2.5.142-beta",
+    "qcobjects": "file:../QCObjects-v2.5-beta",
     "qcobjects-admin": "^1.0.1",
     "qcobjects-command-publish-static": "^1.0.4"
   },
