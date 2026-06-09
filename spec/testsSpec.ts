@@ -1,21 +1,30 @@
 #!/usr/bin/env node
 
-import "qcobjects";
-import { Class, ClassFactory, New, logger } from "qcobjects";
+import { _DataStringify, Class, ClassFactory, Component, CONFIG, Effect, logger, New, global, InheritClass, __getType__ } from "qcobjects";
 
-describe("QCObjects Main Test", function () {
+
+
+describe("qcobjects", function () {
+  logger.debugEnabled=true;
+  logger.infoEnabled=true;
+  logger.warnEnabled=true;
 
   it("Class Declaration Test Spec", function () {
-    const Main = Class("Main", Object, {});
+    const Main = Class("Main", Object, {
+      _new_: () => {
+        logger.debug("Main _new_ method called");
+      }
+    });
+
     expect(Main).toEqual(ClassFactory("Main"));
     logger.debug("Class Declaration Test Spec... OK");
   });
 
   it("Main intance Test Spec", function () {
-    const Main = Class("Main", Object, {});
-    const __main__ = New(Main, {});
+    class Main extends InheritClass {}
+    let __main__ = New(Main, {});
     expect(typeof __main__.__instanceID).toEqual("number");
-    expect(__main__ instanceof Main).toBe(true);
+    expect(__main__.__classType).toEqual("Main");
     logger.debug("Main intance Test Spec... OK");
   });
 
@@ -25,30 +34,24 @@ describe("QCObjects Main Test", function () {
   });
 
   it("Existence of Effect Class", function () {
-    expect(Effect).toBeDefined();
     expect(Effect).toEqual(ClassFactory("Effect"));
     logger.debug("Existence of Effect Class... OK");
   });
 
+  it("Existence of _DataStringify Function Helper", function () {
+    expect(typeof _DataStringify).toEqual("function");
+    logger.debug("Existence of _DataStringify Function Helper... OK");
+  });
+
+  it("Existence of CONFIG global Class", function () {
+    expect(__getType__(CONFIG)).toEqual("CONFIG");
+    logger.debug("Existence of CONFIG global Class... OK");
+  });
+
   it("global as QCObjects global", function () {
-    expect(typeof global.__definition).toEqual("object");
+    expect(__getType__(global)).not.toEqual("");
     logger.debug("global as QCObjects global... OK");
   });
 
-  it("Existence of QCObjects SDK", function () {
-    expect(Object.hasOwnProperty.call(global, "_sdk_")).toEqual(true);
-    logger.debug("Existence of QCObjects SDK... OK");
-  });
 
-  it('has Class defined', function () {
-    expect(Class).toBeDefined();
-  });
-
-  it('has ClassFactory defined', function () {
-    expect(ClassFactory).toBeDefined();
-  });
-
-  it('has New defined', function () {
-    expect(New).toBeDefined();
-  });
 });

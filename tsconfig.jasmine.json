@@ -37,15 +37,6 @@
     "paths": {
       "*": [
         "src/*"
-      ],
-      "types": [
-        "src/types/global/index.d.ts"
-      ],
-      "qcobjects": [
-        "src/qcobjects.ts"
-      ],
-      "qcobjects-sdk": [
-        "spec/mocks/qcobjects-sdk.mock.ts"
       ]
     }
   },
@@ -61,4 +52,4 @@
     "node_modules/**/*",
     "public/types/**/*"
   ]
-} 
+}
